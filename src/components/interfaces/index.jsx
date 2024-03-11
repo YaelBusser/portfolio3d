@@ -8,14 +8,16 @@ import SphereModel from "../models/Sphere.jsx";
 import ReactModel from "../models/React.jsx";
 import CssModel from "../models/Css.jsx";
 import PhpModel from "../models/Php.jsx";
-
+import {motion} from "framer-motion"
 const Section = (props) => {
     const {children} = props;
 
     return (
-        <section className={"section"}>
+        <motion.section
+            className={"section"}
+        >
             {children}
-        </section>
+        </motion.section>
     )
 }
 
