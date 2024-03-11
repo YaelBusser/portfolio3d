@@ -1,8 +1,10 @@
 import "./index.css";
 import Bedroom from "../../components/scene/bedroom/index";
-import {Canvas} from "@react-three/fiber";
+import {Canvas, useFrame} from "@react-three/fiber";
 import {OrbitControls, Scroll, ScrollControls, Sphere} from "@react-three/drei";
 import Interfaces from "../../components/interfaces/index.jsx";
+import SkillsScene from "../../components/scene/Skills/index.jsx";
+
 
 const Home = () => {
     return (
