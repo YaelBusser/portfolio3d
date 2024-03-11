@@ -119,7 +119,7 @@ const ProjectsSection = () => {
 const ContactSection = () => {
     return (
         <Section>
-            <div className={"contact-section"}>
+            <div className={"contact-section"} id={"contact-section"}>
                 <h1>Contact me</h1>
                 <div className={"form"}>
                     <TextField label="Name" variant="outlined"/>
