@@ -20,7 +20,7 @@ const SceneCharacter = () => {
     }, []);
 
     return (
-        <group ref={group} position={[-2.5,-4.9,-14.6]} rotation-y={3} >
+        <group ref={group} position={[-2.5, -4.9, -14.6]} rotation-y={3}>
             <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </group>
     );
@@ -28,19 +28,14 @@ const SceneCharacter = () => {
 const Bedroom = () => {
     const scale = 5;
     return (
-        <section>
-            <div className={"bedroom"}>
-                <Canvas camera={{position: [15, 5, 8]}}>
-                    <directionalLight position={[0, 5, 0]}/>
-                    <ambientLight intensity={1} color={"white"}/>
-                    <SceneCharacter/>
-                    <OrbitControls/>
-                    <group position={[40, -5, -10]}>
-                        <BedroomModel scale={[scale, scale, scale]}/>
-                    </group>
-                </Canvas>
-            </div>
-        </section>
+        <group>
+            <directionalLight position={[0, 5, 0]}/>
+            <ambientLight intensity={1} color={"white"}/>
+            <SceneCharacter/>
+            <group position={[40, -5, -10]}>
+                <BedroomModel scale={[scale, scale, scale]}/>
+            </group>
+        </group>
     )
 }
 

@@ -1,3 +1,11 @@
+*{
+    font-family: "Nirmala UI";
+}
+
 .home{
-    background-color: lightblue;
+    background-color: lightgrey;
+}
+.bedroom{
+    width: 100vw;
+    height: 100vh;
 }
