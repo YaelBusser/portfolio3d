@@ -9,12 +9,31 @@ import ReactModel from "../models/React.jsx";
 import CssModel from "../models/Css.jsx";
 import PhpModel from "../models/Php.jsx";
 import {motion} from "framer-motion"
+import JsModel from "../models/Js.jsx";
+import NodeJsModel from "../models/Nodejs.jsx";
+import EarthModel from "../models/Earth.jsx";
+import * as THREE from "three";
+
 const Section = (props) => {
     const {children} = props;
 
     return (
         <motion.section
             className={"section"}
+            initial={
+                {
+                    opacity: 0,
+                    y: 50
+                }
+            }
+            whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                    duration: 1,
+                    delay: 0.5
+                }
+            }}
         >
             {children}
         </motion.section>
@@ -38,17 +57,21 @@ const SkillOrbit = ({azimuthAngle, elevationAngle, model, scale}) => {
     const meshRef = useRef();
     const scaleIcon = scale;
     const radius = 3;
+    let x, y, z;
+
     useFrame(() => {
         // Mise à jour de l'angle horizontal pour faire tourner l'objet en orbite
-        azimuthAngle += 0.009; // Vous pouvez ajuster la vitesse de rotation ici
+        azimuthAngle += 0.007; // Vous pouvez ajuster la vitesse de rotation ici
 
         // Calcul des nouvelles positions en utilisant des coordonnées sphériques
-        const x = radius * Math.cos(azimuthAngle) * Math.cos(elevationAngle);
-        const y = radius * Math.sin(elevationAngle);
-        const z = radius * Math.sin(azimuthAngle) * Math.cos(elevationAngle);
+        x = radius * Math.cos(azimuthAngle) * Math.cos(elevationAngle);
+        y = radius * Math.sin(elevationAngle);
+        z = radius * Math.sin(azimuthAngle) * Math.cos(elevationAngle);
 
-        // Mise à jour de la position de l'objet en orbite
         meshRef.current.position.set(x, y, z);
+        meshRef.current.rotation.z += 0.01;
+        meshRef.current.rotation.x += 0.01;
+        meshRef.current.rotation.y += 0.01;
     });
 
     return (
@@ -61,38 +84,51 @@ const SkillsScene = () => {
     const groupRef = useRef();
 
     useFrame(() => {
-        // groupRef.current.rotation.z += 0.005;
+        groupRef.current.rotation.y += 0.005;
     });
-    const scale = 1;
+    //<EarthModel scale={[scale, scale, scale]}/>
+    const scale = 0.7;
     return (
-        <group>
-            <group ref={groupRef} position={[0, 0, 2]}>
+        <group position={[0, -0.3, 0]}>
+            <group ref={groupRef} position={[0, 0, 0]}>
                 <SphereModel scale={[scale, scale, scale]}/>
             </group>
             <group position={[0, 0, 0]}>
                 <SkillOrbit
-                    scale={0.2}
+                    scale={5}
                     azimuthAngle={0}
                     elevationAngle={0}
                     model={<HtmlModel/>}
                 />
                 <SkillOrbit
-                    scale={0.2}
+                    scale={0.15}
                     azimuthAngle={0.5}
-                    elevationAngle={0.5}
+                    elevationAngle={0.3}
                     model={<ReactModel/>}
                 />
                 <SkillOrbit
                     scale={0.1}
                     azimuthAngle={3}
-                    elevationAngle={-0.2}
+                    elevationAngle={0.2}
                     model={<CssModel/>}
                 />
                 <SkillOrbit
-                    scale={5}
-                    azimuthAngle={-10}
-                    elevationAngle={10}
+                    scale={4}
+                    azimuthAngle={15}
+                    elevationAngle={0.3}
                     model={<PhpModel/>}
+                />
+                <SkillOrbit
+                    scale={4}
+                    azimuthAngle={4}
+                    elevationAngle={0.1}
+                    model={<JsModel/>}
+                />
+                <SkillOrbit
+                    scale={4}
+                    azimuthAngle={5}
+                    elevationAngle={0.1}
+                    model={<NodeJsModel/>}
                 />
             </group>
         </group>
@@ -105,6 +141,7 @@ const SkillsSection = () => {
             <div className={"sphere"}>
                 <Canvas>
                     <ambientLight intensity={1}/>
+                    <directionalLight color="white" position={[0, 0, 5]}/>
                     <SkillsScene/>
                 </Canvas>
             </div>

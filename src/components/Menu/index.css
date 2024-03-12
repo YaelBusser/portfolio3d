@@ -1,0 +1,98 @@
+.menu .button-switch {
+    background-color: royalblue;
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.menu .button-switch .bar {
+    width: 50%;
+    height: 4px;
+    background-color: white;
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+}
+
+.menu .button-switch .bar1-open {
+    transform: rotate(45deg) translateY(8px) translateX(8px);
+    width: 60%;
+}
+
+.menu .button-switch .bar2-open {
+    opacity: 0;
+}
+
+.menu .button-switch .bar3-open {
+    transform: rotate(-45deg) translateY(-5px) translateX(5px);
+    width: 60%;
+}
+
+.menu .content {
+    background-color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all .2s cubic-bezier(0.56, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu .content-open {
+    width: 20rem;
+}
+
+.menu .content-close {
+    width: 0;
+}
+
+.menu .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+    color: black;
+    width: 90%;
+}
+
+.menu .links .button-link {
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+    outline: none;
+    line-height: 33px;
+}
+
+
+.menu .links .button-link:hover {
+    color: royalblue;
+}
+
+.menu .links .button-link svg {
+    width: 2rem;
+    height: 2rem;
+}
+.menu .links .button-link:hover svg path {
+    fill: royalblue;
+    transition: all .2s ease-in-out;
+}

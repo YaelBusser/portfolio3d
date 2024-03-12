@@ -1,11 +1,38 @@
-*{
-    font-family: "Nirmala UI";
+@import url('https://fonts.googleapis.com/css?family=Mingzat:700|Mingzat:400');
+
+body {
+    font-family: 'Mingzat', serif;
+    font-weight: 400;
 }
 
-.home{
-    background-color: lightgrey;
+h1, h2, h3, h4, h5 {
+    font-family: 'Mingzat', serif;
+    font-weight: 700;
 }
-.bedroom{
+
+html {font-size: 100%;} /* 16px */
+
+h1 {font-size: 3.366rem; /* 53.92px */}
+
+h2 {font-size: 2.525rem; /* 40.32px */}
+
+h3 {font-size: 1.894rem; /* 30.24px */}
+
+h4 {font-size: 1.421rem; /* 22.72px */}
+
+h5 {font-size: 1.066rem; /* 17.12px */}
+
+small {font-size: 0.600rem; /* 9.6px */}
+
+body {
+    /*background: linear-gradient(-20deg, rgba(0, 0, 0, 0.05), #d78eda), linear-gradient(45deg, #d172b5, #5062c6 80%);*/
+     background-color: lightgrey;
+}
+
+.home {
+}
+
+.content-home {
     width: 100vw;
     height: 100vh;
 }
