@@ -1,11 +1,12 @@
 import {Canvas, useFrame, useLoader} from "@react-three/fiber";
-import {OrbitControls, useAnimations, useFBX, useMotion} from "@react-three/drei";
+import {Box, OrbitControls, useAnimations, useFBX, useMotion} from "@react-three/drei";
 import BedroomModel from "../../models/Bedroom.jsx";
 import "./index.css";
 import {useEffect, useRef} from "react";
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {animate, useMotionValue} from "framer-motion";
 import {motion} from "framer-motion-3d";
+import JsModel from "../../models/Js.jsx";
 
 const SceneCharacter = () => {
     const gltf = useLoader(GLTFLoader, '/models/Character.glb');
@@ -46,19 +47,20 @@ const BedroomScene = (props) => {
         state.camera.position.x = cameraPositionX.get();
         state.camera.position.y = cameraPositionY.get();
         state.camera.position.z = cameraPositionZ.get();
-        state.camera.lookAt(cameraLookAt.get(), 0, 0);
+        state.camera.lookAt(cameraLookAt.get(), -1, -1);
     });
 
     return (
         <motion.group
-        animate={{
-            y: section === 0 ? 0 : -1
-        }}
+            animate={{
+                y: section === 0 ? 0 : -1,
+                scale: section === 0 ? 1 : 0
+            }}
         >
-            <directionalLight position={[10, 10, 10]}/>
-            <ambientLight intensity={0.3} color={"white"}/>
-            <SceneCharacter/>
-            <group position={[40, -3, -20]}>
+            <group>
+                <SceneCharacter/>
+            </group>
+            <group position={[5, -3, 5]} rotation-y={0.1}>
                 <BedroomModel scale={[scale, scale, scale]}/>
             </group>
         </motion.group>

@@ -40,7 +40,8 @@ const Section = (props) => {
     )
 }
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+    const {setSection} = props;
     return (
         <Section>
             <div className={"about-section"}>
@@ -48,7 +49,7 @@ const AboutSection = () => {
                     <span className={"my-name"}>Yaël Busser</span>
                 </h1>
                 <p>I'm a fullstack developper !</p>
-                <Button variant="contained" className={"button"}>Contact me</Button>
+                <Button variant="contained" className={"button"} onClick={() => setSection(3)}>Contact me</Button>
             </div>
         </Section>
     )
@@ -175,10 +176,11 @@ const ContactSection = () => {
     )
 }
 
-const Interfaces = () => {
+const Interfaces = (props) => {
+    const {setSection} = props;
     return (
         <div className={"sections"}>
-            <AboutSection/>
+            <AboutSection setSection={setSection} />
             <SkillsSection/>
             <ProjectsSection/>
             <ContactSection/>

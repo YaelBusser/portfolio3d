@@ -28,16 +28,17 @@ const Home = () => {
                     stiffness: 500,
                     damping: 50,
                     restDelta: 0.0001,
-                    delay: 0.8
+                    delay: 0.3
                 }}>
-                    <Canvas camera={{position: [15, 5, 8]}}>
+                    <Canvas shadows camera={{position: [0, 10, 0]}}>
+                        <color attach={"background"} args={["#FFF3C7"]} />
                         <ScrollControls pages={4} damping={0.1}>
                             <ScrollManager section={section} onSectionChange={setSection}/>
                             <Scroll>
                                 <BedroomScene section={section} menuOpened={menuOpened}/>
                             </Scroll>
                             <Scroll html>
-                                <Interfaces/>
+                                <Interfaces setSection={setSection}/>
                             </Scroll>
                         </ScrollControls>
                     </Canvas>
