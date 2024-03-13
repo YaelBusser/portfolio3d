@@ -10,7 +10,6 @@ export default function BedroomModel(props) {
   const { nodes, materials } = useGLTF('/models/bedroom.glb')
   return (
     <group {...props} dispose={null}>
-        <pointLight position={[2, 2.5, 0]} intensity={800} color={"white"} castShadow/>
         <group position={[-0.657, 0.397, -1.008]} rotation={[-Math.PI, 0, -Math.PI / 2]} scale={[0.012, 0.135, 0.222]}>
         <mesh castShadow receiveShadow geometry={nodes.Object_151.geometry} material={materials['Material.103']} />
         <mesh castShadow receiveShadow geometry={nodes.Object_152.geometry} material={materials['Material.001']} />
