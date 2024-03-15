@@ -9,7 +9,7 @@ import {motion} from "framer-motion-3d";
 import JsModel from "../../models/Js.jsx";
 
 const SceneCharacter = () => {
-    const gltf = useLoader(GLTFLoader, '/models/Character.glb');
+    const gltf = useLoader(GLTFLoader, '/portfolio3d/models/Character.glb');
     const scale = 5.1;
     const group = useRef(null);
     const {animations: typingAnimation} = useFBX('animations/Typing.fbx');

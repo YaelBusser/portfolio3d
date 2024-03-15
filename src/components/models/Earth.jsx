@@ -11,7 +11,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const EarthModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/earth.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/earth.glb')
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.007}>
@@ -24,6 +24,6 @@ const EarthModel = (props) => {
   )
 }
 
-useGLTF.preload('/models/earth.glb')
+useGLTF.preload('/portfolio3d/models/earth.glb')
 
 export default EarthModel;

@@ -12,7 +12,7 @@ import {useGLTF, useAnimations} from '@react-three/drei'
 
 const LoaderModel = (props) => {
     const group = useRef()
-    const {nodes, materials, animations} = useGLTF('/models/loader.glb')
+    const {nodes, materials, animations} = useGLTF('/portfolio3d/models/loader.glb')
     const {actions} = useAnimations(animations, group);
     useEffect(() => {
         actions["Take 01"]?.reset().play();
@@ -41,6 +41,6 @@ const LoaderModel = (props) => {
     )
 }
 
-useGLTF.preload('/models/loader.glb')
+useGLTF.preload('/portfolio3d/models/loader.glb')
 
 export default LoaderModel;

@@ -11,7 +11,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const SpaceModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/space.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/space.glb')
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
@@ -21,6 +21,6 @@ const SpaceModel = (props) => {
   )
 }
 
-useGLTF.preload('/models/space.glb')
+useGLTF.preload('/portfolio3d/models/space.glb')
 
 export default SpaceModel;

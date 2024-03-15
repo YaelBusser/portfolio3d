@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const PhpModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/php.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/php.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.131, 0]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
@@ -18,6 +18,6 @@ const PhpModel = (props) => {
   )
 }
 
-useGLTF.preload('/models/php.glb')
+useGLTF.preload('/portfolio3d/models/php.glb')
 
 export default PhpModel;

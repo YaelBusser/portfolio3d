@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const HtmlModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/html.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/html.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Curve.geometry} material={materials['Material.001']} position={[-0.032, 0.047, -0.018]} rotation={[Math.PI / 2, -0.002, -Math.PI / 2]} />
@@ -16,6 +16,6 @@ const HtmlModel = (props) => {
   )
 }
 
-useGLTF.preload('/models/html.glb')
+useGLTF.preload('/portfolio3d/models/html.glb')
 
 export default HtmlModel;

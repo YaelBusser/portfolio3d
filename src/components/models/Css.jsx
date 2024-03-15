@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const CssModel = (props) => {
-  const { nodes, materials } = useGLTF('/models/css.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/css.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 3.931, 0]} scale={2.234}>
@@ -18,6 +18,6 @@ const CssModel = (props) => {
   )
 }
 
-useGLTF.preload('/models/css.glb')
+useGLTF.preload('/portfolio3d/models/css.glb')
 
 export default CssModel;

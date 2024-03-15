@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function BedroomModel(props) {
-  const { nodes, materials } = useGLTF('/models/bedroom.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/bedroom.glb')
   return (
     <group {...props} dispose={null}>
         <group position={[-0.657, 0.397, -1.008]} rotation={[-Math.PI, 0, -Math.PI / 2]} scale={[0.012, 0.135, 0.222]}>
@@ -370,4 +370,4 @@ export default function BedroomModel(props) {
   )
 }
 
-useGLTF.preload('/models/bedroom.glb')
+useGLTF.preload('/portfolio3d/models/bedroom.glb')

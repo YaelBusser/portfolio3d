@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 const Character = (props) => {
-  const { nodes, materials } = useGLTF('/models/Character.glb')
+  const { nodes, materials } = useGLTF('/portfolio3d/models/Character.glb')
   return (
     <group {...props} dispose={null}>
       <primitive object={nodes.Hips} />
@@ -25,6 +25,6 @@ const Character = (props) => {
   )
 }
 
-useGLTF.preload('/models/Character.glb')
+useGLTF.preload('/portfolio3d/models/Character.glb')
 
 export default Character;
