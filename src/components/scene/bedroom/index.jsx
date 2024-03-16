@@ -10,7 +10,7 @@ import JsModel from "../../models/Js.jsx";
 
 const SceneCharacter = () => {
     const gltf = useLoader(GLTFLoader, '/portfolio3d/models/Character.glb');
-    const scale = 5.1;
+    const scale = 5;
     const group = useRef(null);
     const {animations: typingAnimation} = useFBX('animations/Typing.fbx');
     typingAnimation[0].name = 'typing';
@@ -22,7 +22,7 @@ const SceneCharacter = () => {
     }, []);
 
     return (
-        <group ref={group} position={[-5, 0, -5.5]} rotation-y={3}>
+        <group ref={group} position={[3.5, 0, -4.3]} rotation-y={3}>
             <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </group>
     );
@@ -49,7 +49,11 @@ const BedroomScene = (props) => {
         state.camera.position.z = cameraPositionZ.get();
         state.camera.lookAt(cameraLookAt.get(), -1, -1);
     });
-
+    /*
+            <pointLight position={[0, 10, 0]} intensity={300} color={"white"} castShadow/>
+            <pointLight position={[10, 0, 0]} intensity={300} color={"white"} castShadow/>
+            <pointLight position={[0, 0, 10]} intensity={300} color={"white"} castShadow/>
+*/
     return (
         <motion.group
             animate={{
@@ -57,9 +61,10 @@ const BedroomScene = (props) => {
                 scale: section === 0 ? 1 : 0
             }}
         >
-            <pointLight position={[0, 10, 0]} intensity={300} color={"white"} castShadow/>
-            <pointLight position={[10, 0, 0]} intensity={300} color={"white"} castShadow/>
-            <pointLight position={[0, 0, 10]} intensity={300} color={"white"} castShadow/>
+            <ambientLight color={"white"} />
+            <directionalLight position={[0,10,0]} />
+            <directionalLight position={[10,0,0]} />
+            <directionalLight position={[0,0,10]} />
             <group position={[5, -3, 5]} rotation-y={0.1}>
                 <SceneCharacter/>
                 <BedroomModel scale={[scale, scale, scale]}/>

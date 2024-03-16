@@ -4,367 +4,1712 @@ Command: npx gltfjsx@6.2.16 bedroom.glb
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useAnimations } from '@react-three/drei'
 
 export default function BedroomModel(props) {
-  const { nodes, materials } = useGLTF('/portfolio3d/models/bedroom.glb')
+  const group = useRef()
+  const { nodes, materials, animations } = useGLTF('/portfolio3d/models/bedroom.glb')
+  const { actions } = useAnimations(animations, group)
   return (
-    <group {...props} dispose={null}>
-        <group position={[-0.657, 0.397, -1.008]} rotation={[-Math.PI, 0, -Math.PI / 2]} scale={[0.012, 0.135, 0.222]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_151.geometry} material={materials['Material.103']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_152.geometry} material={materials['Material.001']} />
-      </group>
-      <group position={[-0.657, 0.651, -0.685]} rotation={[-1.222, 0, -Math.PI / 2]} scale={[0.012, 0.23, 0.222]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_164.geometry} material={materials['Material.002']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_165.geometry} material={materials['Material.103']} />
-      </group>
-      <group position={[-1.086, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_327.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_328.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.023, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_333.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_334.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.898, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_336.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_337.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.939, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_339.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_340.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.98, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_342.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_343.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.785, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_345.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_346.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.744, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_348.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_349.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.703, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_351.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_352.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.828, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_354.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_355.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.533, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_357.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_358.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.575, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_360.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_361.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.615, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_363.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_364.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.998, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_306.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_307.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.475, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_381.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_382.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.434, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_384.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_385.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.957, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_309.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_310.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.829, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_312.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_313.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.086, 0.78, -1.648]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_330.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_331.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.789, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_315.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_316.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.873, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_318.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_319.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.916, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_321.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_322.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.041, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_324.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_325.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.615, 0.78, -1.607]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_366.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_367.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.575, 0.78, -1.607]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_369.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_370.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.533, 0.78, -1.607]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_372.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_373.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.434, 0.78, -1.607]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_375.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_376.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.721, 0.78, -1.608]} rotation={[Math.PI, 0, Math.PI]} scale={[0.034, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_408.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_409.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.246, 0.774, -1.575]} rotation={[-Math.PI, Math.PI / 3, -Math.PI]} scale={[0.04, 0.01, 0.028]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_245.geometry} material={materials['Material.092']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_246.geometry} material={materials['Material.024']} />
-      </group>
-      <group position={[-0.475, 0.78, -1.607]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_378.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_379.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.475, 0.78, -1.526]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_387.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_388.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.434, 0.78, -1.526]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_390.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_391.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.434, 0.78, -1.567]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_393.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_394.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.475, 0.78, -1.567]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_396.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_397.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.475, 0.78, -1.496]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_399.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_400.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.533, 0.78, -1.497]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_417.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_418.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.575, 0.78, -1.497]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_420.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_421.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.615, 0.78, -1.497]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_423.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_424.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.575, 0.78, -1.534]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_426.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_427.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.43, 0.78, -1.496]} rotation={[Math.PI, 0, Math.PI]} scale={[0.011, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_402.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_403.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.742, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.011, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_405.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_406.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.721, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.034, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_411.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_412.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.703, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_414.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_415.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.084, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.018, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_429.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_430.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.086, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_432.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_433.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.072, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.03, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_435.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_436.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.916, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_273.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_274.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.873, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_276.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_277.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.789, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_279.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_280.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.829, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_282.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_283.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.868, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.05, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_438.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_439.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.998, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_252.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_253.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.957, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_264.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_265.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.998, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_255.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_256.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.829, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_285.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_286.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.789, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_288.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_289.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.873, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_291.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_292.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.916, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_294.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_295.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.038, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_258.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_259.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.998, 0.78, -1.57]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_261.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_262.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.957, 0.78, -1.533]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_267.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_268.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.949, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_270.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_271.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-1.038, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_242.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_243.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.787, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_297.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_298.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.703, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_300.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_301.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.743, 0.78, -1.499]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_303.geometry} material={materials['keyboard_light.052']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_304.geometry} material={materials['Material.092']} />
-      </group>
-      <group position={[-0.671, 1.07, -1.91]} rotation={[-Math.PI / 2, -1.571, 0]} scale={[0.14, 0.814, 0.351]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_102.geometry} material={materials['Material.001']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_103.geometry} material={materials['Material.104']} />
-      </group>
-      <group position={[-0.671, 0.755, -1.578]} rotation={[0, -1.571, 0]} scale={[0.166, 0.389, 0.574]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_132.geometry} material={materials['Material.027']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_133.geometry} material={materials['Matériau.030']} />
-      </group>
-      <group position={[-1.274, 1.07, -1.661]} rotation={[0, -Math.PI / 4, Math.PI / 2]} scale={[0.14, 0.814, 0.351]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_135.geometry} material={materials['Material.001']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_136.geometry} material={materials['Material.104']} />
-      </group>
-      <group position={[-0.067, 1.07, -1.658]} rotation={[-Math.PI, -Math.PI / 4, -Math.PI / 2]} scale={[0.14, 0.814, 0.351]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_140.geometry} material={materials['Material.001']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_141.geometry} material={materials['Material.104']} />
-      </group>
-      <group position={[-0.762, 0.769, -1.578]} rotation={[0, -1.571, 0]} scale={[0.105, 0.248, 0.365]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_239.geometry} material={materials['Material.092']} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_240.geometry} material={materials['Material.027']} />
-      </group>
-      <group position={[-0.671, 0.727, -1.699]} rotation={[0, -1.571, 0]} scale={[0.382, 1.144, 1.33]}>
-        <mesh castShadow receiveShadow geometry={nodes.Object_95.geometry} material={materials.Material} />
-        <mesh castShadow receiveShadow geometry={nodes.Object_96.geometry} material={materials['keyboard_light.052']} />
-      </group>
-      <mesh castShadow receiveShadow geometry={nodes.Object_79.geometry} material={materials['Matériau.020']} position={[-1.475, 0.18, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_83.geometry} material={materials['Matériau.018']} position={[0.139, 0.525, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_81.geometry} material={materials['Matériau.019']} position={[-1.475, 0.525, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_85.geometry} material={materials['Matériau.017']} position={[0.139, 0.18, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_87.geometry} material={materials.lever} position={[-1.475, 0.298, -1.458]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_89.geometry} material={materials.lever} position={[-1.475, 0.638, -1.458]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_91.geometry} material={materials.lever} position={[0.139, 0.638, -1.458]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_93.geometry} material={materials.lever} position={[0.139, 0.298, -1.458]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_98.geometry} material={materials.material_0} position={[-1.475, 0.7, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.205, 0.025, 0.255]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_100.geometry} material={materials.material_0} position={[0.14, 0.7, -1.705]} rotation={[Math.PI, 0, Math.PI]} scale={[0.205, 0.025, 0.255]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_130.geometry} material={materials.screen} position={[-0.674, 0.759, -1.977]} scale={[0.033, 0.004, 0.033]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_138.geometry} material={materials.screen} position={[-1.323, 0.759, -1.707]} rotation={[0, Math.PI / 4, 0]} scale={[0.033, 0.004, 0.033]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_143.geometry} material={materials.screen} position={[-0.022, 0.759, -1.707]} rotation={[0, -Math.PI / 4, 0]} scale={[0.033, 0.004, 0.033]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_149.geometry} material={materials.lever} position={[-0.657, 0.365, -1.008]} rotation={[-Math.PI / 2, -Math.PI / 2, 0]} scale={[0.021, 0.061, 0.061]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_171.geometry} material={materials['Matériau.007']} position={[0.433, 1.03, -1.684]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={[0.252, 0.164, 0.313]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_173.geometry} material={materials.lever} position={[0.323, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.024, 0.004, 0.016]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_175.geometry} material={materials.lever} position={[0.403, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.016, 0.002, 0.01]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_177.geometry} material={materials.lever} position={[0.472, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.016, 0.002, 0.01]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_213.geometry} material={materials['keyboard_light.052']} position={[0.306, 0.961, -1.781]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.094, 0.003, 0.016]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_215.geometry} material={materials['keyboard_light.052']} position={[0.306, 1.082, -1.781]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.065, 0.002, 0.011]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_217.geometry} material={materials['keyboard_light.052']} position={[0.306, 0.893, -1.716]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.094, 0.003, 0.016]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_219.geometry} material={materials['keyboard_light.052']} position={[0.306, 0.877, -1.599]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.069, 0.002, 0.012]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_223.geometry} material={materials['Material.025']} position={[0.546, 1.342, -1.412]} rotation={[Math.PI, 0, Math.PI]} scale={[0.001, 0.001, 0.01]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_147.geometry} material={materials['Material.103']} position={[-0.661, 0.104, -1.011]} scale={[0.045, 0.025, 0.045]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_154.geometry} material={materials.lever} position={[-0.421, 0.052, -0.935]} rotation={[-Math.PI / 2, 0, -1.92]} scale={[0.027, 0.012, 0.027]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_156.geometry} material={materials.lever} position={[-0.512, 0.052, -1.215]} rotation={[-Math.PI / 2, 0, -0.611]} scale={[0.027, 0.012, 0.027]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_145.geometry} material={materials['Material.001']} position={[-0.66, 0.178, -1.01]} rotation={[3.135, -0.046, 0.023]} scale={[0.024, 0.012, 0.024]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_158.geometry} material={materials.lever} position={[-0.811, 0.052, -1.216]} rotation={[-Math.PI / 2, 0, 0.611]} scale={[0.027, 0.012, 0.027]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_160.geometry} material={materials.lever} position={[-0.905, 0.052, -0.932]} rotation={[-Math.PI / 2, 0, 1.92]} scale={[0.027, 0.012, 0.027]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_162.geometry} material={materials.lever} position={[-0.662, 0.052, -0.754]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={[0.027, 0.012, 0.027]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_179.geometry} material={materials.material_0} position={[0.549, 1.323, -1.428]} rotation={[-Math.PI, 0, -Math.PI]} scale={[-0.013, -0.004, -0.013]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_225.geometry} material={materials['Matériau.026']} position={[0.434, 1.198, -1.443]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_209.geometry} material={materials['Matériau.027']} position={[0.434, 1.031, -1.443]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_211.geometry} material={materials['Matériau.029']} position={[0.434, 0.865, -1.443]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_221.geometry} material={materials['Material.024']} position={[0.434, 1.195, -1.878]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_248.geometry} material={materials.material_0} position={[-0.266, 0.776, -1.61]} rotation={[1.343, 0.13, -2.08]} scale={[0.015, 0.002, 0.011]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_250.geometry} material={materials['Material.099']} position={[0.597, 1.03, -1.685]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={[0.203, 0.203, 0.251]} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_493.geometry} material={materials['keyboard_light.052']} position={[0.307, 1.178, -1.52]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.09} />
-      <group position={[1.293, 0, -0.932]} rotation={[-Math.PI / 2, 0, -1.171]} scale={0.302}>
-        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-          <group position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100}>
-            <mesh castShadow receiveShadow geometry={nodes.Guitar_Stand_Guitar_Stand_0.geometry} material={materials.Guitar_Stand} position={[1.07, 1.698, 0.049]} />
-          </group>
-          <group position={[-12.809, 258.612, 80.448]} rotation={[-1.875, -0.174, 0.504]} scale={100}>
-            <mesh castShadow receiveShadow geometry={nodes.Guitar_Telecaster_Guitar_telecaster_0.geometry} material={materials.Guitar_telecaster} position={[1.13, 1.542, 0.613]} />
-          </group>
-          <group position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110}>
-            <mesh castShadow receiveShadow geometry={nodes.Vox_Amp_vox_amp_0.geometry} material={materials.vox_amp} position={[1.056, 0.798, 0.045]} />
+    <group ref={group} {...props} dispose={null}>
+      <group name="Scene">
+        <group name="Sketchfab_model" position={[2.583, 0.374, -0.993]} rotation={[-Math.PI / 2, 0, -2.384]}>
+          <group name="root">
+            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Shelves1_1" position={[0.892, 0.867, -2.096]} />
+            </group>
           </group>
         </group>
-      </group>
-      <group position={[0, 1.75, -1.96]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.924, 1, 1]}>
-        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-          <group position={[-0.129, -2.133, -2.525]}>
-            <mesh castShadow receiveShadow geometry={nodes.Shelf_Wall_1_WallMount_Material_0.geometry} material={materials.WallMount_Material} scale={[1, 2.047, 1]} />
+        <group name="Shelves1_1001" position={[0.892, 0.867, -2.096]} />
+        <group name="Sketchfab_model002" rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="root002">
+            <group name="GLTF_SceneRootNode002" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Book0001_211" position={[1.192, 1.308, -2.07]} />
+              <group name="Book0002_216" position={[1.089, 1.683, -2.07]} />
+              <group name="Book0003_221" position={[1.213, 2.054, -2.07]} />
+              <group name="Book0004_226" position={[1.414, 2.427, -2.07]} />
+              <group name="Book0_103" position={[0.974, 0.92, -2.07]} />
+              <group name="Book1001_210" position={[1.384, 1.308, -2.07]} />
+              <group name="Book1002_215" position={[1.301, 1.683, -2.07]} />
+              <group name="Book1003_220" position={[1.58, 2.054, -2.07]} />
+              <group name="Book1004_225" position={[1.173, 2.427, -2.07]} />
+              <group name="Book1_104" position={[1.019, 0.92, -2.07]} />
+              <group name="Book2001_209" position={[1.527, 1.308, -2.07]} />
+              <group name="Book2002_214" position={[0.92, 1.683, -2.07]} />
+              <group name="Book2003_219" position={[1.429, 2.054, -2.07]} />
+              <group name="Book2004_224" position={[1.282, 2.427, -2.07]} />
+              <group name="Book2_105" position={[1.206, 0.92, -2.07]} />
+              <group name="Book3001_208" position={[1.573, 1.308, -2.07]} />
+              <group name="Book3002_213" position={[1.623, 1.683, -2.07]} />
+              <group name="Book3003_218" position={[1.67, 2.054, -2.07]} />
+              <group name="Book3004_223" position={[1.658, 2.427, -2.07]} />
+              <group name="Book3_106" position={[1.635, 0.92, -2.07]} />
+              <group name="Book4001_207" position={[1.618, 1.308, -2.07]} />
+              <group name="Book4002_212" position={[1.738, 1.683, -2.07]} />
+              <group name="Book4003_217" position={[1.715, 2.054, -2.07]} />
+              <group name="Book4004_222" position={[0.997, 2.427, -2.07]} />
+              <group name="Book4_107" position={[1.526, 0.92, -2.07]} />
+              <group name="Cube001_115" position={[2.959, 0.362, -0.899]} rotation={[0, -1.571, 0]} scale={[1.051, 0.296, 0.572]} />
+              <group name="Cube002_56" position={[0.086, 0.18, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]}>
+                <mesh name="Object_79" geometry={nodes.Object_79.geometry} material={materials['Material.015']} />
+              </group>
+              <group name="Cube003_50" position={[0.089, 1.481, -2.123]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[2.151, 0.031, 1.454]} />
+              <group name="Cube004_51" position={[2.695, 1.481, -0.58]} rotation={[-Math.PI / 2, 0, 2.328]} scale={[2.151, 0.031, 1.454]} />
+              <group name="Cube005_120" position={[-1.166, 2.184, 1.395]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.019, 0.051, 0.127]} />
+              <group name="Cube006_58" position={[1.7, 0.525, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]}>
+                <mesh name="Object_83" geometry={nodes.Object_83.geometry} material={materials['Material.016']} />
+              </group>
+              <group name="Cube007_57" position={[0.086, 0.525, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]}>
+                <mesh name="Object_81" geometry={nodes.Object_81.geometry} material={materials['Material.014']} />
+              </group>
+              <group name="Cube008_59" position={[1.7, 0.18, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.234, 0.153, 0.291]}>
+                <mesh name="Object_85" geometry={nodes.Object_85.geometry} material={materials['Material.017']} />
+              </group>
+              <group name="Cube009_60" position={[0.086, 0.298, -1.545]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]}>
+                <mesh name="Object_87" geometry={nodes.Object_87.geometry} material={materials.lever} />
+              </group>
+              <group name="Cube010_61" position={[0.086, 0.638, -1.545]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]}>
+                <mesh name="Object_89" geometry={nodes.Object_89.geometry} material={materials.lever} />
+              </group>
+              <group name="Cube011_62" position={[1.701, 0.638, -1.545]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]}>
+                <mesh name="Object_91" geometry={nodes.Object_91.geometry} material={materials.lever} />
+              </group>
+              <group name="Cube012_63" position={[1.701, 0.298, -1.545]} rotation={[Math.PI, 0, Math.PI]} scale={[0.098, 0.006, 0.064]}>
+                <mesh name="Object_93" geometry={nodes.Object_93.geometry} material={materials.lever} />
+              </group>
+              <group name="Cube013_65" position={[0.086, 0.7, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.205, 0.025, 0.255]}>
+                <mesh name="Object_98" geometry={nodes.Object_98.geometry} material={materials.material_0} position={[-7.875, -8.019, 0]} scale={[1, 9.236, 1]} />
+              </group>
+              <group name="Cube014_66" position={[1.702, 0.7, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.205, 0.025, 0.255]} />
+              <group name="Cube015_73" position={[0.141, 1.839, -1.943]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
+              <group name="Cube016_68" position={[-1.481, 1.839, -1.943]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[0.234, 0.153, 0.291]} />
+              <group name="Cube017_74" position={[2.859, 0.965, -1.604]} rotation={[0, 0.757, 0]} scale={[0.234, 0.939, 0.291]} />
+              <group name="Cube018_79" position={[0.888, 0.759, -2.064]} scale={[0.033, 0.004, 0.033]} />
+              <group name="Cube019_82" position={[0.239, 0.759, -1.793]} rotation={[0, Math.PI / 4, 0]} scale={[0.033, 0.004, 0.033]} />
+              <group name="Cube020_84" position={[1.54, 0.759, -1.794]} rotation={[0, -Math.PI / 4, 0]} scale={[0.033, 0.004, 0.033]} />
+              <group name="Cube021_76" position={[-0.759, 1.613, -2.054]} rotation={[-Math.PI / 2, 0.698, -Math.PI]} scale={[0.386, 0.012, 0.066]} />
+              <group name="Cube022_77" position={[-0.676, 1.8, -2.054]} rotation={[-Math.PI / 2, 0.698, -Math.PI]} scale={[0.529, 0.012, 0.066]} />
+              <group name="Cube023_78" position={[-0.58, 1.981, -2.054]} rotation={[-Math.PI / 2, 0.698, -Math.PI]} scale={[0.386, 0.012, 0.066]} />
+              <group name="Cube024_87" position={[0.905, 0.365, -1.095]} rotation={[-Math.PI / 2, -Math.PI / 2, 0]} scale={[0.021, 0.061, 0.061]} />
+              <group name="Cube025_88" position={[0.905, 0.397, -1.095]} rotation={[-Math.PI, 0, -Math.PI / 2]} scale={[0.012, 0.135, 0.222]}>
+                <mesh name="Object_152" geometry={nodes.Object_152.geometry} material={materials['Material.001']} />
+              </group>
+              <group name="Cube026_94" position={[0.905, 0.651, -0.771]} rotation={[-1.222, 0, -Math.PI / 2]} scale={[0.012, 0.23, 0.222]} />
+              <group name="Cube027_98" position={[1.994, 1.03, -1.771]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={[0.252, 0.164, 0.313]} />
+              <group name="Cube028_99" position={[0.323, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.024, 0.004, 0.016]} />
+              <group name="Cube029_100" position={[0.403, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.016, 0.002, 0.01]} />
+              <group name="Cube030_101" position={[0.472, 1.344, -1.415]} rotation={[Math.PI, 0, Math.PI]} scale={[0.016, 0.002, 0.01]} />
+              <group name="Cube031_121" position={[-1.889, 2.547, -2.077]} rotation={[0, 1.571, 0]} scale={[0.019, 0.051, 0.087]} />
+              <group name="Cube032_125" position={[1.867, 0.961, -1.867]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.094, 0.003, 0.016]} />
+              <group name="Cube033_126" position={[1.867, 1.082, -1.867]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.065, 0.002, 0.011]} />
+              <group name="Cube034_127" position={[1.867, 0.893, -1.802]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.094, 0.003, 0.016]} />
+              <group name="Cube035_128" position={[1.868, 0.877, -1.685]} rotation={[-2.269, 0, -Math.PI / 2]} scale={[0.069, 0.002, 0.012]} />
+              <group name="Cube036_130" position={[0.546, 1.342, -1.412]} rotation={[Math.PI, 0, Math.PI]} scale={[0.001, 0.001, 0.01]} />
+              <group name="Cube037_132" position={[0.984, 1.869, -1.643]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube038_133" position={[1.406, 1.869, -1.196]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube039_134" position={[1.512, 1.869, -1.296]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube040_135" position={[1.09, 1.869, -1.742]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube041_136" position={[1.199, 1.869, -1.846]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube042_137" position={[1.621, 1.869, -1.399]} rotation={[Math.PI / 2, 0, -0.757]} scale={[0.017, 0.018, 0.058]} />
+              <group name="Cube043_169" position={[0.476, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube045_172" position={[0.664, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube046_173" position={[0.623, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube047_174" position={[0.582, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube048_175" position={[0.777, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube049_176" position={[0.818, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube050_177" position={[0.859, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube051_178" position={[0.734, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube052_179" position={[1.029, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube053_180" position={[0.987, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube054_181" position={[0.947, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube055_162" position={[0.564, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube056_187" position={[1.087, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube057_188" position={[1.128, 0.78, -1.735]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube058_163" position={[0.604, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube059_164" position={[0.732, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube060_170" position={[0.476, 0.78, -1.734]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube061_165" position={[0.773, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube062_166" position={[0.688, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube063_167" position={[0.646, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube064_168" position={[0.52, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube065_182" position={[0.947, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube066_183" position={[0.987, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube067_184" position={[1.029, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube068_185" position={[1.128, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube069_196" position={[0.84, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.034, 0.002, 0.01]} />
+              <group name="Cube070_140" position={[1.315, 0.774, -1.662]} rotation={[-Math.PI, Math.PI / 3, -Math.PI]} scale={[0.04, 0.01, 0.028]} />
+              <group name="Cube071_186" position={[1.087, 0.78, -1.694]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube072_189" position={[1.087, 0.78, -1.613]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube073_190" position={[1.128, 0.78, -1.613]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube074_191" position={[1.128, 0.78, -1.654]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube075_192" position={[1.087, 0.78, -1.654]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube076_193" position={[1.087, 0.78, -1.583]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube077_199" position={[1.029, 0.78, -1.583]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube078_200" position={[0.987, 0.78, -1.583]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube079_201" position={[0.947, 0.78, -1.583]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube080_202" position={[0.987, 0.78, -1.621]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube081_194" position={[1.132, 0.78, -1.583]} rotation={[Math.PI, 0, Math.PI]} scale={[0.011, 0.002, 0.01]} />
+              <group name="Cube082_195" position={[0.819, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.011, 0.002, 0.01]} />
+              <group name="Cube083_197" position={[0.84, 0.78, -1.619]} rotation={[Math.PI, 0, Math.PI]} scale={[0.034, 0.002, 0.01]} />
+              <group name="Cube084_198" position={[0.859, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube085_203" position={[0.478, 0.78, -1.586]} rotation={[Math.PI, 0, Math.PI]} scale={[0.018, 0.002, 0.01]} />
+              <group name="Cube086_204" position={[0.475, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube087_205" position={[0.49, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.03, 0.002, 0.01]} />
+              <group name="Cube088_151" position={[0.646, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube089_152" position={[0.688, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube090_153" position={[0.773, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube091_154" position={[0.732, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube092_206" position={[0.693, 0.78, -1.586]} rotation={[Math.PI, 0, Math.PI]} scale={[0.05, 0.002, 0.01]} />
+              <group name="Cube094_144" position={[0.564, 0.78, -1.586]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube095_148" position={[0.604, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube096_145" position={[0.564, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube097_155" position={[0.732, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube098_156" position={[0.773, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube099_157" position={[0.688, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube100_158" position={[0.646, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube102_146" position={[0.524, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube103_147" position={[0.564, 0.78, -1.657]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube104_149" position={[0.604, 0.78, -1.62]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube106_150" position={[0.613, 0.78, -1.586]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube107_139" position={[0.524, 0.78, -1.586]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube108_159" position={[0.774, 0.78, -1.585]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube109_160" position={[0.859, 0.78, -1.585]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube110_161" position={[0.818, 0.78, -1.585]} rotation={[Math.PI, 0, Math.PI]} scale={[0.015, 0.002, 0.01]} />
+              <group name="Cube_49" position={[-7.797, 0, 0]} scale={[2.151, 0.031, 2.151]} />
+              <group name="Cylinder001_53" position={[1.884, 0.051, -0.115]} rotation={[-Math.PI, 1.571, 0]} scale={[-0.023, -0.023, -0.031]} />
+              <group name="Cylinder002_54" position={[1.884, 0.051, -1.519]} rotation={[-Math.PI, 1.571, 0]} scale={[-0.023, -0.023, -0.031]} />
+              <group name="Cylinder003_55" position={[0.902, 0.051, -1.519]} rotation={[-Math.PI, 1.571, 0]} scale={[-0.023, -0.023, -0.031]} />
+              <group name="Cylinder004_69" position={[-1.482, 1.763, -1.795]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.085, -0.026, -0.085]} />
+              <group name="Cylinder005_70" position={[-1.482, 1.939, -1.795]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.057, -0.017, -0.057]} />
+              <group name="Cylinder006_71" position={[0.14, 1.939, -1.795]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.057, -0.017, -0.057]} />
+              <group name="Cylinder007_72" position={[0.14, 1.763, -1.795]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.085, -0.026, -0.085]} />
+              <group name="Cylinder008_75" position={[2.734, 0.641, -1.483]} rotation={[-Math.PI / 2, 0, -0.813]} scale={[-0.176, -0.054, -0.176]} />
+              <group name="Cylinder009_86" position={[0.901, 0.104, -1.097]} scale={[0.045, 0.025, 0.045]} />
+              <group name="Cylinder010_89" position={[-0.421, 0.052, -0.935]} rotation={[-Math.PI / 2, 0, -1.92]} scale={[0.027, 0.012, 0.027]} />
+              <group name="Cylinder011_90" position={[-0.512, 0.052, -1.215]} rotation={[-Math.PI / 2, 0, -0.611]} scale={[0.027, 0.012, 0.027]} />
+              <group name="Cylinder012_85" position={[0.901, 0.178, -1.096]} rotation={[3.135, -0.046, 0.023]} scale={[0.024, 0.012, 0.024]} />
+              <group name="Cylinder013_91" position={[-0.811, 0.052, -1.216]} rotation={[-Math.PI / 2, 0, 0.611]} scale={[0.027, 0.012, 0.027]} />
+              <group name="Cylinder014_92" position={[-0.905, 0.052, -0.932]} rotation={[-Math.PI / 2, 0, 1.92]} scale={[0.027, 0.012, 0.027]} />
+              <group name="Cylinder015_93" position={[-0.662, 0.052, -0.754]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={[0.027, 0.012, 0.027]} />
+              <group name="Cylinder016_95" position={[1.118, 1.342, -1.344]} rotation={[-Math.PI / 2, 0, 2.328]} scale={[-0.085, -0.026, -0.085]} />
+              <group name="Cylinder017_96" position={[2.679, 0.644, -1.431]} rotation={[-Math.PI / 2, 0, 2.328]} scale={[-0.085, -0.026, -0.085]} />
+              <group name="Cylinder018_102" position={[0.549, 1.323, -1.428]} rotation={[-Math.PI, 0, -Math.PI]} scale={[-0.013, -0.004, -0.013]} />
+              <group name="Cylinder019_117" position={[-0.756, 1.614, -2.078]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[-0.025, -0.014, -0.025]} />
+              <group name="Cylinder020_118" position={[-0.707, 1.826, -2.078]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[-0.025, -0.014, -0.025]} />
+              <group name="Cylinder021_119" position={[-0.581, 1.989, -2.078]} rotation={[Math.PI / 2, 0, -Math.PI]} scale={[-0.025, -0.014, -0.025]} />
+              <group name="Cylinder022_131" position={[1.995, 1.198, -1.529]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
+              <group name="Cylinder023_122" position={[1.995, 1.031, -1.529]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
+              <group name="Cylinder024_123" position={[1.995, 0.865, -1.529]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
+              <group name="Cylinder025_129" position={[1.995, 1.195, -1.965]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[-0.072, -0.005, -0.072]} />
+              <group name="Cylinder026_141" position={[1.296, 0.776, -1.696]} rotation={[1.343, 0.13, -2.08]} scale={[0.015, 0.002, 0.011]} />
+              <group name="Cylinder_52" position={[0.902, 0.051, -0.115]} rotation={[-Math.PI, 1.571, 0]} scale={[-0.023, -0.023, -0.031]} />
+              <group name="Plane001_67" position={[0.891, 1.07, -1.997]} rotation={[-Math.PI / 2, -1.571, 0]} scale={[0.14, 0.814, 0.351]} />
+              <group name="Plane002_80" position={[0.891, 0.755, -1.665]} rotation={[0, -1.571, 0]} scale={[0.166, 0.389, 0.574]} />
+              <group name="Plane003_81" position={[0.288, 1.07, -1.748]} rotation={[0, -Math.PI / 4, Math.PI / 2]} scale={[0.14, 0.814, 0.351]} />
+              <group name="Plane004_83" position={[1.494, 1.07, -1.745]} rotation={[-Math.PI, -Math.PI / 4, -Math.PI / 2]} scale={[0.14, 0.814, 0.351]} />
+              <group name="Plane005_113" position={[2.752, 0.779, -1.59]} rotation={[-2.895, 0.504, 2.87]} scale={0.263} />
+              <group name="Plane007_114" position={[3.259, 0.746, -1.542]} rotation={[Math.PI / 2, 1.309, -Math.PI / 2]} scale={0.272} />
+              <group name="Plane009_138" position={[0.799, 0.769, -1.665]} rotation={[0, -1.571, 0]} scale={[0.105, 0.248, 0.365]} />
+              <group name="Plane010_143" position={[2.158, 1.03, -1.772]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={[0.203, 0.203, 0.251]} />
+              <group name="Plane011_228" position={[2.719, 1.486, -0.605]} rotation={[-Math.PI / 2, 0, 2.328]} scale={[1.09, 0.559, 0.746]} />
+              <group name="Plane_64" position={[0.891, 0.727, -1.785]} rotation={[0, -1.571, 0]} scale={[0.382, 1.144, 1.33]}>
+                <mesh name="Object_95" geometry={nodes.Object_95.geometry} material={materials['Material.028']} position={[0.179, 0, 0.01]} scale={[1.201, 2.29, 1]} />
+              </group>
+              <group name="Shelves1_1002" position={[0.892, 0.867, -2.096]} />
+              <group name="Text007_229" position={[1.935, 1.063, -2.09]} rotation={[Math.PI / 2, 0, 0]} scale={0.142} />
+              <group name="Text008_230" position={[1.935, 1.459, -2.09]} rotation={[Math.PI / 2, 0, 0]} scale={0.09} />
+              <group name="Text009_231" position={[1.91, 1.845, -2.09]} rotation={[Math.PI / 2, 0, 0]} scale={0.073} />
+              <group name="Text010_232" position={[1.92, 2.21, -2.09]} rotation={[Math.PI / 2, 0, 0]} scale={0.1} />
+              <group name="Text011_233" position={[1.92, 2.577, -2.09]} rotation={[Math.PI / 2, 0, 0]} scale={0.11} />
+              <group name="Text012_234" position={[1.868, 1.178, -1.607]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.09} />
+              <group name="Text013_48" position={[2.562, 0.891, -1.558]} rotation={[Math.PI / 2, 0, 0.813]} scale={0.3} />
+            </group>
           </group>
         </group>
-      </group>
-      <group position={[0.084, 0, -2.175]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.059, 1, 1]}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
-          <mesh castShadow receiveShadow geometry={nodes.Object_6.geometry} material={materials['.001']} />
-          <mesh castShadow receiveShadow geometry={nodes.Object_4001.geometry} material={materials.material} position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} />
+        <group name="StringbL002_5" position={[0.352, 0, -0.021]} />
+        <group name="StringfL002_13" position={[0.352, 0, 0.021]} />
+        <group name="StringfR002_15" position={[-0.352, 0, 0.021]} />
+        <group name="StringL002_17" position={[0.352, 0, 0]} />
+        <group name="StringR002_19" position={[-0.352, 0, 0]} />
+        <group name="Venetian_stick001_22" position={[-0.47, -0.03, 0.023]} />
+        <group name="Venetian_updown001_23" position={[0.47, -0.03, 0.023]} />
+        <group name="Sketchfab_model003" rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="root001">
+            <group name="GLTF_SceneRootNode003" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Cube031_121001" position={[-1.889, 2.547, -2.077]} rotation={[0, 1.571, 0]} scale={[0.019, 0.051, 0.087]} />
+            </group>
+          </group>
         </group>
+        <group name="Sketchfab_model004" position={[1.293, 0, -0.932]} rotation={[-Math.PI / 2, 0, -1.171]} scale={0.302}>
+          <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode">
+              <group name="Guitar_Stand" position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100}>
+                <mesh name="Guitar_Stand_Guitar_Stand_0" geometry={nodes.Guitar_Stand_Guitar_Stand_0.geometry} material={materials.Guitar_Stand} position={[-6.71, -3.655, 0.049]} rotation={[0, 0, 1.336]} />
+              </group>
+              <group name="Guitar_Telecaster" position={[162.077, 258.612, -406.543]} rotation={[-1.875, -0.174, 0.504]} scale={100}>
+                <mesh name="Guitar_Telecaster_Guitar_telecaster_0" geometry={nodes.Guitar_Telecaster_Guitar_telecaster_0.geometry} material={materials.Guitar_telecaster} position={[-10.712, -6.448, -2.331]} rotation={[0.265, -0.339, 1.321]} />
+              </group>
+              <group name="Light" position={[70.875, 402.216, -82.687]} rotation={[1.956, 1.147, -1.776]} scale={100}>
+                <group name="Object_4" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_5" />
+                </group>
+              </group>
+              <group name="Light001" position={[-1085.385, 522.354, -447.955]} rotation={[1.578, -0.403, 1.543]} scale={100}>
+                <group name="Object_12001" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_13" />
+                </group>
+              </group>
+              <group name="Light002" position={[-329.565, 522.354, 143.278]} rotation={[1.205, -0.173, 0.375]} scale={100}>
+                <group name="Object_7" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_8001" />
+                </group>
+              </group>
+              <group name="Vox_Amp" position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110} />
+              <group name="Vox_Amp001" position={[267.623, 0, -70.873]} rotation={[-Math.PI / 2, 0, 0.175]} scale={110} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model005" rotation={[-Math.PI / 2, 0, 0]} />
+        <group name="RootNode001">
+          <group name="cabos_grp" />
+          <group name="caixa_a_grp" />
+          <group name="caixa_b_grp" />
+          <group name="captadores_grp" />
+          <group name="corda_parafusos_grp" />
+          <group name="guitarra_grp_corpo_geo" />
+          <group name="head_a_grp" />
+          <group name="head_b_grp" />
+          <group name="head_c_grp" />
+          <group name="head_itens_grp" />
+          <group name="MESH_pedal_a_grp_pedal_a_grp" />
+          <group name="MESH_pedal_a_grp_pedal_b_grp" />
+          <group name="MESH_pedal_b_grp_pedal_a_grp" />
+          <group name="MESH_pedal_b_grp_pedal_b_grp" />
+          <group name="piso_grp" />
+        </group>
+        <group name="Sketchfab_model006" rotation={[-Math.PI / 2, 0, 0]} scale={[0.008, 0.009, 0.183]}>
+          <group name="df9110519ada4de09e451c1fd10aad13fbx" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="RootNode002">
+              <group name="Plane002" rotation={[-Math.PI / 2, 0, 0]} scale={0.1} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model001" position={[0, 1.75, -1.96]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.924, 1, 1]}>
+          <group name="79aeb1faf42642a68e414d6e1653727cfbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode003">
+              <group name="Bookshelf_Large" position={[0, 60, 0]} />
+              <group name="Bookshelf_Mini" position={[-127.842, 19.889, 0]} />
+              <group name="Bookshelf_Small" position={[-69.357, 29.977, 0]} />
+              <group name="Bookshelf_Tall" position={[55.164, 60, 0]} />
+              <group name="Shelf_Wall_1" position={[-0.129, -2.133, -2.525]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model007" position={[0.818, 1.844, -0.589]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.345, 0.345, 1]}>
+          <group name="Collada_visual_scene_group" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="lamp_01" />
+          </group>
+        </group>
+        <group name="Sketchfab_model008" position={[0.084, 0, -2.175]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.059, 1, 1]}>
+          <group name="root003">
+            <group name="GLTF_SceneRootNode001" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="��������������001_1">
+                <mesh name="Object_6" geometry={nodes.Object_6.geometry} material={nodes.Object_6.material} scale={[1, 1, 1.851]} />
+              </group>
+              <group name="��������������_0" position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model009" position={[-2.015, 0, -2.175]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.059, 1, 1]}>
+          <group name="root004">
+            <group name="GLTF_SceneRootNode004" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="��������������_0001" position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model010" position={[0.084, 0, -2.175]} rotation={[3.14, 0, 0]} scale={[1.059, 1, 1]}>
+          <group name="root005">
+            <group name="GLTF_SceneRootNode005" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="��������������001_1001">
+                <mesh name="Object_6001" geometry={nodes.Object_6001.geometry} material={nodes.Object_6001.material} scale={[1, 1, 1.851]} />
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model011" position={[0.85, 0.836, -2.234]} rotation={[-Math.PI / 2, 0, -1.569]} scale={[1, 0.433, 0.433]}>
+          <group name="Root">
+            <group name="ShelfWall_05x2x2_proxy001" />
+          </group>
+        </group>
+        <group name="Sketchfab_model012" position={[0, 1.386, -2.096]} rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="400854bb11454f46a37147220b3f2eb9fbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode004">
+              <group name="ASSET">
+                <mesh name="ASSET_ASSET_MAT_MR_0" geometry={nodes.ASSET_ASSET_MAT_MR_0.geometry} material={materials.ASSET_MAT_MR} position={[-137.582, -11.333, -0.476]} />
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model013" position={[-0.622, 1.366, -2.171]} rotation={[-Math.PI / 2, 0, -1.562]} scale={0.011}>
+          <group name="6578199fe39646888856dd3816050d08fbx" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="RootNode005">
+              <group name="Box046" rotation={[0, 1.571, 0]}>
+                <group name="Object_4001">
+                  <mesh name="Box046_Frame_0" geometry={nodes.Box046_Frame_0.geometry} material={materials.Frame} />
+                  <mesh name="Box046_Material_#25_0" geometry={nodes['Box046_Material_#25_0'].geometry} material={materials.Material_25} />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model014" position={[2.041, 0.694, -1.773]} rotation={[-Math.PI / 2, 0, 0]} scale={[6.678, 6.568, 6.568]}>
+          <group name="pcfbx" position={[0, 0, 0.011]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="Object_2">
+              <group name="RootNode006">
+                <group name="pCube59" position={[0.009, 6.603, 4.885]} scale={[1.331, 1.331, 0.719]}>
+                  <mesh name="pCube59_pc_modelagem_blinn5_0" geometry={nodes.pCube59_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube63" position={[0.009, 7.421, -5.278]} scale={[1.331, 1.331, 0.719]}>
+                  <mesh name="pCube63_pc_modelagem_blinn5_0" geometry={nodes.pCube63_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube66" position={[0.009, 5.003, -5.278]} scale={[1.331, 1.331, 0.719]}>
+                  <mesh name="pCube66_pc_modelagem_blinn5_0" geometry={nodes.pCube66_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube69" position={[0.009, 2.636, -5.278]} scale={[1.331, 1.331, 0.719]}>
+                  <mesh name="pCube69_pc_modelagem_blinn5_0" geometry={nodes.pCube69_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube74" position={[0.853, 4.168, -0.807]} rotation={[1.549, -1.571, 0]} scale={0.725}>
+                  <mesh name="pCube74_pc_modelagem_blinn5_0" geometry={nodes.pCube74_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube87" position={[0.853, 4.168, 0.841]} rotation={[-2.427, -Math.PI / 2, 0]} scale={0.725}>
+                  <mesh name="pCube87_pc_modelagem_blinn5_0" geometry={nodes.pCube87_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="pCube88" position={[0.853, 4.168, 2.474]} rotation={[-2.427, -Math.PI / 2, 0]} scale={0.725}>
+                  <mesh name="pCube88_pc_modelagem_blinn5_0" geometry={nodes.pCube88_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="polySurface24002" position={[0.162, 7.566, 2.373]}>
+                  <mesh name="polySurface24_pc_modelagem_blinn5_0" geometry={nodes.polySurface24_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="polySurface7002" position={[0.162, 7.566, -0.208]}>
+                  <mesh name="polySurface7_pc_modelagem_blinn5_0" geometry={nodes.polySurface7_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
+                </group>
+                <group name="back" position={[0, 0, -1000.1]} rotation={[0, -1.571, 0]}>
+                  <group name="Object_33" />
+                </group>
+                <group name="directionalLight1" position={[24.089, 7.109, 0]} rotation={[Math.PI / 2, 0, -1.61]}>
+                  <group name="Object_495" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_496" />
+                  </group>
+                </group>
+                <group name="directionalLight10" position={[0.735, 4.242, 0.98]} rotation={[0.008, 0.004, 1.462]} scale={[1.655, 1.655, 1.261]}>
+                  <group name="Object_522" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_523" />
+                  </group>
+                </group>
+                <group name="directionalLight11" position={[0.735, 4.242, 2.583]} rotation={[0.008, 0.004, 1.462]} scale={[1.655, 1.655, 1.261]}>
+                  <group name="Object_525" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_526" />
+                  </group>
+                </group>
+                <group name="directionalLight12" position={[0.735, 4.242, -0.787]} rotation={[0.008, 0.004, 1.462]} scale={[1.655, 1.655, 1.261]}>
+                  <group name="Object_528" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_529" />
+                  </group>
+                </group>
+                <group name="directionalLight13" position={[-0.004, 5.018, -5.489]} rotation={[1.288, 1.457, 0.288]} scale={[1.655, 1.655, 1.161]}>
+                  <group name="Object_531" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_532" />
+                  </group>
+                </group>
+                <group name="directionalLight14" position={[-0.004, 2.753, -5.489]} rotation={[1.288, 1.457, 0.288]} scale={[1.655, 1.655, 1.161]}>
+                  <group name="Object_534" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_535" />
+                  </group>
+                </group>
+                <group name="directionalLight15" position={[-0.004, 7.363, -5.489]} rotation={[1.288, 1.457, 0.288]} scale={[1.655, 1.655, 1.161]}>
+                  <group name="Object_537" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_538" />
+                  </group>
+                </group>
+                <group name="directionalLight16" position={[-0.733, 6.799, 0.281]} rotation={[-0.024, 0.079, 1.462]} scale={[0.829, 0.829, 0.587]}>
+                  <group name="Object_549" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_550" />
+                  </group>
+                </group>
+                <group name="directionalLight17" position={[14.218, 6.047, 5.986]} rotation={[Math.PI / 2, 0, -1.165]}>
+                  <group name="Object_552" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_553" />
+                  </group>
+                </group>
+                <group name="directionalLight2" position={[0, 6.551, 1.539]} rotation={[Math.PI / 2, 0, 1.066]} scale={[1, 1, 0.677]}>
+                  <group name="Object_498" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_499" />
+                  </group>
+                </group>
+                <group name="directionalLight3" position={[-0.068, 6.551, 2.423]} rotation={[Math.PI / 2, 0, 2.184]} scale={[1, 1, 0.677]}>
+                  <group name="Object_501" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_502" />
+                  </group>
+                </group>
+                <group name="directionalLight4" position={[-0.068, 7.702, 2.423]} rotation={[-2.988, -0.952, -3.016]} scale={[1, 1, 0.366]}>
+                  <group name="Object_504" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_505" />
+                  </group>
+                </group>
+                <group name="directionalLight5" position={[-0.068, 7.702, -0.274]} rotation={[-2.988, -0.952, -3.016]} scale={[1, 1, 0.366]}>
+                  <group name="Object_507" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_508" />
+                  </group>
+                </group>
+                <group name="directionalLight6" position={[0.025, 6.63, 4.373]} rotation={[-1.371, -1.459, -2.942]} scale={[1, 1, 0.679]}>
+                  <group name="Object_510" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_511" />
+                  </group>
+                </group>
+                <group name="directionalLight7" position={[0.025, 6.63, 4.373]} rotation={[-1.371, -1.459, -2.942]} scale={[1, 1, 0.141]}>
+                  <group name="Object_513" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_514" />
+                  </group>
+                </group>
+                <group name="directionalLight8" position={[0.025, 6.63, 4.685]} rotation={[-1.371, -1.459, 0.231]} scale={[1.736, 1.736, 1.178]}>
+                  <group name="Object_516" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_517" />
+                  </group>
+                </group>
+                <group name="directionalLight9" position={[-0.733, 5.547, 0.281]} rotation={[-0.024, 0.079, 1.462]} scale={[0.829, 0.829, 0.587]}>
+                  <group name="Object_519" rotation={[Math.PI / 2, 0, 0]}>
+                    <group name="Object_520" />
+                  </group>
+                </group>
+                <group name="pc_modelagem_back" position={[0, 0, -1000.1]} rotation={[0, -1.571, 0]}>
+                  <group name="Object_214" />
+                </group>
+                <group name="pc_modelagem_pCube1" position={[0, 4.976, 0]} scale={[4.392, 10.823, 10.434]}>
+                  <group name="transform2001" />
+                </group>
+                <group name="pc_modelagem_pCube10" position={[0, 6.685, -3.662]} scale={[3.287, 4.692, 2.602]}>
+                  <group name="transform8001" />
+                </group>
+                <group name="pc_modelagem_pCube11">
+                  <group name="transform14001" />
+                </group>
+                <group name="pc_modelagem_pCube15" position={[0, 5.113, -5.504]} scale={[3, 7.734, 0.916]}>
+                  <group name="transform5001" />
+                </group>
+                <group name="pc_modelagem_pCube2" position={[2.038, 5.046, 0.026]} scale={[7.169, 7.762, 9.902]}>
+                  <group name="transform1001" />
+                </group>
+                <group name="pc_modelagem_pCube21" position={[0, 6.685, -2.368]} scale={[1.682, 1.16, 1.125]}>
+                  <group name="transform7001" />
+                </group>
+                <group name="pc_modelagem_pCube23" position={[2.198, 4.252, 1.378]} scale={[0.606, 2.517, 5.956]}>
+                  <group name="transform11001" />
+                </group>
+                <group name="pc_modelagem_pCube3">
+                  <group name="transform4001" />
+                </group>
+                <group name="pc_modelagem_pCube47" position={[0.901, 6.603, 4.891]} scale={[1, 1, 0.089]}>
+                  <group name="transform31001" />
+                </group>
+                <group name="pc_modelagem_pCube5" position={[0, 5.113, -5.374]} scale={[3.862, 8.509, 0.603]}>
+                  <group name="transform6001" />
+                </group>
+                <group name="pc_modelagem_pCube52" position={[-0.639, 6.603, 4.891]} rotation={[0, 0, Math.PI]} scale={[1, 1, 0.089]}>
+                  <group name="transform29001" />
+                </group>
+                <group name="pc_modelagem_pCube53" position={[-0.639, 6.603, 14.618]} rotation={[0, 0, Math.PI]} scale={[1, 1, 0.089]}>
+                  <group name="transform28001" />
+                </group>
+                <group name="pc_modelagem_pCube54" position={[0.901, 6.603, 14.618]} scale={[1, 1, 0.089]}>
+                  <group name="transform27001" />
+                </group>
+                <group name="pc_modelagem_pCube55" position={[-4.037, 1.48, -9.727]} rotation={[0, 0, -0.663]}>
+                  <group name="transform33001" />
+                </group>
+                <group name="pc_modelagem_pCube56" position={[-6.252, 4.911, -9.727]} rotation={[0, 0, -1.292]}>
+                  <group name="transform35001" />
+                </group>
+                <group name="pc_modelagem_pCube57" position={[-5.991, 9.079, -9.727]} rotation={[0, 0, -1.935]}>
+                  <group name="transform34001" />
+                </group>
+                <group name="pc_modelagem_pCube58" position={[-3.157, 12.33, -9.727]} rotation={[0, 0, -2.6]}>
+                  <group name="transform32001" />
+                </group>
+                <group name="pc_modelagem_pCube72" position={[4.685, -1.37, -2.827]} scale={[1.331, 1.331, 0.719]}>
+                  <group name="transform37001" />
+                </group>
+                <group name="pc_modelagem_pCube75" position={[-5.218, 13.661, -1.15]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.725}>
+                  <group name="polySurface15001">
+                    <group name="transform46001" />
+                  </group>
+                  <group name="polySurface16001">
+                    <group name="transform53001" />
+                  </group>
+                  <group name="polySurface17001">
+                    <group name="transform52001" />
+                  </group>
+                  <group name="polySurface18001">
+                    <group name="transform43001" />
+                  </group>
+                  <group name="polySurface19001">
+                    <group name="transform51001" />
+                  </group>
+                  <group name="polySurface20001">
+                    <group name="transform50001" />
+                  </group>
+                  <group name="polySurface21001">
+                    <group name="transform49001" />
+                  </group>
+                  <group name="polySurface22001">
+                    <group name="transform44001" />
+                  </group>
+                  <group name="polySurface23001">
+                    <group name="transform47001" />
+                  </group>
+                  <group name="polySurface24001">
+                    <group name="transform54001" />
+                  </group>
+                  <group name="polySurface25001">
+                    <group name="transform45001" />
+                  </group>
+                  <group name="polySurface26001" position={[-0.021, 0, 0]}>
+                    <group name="transform48001" />
+                  </group>
+                  <group name="transform42001" />
+                </group>
+                <group name="pc_modelagem_pCube76" position={[-5.218, 13.661, -3.731]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.725}>
+                  <group name="polySurface10001">
+                    <group name="transform64001" />
+                  </group>
+                  <group name="polySurface11001">
+                    <group name="transform57001" />
+                  </group>
+                  <group name="polySurface12001">
+                    <group name="transform56001" />
+                  </group>
+                  <group name="polySurface13001">
+                    <group name="transform63001" />
+                  </group>
+                  <group name="polySurface14001" position={[-0.021, 0, 0]}>
+                    <group name="transform55001" />
+                  </group>
+                  <group name="polySurface3001">
+                    <group name="transform59001" />
+                  </group>
+                  <group name="polySurface4001">
+                    <group name="transform61001" />
+                  </group>
+                  <group name="polySurface5001">
+                    <group name="transform60001" />
+                  </group>
+                  <group name="polySurface6001">
+                    <group name="transform58001" />
+                  </group>
+                  <group name="polySurface7001">
+                    <group name="transform66001" />
+                  </group>
+                  <group name="polySurface8001">
+                    <group name="transform65001" />
+                  </group>
+                  <group name="polySurface9001">
+                    <group name="transform62001" />
+                  </group>
+                  <group name="transform41001" />
+                </group>
+                <group name="pc_modelagem_pCube8" position={[0.115, 6.551, -3.662]} scale={[3.287, 4.38, 2.602]}>
+                  <group name="transform3001" />
+                </group>
+                <group name="pc_modelagem_pCube9" position={[0.038, 6.828, 4.818]} scale={[2.894, 2.894, 1.351]}>
+                  <group name="transform16001" />
+                </group>
+                <group name="pc_modelagem_pCylinder19" position={[2.48, 4.264, -0.451]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform12001" />
+                </group>
+                <group name="pc_modelagem_pCylinder21" position={[2.48, 4.264, 1.374]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform10001" />
+                </group>
+                <group name="pc_modelagem_pCylinder26" position={[2.48, 4.264, 3.166]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform9001" />
+                </group>
+                <group name="pc_modelagem_pCylinder27" position={[-2.608, 0.013, -0.395]} scale={[1.349, 0.933, 0.894]}>
+                  <group name="polySurface2" position={[0.069, 0.508, 0.118]} scale={[0.946, 0.934, 0.937]}>
+                    <mesh name="polySurface2_aiStandardSurface7_0" geometry={nodes.polySurface2_aiStandardSurface7_0.geometry} material={materials.aiStandardSurface7} />
+                    <mesh name="polySurface2_lambert25_0" geometry={nodes.polySurface2_lambert25_0.geometry} material={materials.lambert25} />
+                  </group>
+                  <group name="transform38001" />
+                </group>
+                <group name="pc_modelagem_pCylinder34" position={[0.168, 6.6, 5.01]} rotation={[Math.PI / 2, 0, 0]} scale={[1.084, 0.865, 1.084]}>
+                  <group name="transform13001" />
+                </group>
+                <group name="pc_modelagem_pCylinder35" position={[0.168, 6.6, 4.106]} rotation={[Math.PI / 2, 0, 0]} scale={[1.084, 1.842, 1.084]}>
+                  <group name="transform15001" />
+                </group>
+                <group name="pc_modelagem_pCylinder36" position={[0.458, 6.172, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform74001" />
+                </group>
+                <group name="pc_modelagem_pCylinder37" position={[0.168, 6.6, 4.902]} rotation={[Math.PI / 2, 0, 0]} scale={[0.284, 0.056, 0.284]}>
+                  <group name="transform30001" />
+                </group>
+                <group name="pc_modelagem_pCylinder38" position={[0.458, 6.3, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform72001" />
+                </group>
+                <group name="pc_modelagem_pCylinder39" position={[0.458, 6.421, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform73001" />
+                </group>
+                <group name="pc_modelagem_pCylinder40" position={[0.458, 6.545, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform71001" />
+                </group>
+                <group name="pc_modelagem_pCylinder41" position={[0.458, 6.671, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform70001" />
+                </group>
+                <group name="pc_modelagem_pCylinder42" position={[0.458, 6.792, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform69001" />
+                </group>
+                <group name="pc_modelagem_pCylinder43" position={[0.458, 7.04, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform67001" />
+                </group>
+                <group name="pc_modelagem_pCylinder44" position={[0.458, 6.914, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform68001" />
+                </group>
+                <group name="pc_modelagem_pCylinder45" position={[0.458, 12.149, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform24001" />
+                </group>
+                <group name="pc_modelagem_pCylinder46" position={[0.458, 12.024, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform23001" />
+                </group>
+                <group name="pc_modelagem_pCylinder47" position={[0.458, 11.901, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform22001" />
+                </group>
+                <group name="pc_modelagem_pCylinder48" position={[0.458, 11.78, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform21001" />
+                </group>
+                <group name="pc_modelagem_pCylinder49" position={[0.458, 11.654, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform20001" />
+                </group>
+                <group name="pc_modelagem_pCylinder50" position={[0.458, 11.53, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform19001" />
+                </group>
+                <group name="pc_modelagem_pCylinder51" position={[0.458, 11.409, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform18001" />
+                </group>
+                <group name="pc_modelagem_pCylinder52" position={[0.458, 11.281, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform17001" />
+                </group>
+                <group name="pc_modelagem_pCylinder54" position={[1.686, 6.172, 1.519]} rotation={[0, 0, Math.PI / 2]} scale={[0.121, 2.112, 0.202]}>
+                  <group name="transform26001" />
+                </group>
+                <group name="pc_modelagem_pCylinder55" position={[1.686, 6.438, 1.519]} rotation={[0, 0, Math.PI / 2]} scale={[0.121, 2.112, 0.202]}>
+                  <group name="transform25001" />
+                </group>
+                <group name="pc_modelagem_pCylinder60" position={[4.896, 7.417, 0.653]} rotation={[Math.PI / 2, 0, 0]} scale={[0.161, 0.079, 0.153]}>
+                  <group name="transform36001" />
+                </group>
+                <group name="pc_modelagem_pCylinder61" position={[2.89, 3.994, 0.833]} rotation={[0, 0, Math.PI / 2]} scale={[0.808, 0.166, 0.808]}>
+                  <group name="transform40001" />
+                </group>
+                <group name="pc_modelagem_pCylinder62" position={[2.89, 3.994, 0.833]} rotation={[0, 0, Math.PI / 2]} scale={[0.743, 0.607, 0.743]}>
+                  <group name="transform39001" />
+                </group>
+                <group name="pCube1" position={[0, 4.976, 0]} scale={[4.392, 10.823, 10.434]}>
+                  <group name="transform2" />
+                </group>
+                <group name="pCube10" position={[0, 6.685, -3.662]} scale={[3.287, 4.692, 2.602]}>
+                  <group name="transform8" />
+                </group>
+                <group name="pCube100" position={[-1.009, 9.182, -5.243]} rotation={[1.152, 0, -Math.PI]} scale={[-0.342, -0.146, -0.317]}>
+                  <group name="transform77" />
+                </group>
+                <group name="pCube101">
+                  <group name="transform78" />
+                </group>
+                <group name="pCube103" position={[0.08, -0.537, -2.308]} scale={[1.09, 1.09, 1.713]}>
+                  <mesh name="pCube103_aiStandardSurface6_0" geometry={nodes.pCube103_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube104" position={[-0.457, 6.411, 0.597]} scale={[0.681, 2.094, 0.105]}>
+                  <mesh name="pCube104_lambert21_0" geometry={nodes.pCube104_lambert21_0.geometry} material={materials.lambert21} />
+                  <mesh name="pCube104_lambert27_0" geometry={nodes.pCube104_lambert27_0.geometry} material={materials.lambert27} />
+                </group>
+                <group name="pCube105" position={[-0.457, 6.411, 0.093]} scale={[0.681, 2.094, 0.105]}>
+                  <mesh name="pCube105_lambert21_0" geometry={nodes.pCube105_lambert21_0.geometry} material={materials.lambert21} />
+                  <mesh name="pCube105_lambert27_0" geometry={nodes.pCube105_lambert27_0.geometry} material={materials.lambert27} />
+                </group>
+                <group name="pCube106" position={[-0.457, 6.411, 0.339]} scale={[0.681, 2.094, 0.105]}>
+                  <mesh name="pCube106_lambert21_0" geometry={nodes.pCube106_lambert21_0.geometry} material={materials.lambert21} />
+                  <mesh name="pCube106_lambert27_0" geometry={nodes.pCube106_lambert27_0.geometry} material={materials.lambert27} />
+                </group>
+                <group name="pCube107" position={[0, 0.012, -0.016]}>
+                  <mesh name="pCube107_aiStandardSurface2_0" geometry={nodes.pCube107_aiStandardSurface2_0.geometry} material={materials.aiStandardSurface2} />
+                </group>
+                <group name="pCube11">
+                  <group name="transform14" />
+                </group>
+                <group name="pCube110" position={[2.035, 5.775, -5.849]}>
+                  <mesh name="pCube110_lambert31_0" geometry={nodes.pCube110_lambert31_0.geometry} material={materials.lambert31} />
+                </group>
+                <group name="pCube112" position={[-1.035, 5.158, -1.298]} scale={[0.098, 1.124, 0.783]}>
+                  <mesh name="pCube112_lambert28_0" geometry={nodes.pCube112_lambert28_0.geometry} material={materials.lambert28} />
+                  <mesh name="pCube112_lambert29_0" geometry={nodes.pCube112_lambert29_0.geometry} material={materials.lambert29} />
+                </group>
+                <group name="pCube116" position={[-1.046, 5.729, -1.095]} scale={[0.023, 0.054, 0.094]}>
+                  <mesh name="pCube116_blinn25_0" geometry={nodes.pCube116_blinn25_0.geometry} material={materials.blinn25} />
+                  <mesh name="pCube116_lambert30_0" geometry={nodes.pCube116_lambert30_0.geometry} material={materials.lambert30} />
+                </group>
+                <group name="pCube118" position={[-1.046, 7.276, -1.095]} scale={[0.023, 0.054, 0.094]}>
+                  <mesh name="pCube118_blinn25_0" geometry={nodes.pCube118_blinn25_0.geometry} material={materials.blinn25} />
+                  <mesh name="pCube118_lambert30_0" geometry={nodes.pCube118_lambert30_0.geometry} material={materials.lambert30} />
+                </group>
+                <group name="pCube119" position={[-1.035, 6.707, -1.298]} scale={[0.098, 1.124, 0.783]}>
+                  <mesh name="pCube119_lambert28_0" geometry={nodes.pCube119_lambert28_0.geometry} material={materials.lambert28} />
+                  <mesh name="pCube119_lambert29_0" geometry={nodes.pCube119_lambert29_0.geometry} material={materials.lambert29} />
+                </group>
+                <group name="pCube12" position={[0, 8.695, 1.311]} scale={[3.287, 0.593, 7.317]}>
+                  <mesh name="pCube12_aiStandardSurface11_0" geometry={nodes.pCube12_aiStandardSurface11_0.geometry} material={materials.aiStandardSurface11} />
+                </group>
+                <group name="pCube120" position={[-2.16, 5.775, -5.849]} rotation={[-Math.PI, 0, 0]} scale={[-0.871, -1, -1]}>
+                  <mesh name="pCube120_lambert31_0" geometry={nodes.pCube120_lambert31_0.geometry} material={materials.lambert31} />
+                </group>
+                <group name="pCube121" position={[1.18, 3.604, 1.52]} scale={0.392}>
+                  <mesh name="pCube121_blinn26_0" geometry={nodes.pCube121_blinn26_0.geometry} material={materials.blinn26} />
+                </group>
+                <group name="pCube122" position={[1.18, 3.392, -1.764]} scale={0.392}>
+                  <mesh name="pCube122_blinn26_0" geometry={nodes.pCube122_blinn26_0.geometry} material={materials.blinn26} />
+                </group>
+                <group name="pCube15" position={[0, 5.113, -5.504]} scale={[3, 7.734, 0.916]}>
+                  <group name="transform5" />
+                </group>
+                <group name="pCube16" position={[0, 0.341, -3.53]} scale={[0.874, 0.933, 0.373]}>
+                  <mesh name="pCube16_pc_modelagem_lambert11_0" geometry={nodes.pCube16_pc_modelagem_lambert11_0.geometry} material={materials.pc_modelagem_lambert11} />
+                </group>
+                <group name="pCube17" position={[-0.07, 5.238, -5.515]} scale={[2.668, 7.556, 0.055]}>
+                  <mesh name="pCube17_aiStandardSurface4_0" geometry={nodes.pCube17_aiStandardSurface4_0.geometry} material={materials.aiStandardSurface4} />
+                </group>
+                <group name="pCube18" position={[-0.992, 5.877, 1.511]} scale={[0.187, 3.959, 4.527]}>
+                  <mesh name="pCube18_pc_modelagem_lambert13_0" geometry={nodes.pCube18_pc_modelagem_lambert13_0.geometry} material={materials.pc_modelagem_lambert13} />
+                </group>
+                <group name="pCube19" position={[-0.782, 5.562, -0.305]} scale={[0.239, 0.15, 0.594]}>
+                  <mesh name="pCube19_aiStandardSurface6_0" geometry={nodes.pCube19_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube2" position={[2.038, 5.046, 0.026]} scale={[7.169, 7.762, 9.902]}>
+                  <group name="transform1" />
+                </group>
+                <group name="pCube20" position={[-0.867, 6.465, -0.389]} scale={[0.215, 0.818, 0.182]}>
+                  <mesh name="pCube20_aiStandardSurface6_0" geometry={nodes.pCube20_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube21" position={[0, 6.685, -2.368]} scale={[1.682, 1.16, 1.125]}>
+                  <group name="transform7" />
+                </group>
+                <group name="pCube22" position={[0, 0, -0.205]} scale={[1, 1, 0.91]}>
+                  <mesh name="pCube22_aiStandardSurface11_0" geometry={nodes.pCube22_aiStandardSurface11_0.geometry} material={materials.aiStandardSurface11} />
+                </group>
+                <group name="pCube23" position={[2.198, 4.252, 1.378]} scale={[0.606, 2.517, 5.956]}>
+                  <group name="transform11" />
+                </group>
+                <group name="pCube24" position={[0.138, 8.252, -0.218]} scale={[2.393, 0.585, 2.281]}>
+                  <mesh name="pCube24_lambert35_0" geometry={nodes.pCube24_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+                <group name="pCube25" position={[0.348, 4.104, 4.225]} scale={[2.296, 2.5, 1.152]}>
+                  <mesh name="pCube25_lambert15_0" geometry={nodes.pCube25_lambert15_0.geometry} material={materials.lambert15} />
+                  <mesh name="pCube25_pc_modelagem_lambert14_0" geometry={nodes.pCube25_pc_modelagem_lambert14_0.geometry} material={materials.pc_modelagem_lambert14} />
+                </group>
+                <group name="pCube26" position={[0.138, 8.252, 2.364]} scale={[2.393, 0.585, 2.281]}>
+                  <mesh name="pCube26_lambert35_0" geometry={nodes.pCube26_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+                <group name="pCube27" position={[0.12, 8.171, 1.078]} scale={[2.556, 0.323, 4.935]}>
+                  <mesh name="pCube27_lambert35_0" geometry={nodes.pCube27_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+                <group name="pCube28" position={[-0.862, 6.22, 1.974]} scale={[0.085, 1.671, 1.695]}>
+                  <mesh name="pCube28_aiStandardSurface6_0" geometry={nodes.pCube28_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube29" position={[1.233, 8.012, 3.436]} scale={[0.609, 0.149, 0.581]}>
+                  <mesh name="pCube29_pc_modelagem_lambert7_0" geometry={nodes.pCube29_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCube3">
+                  <group name="transform4" />
+                </group>
+                <group name="pCube30" position={[-0.865, 8.012, 3.436]} scale={[0.609, 0.149, 0.581]}>
+                  <mesh name="pCube30_pc_modelagem_lambert7_0" geometry={nodes.pCube30_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCube31" position={[-0.865, 8.012, -1.312]} scale={[0.609, 0.149, 0.581]}>
+                  <mesh name="pCube31_pc_modelagem_lambert7_0" geometry={nodes.pCube31_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCube32" position={[1.233, 8.012, -1.312]} scale={[0.609, 0.149, 0.581]}>
+                  <mesh name="pCube32_pc_modelagem_lambert7_0" geometry={nodes.pCube32_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCube36" position={[-0.801, 7.403, 3.717]} scale={[0.217, 0.249, 0.242]}>
+                  <group name="transform79" />
+                </group>
+                <group name="pCube37">
+                  <group name="transform76" />
+                </group>
+                <group name="pCube38" position={[-0.15, 0, 3.969]} scale={[1, 1, 0.176]}>
+                  <mesh name="pCube38_lambert37_0" geometry={nodes.pCube38_lambert37_0.geometry} material={materials.lambert37} />
+                </group>
+                <group name="pCube39" position={[-0.157, -0.002, 4.073]} rotation={[-0.003, 0, 0]} scale={[1, 1, 0.124]}>
+                  <mesh name="pCube39_lambert1_0" geometry={nodes.pCube39_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube4" position={[0, 1.988, 1.269]} scale={[3.287, 1.961, 6.994]}>
+                  <mesh name="pCube4_lambert1_0" geometry={nodes.pCube4_lambert1_0.geometry} material={materials.lambert1} />
+                  <mesh name="pCube4_lambert36_0" geometry={nodes.pCube4_lambert36_0.geometry} material={materials.lambert36} />
+                  <mesh name="pCube4_lambert44_0" geometry={nodes.pCube4_lambert44_0.geometry} material={materials.lambert44} />
+                  <mesh name="pCube4_lambert45_0" geometry={nodes.pCube4_lambert45_0.geometry} material={materials.lambert45} />
+                </group>
+                <group name="pCube40" position={[-0.832, 6.032, 3.742]} scale={[0.152, 0.174, 0.169]}>
+                  <group name="transform81" />
+                </group>
+                <group name="pCube41" position={[-0.832, 5.796, 3.742]} scale={[0.152, 0.174, 0.169]}>
+                  <group name="transform80" />
+                </group>
+                <group name="pCube42" position={[-0.868, 6.734, 3.741]} scale={[0.163, 0.187, 0.182]}>
+                  <group name="transform84" />
+                </group>
+                <group name="pCube43" position={[-0.868, 6.949, 3.74]} scale={[0.163, 0.187, 0.182]}>
+                  <group name="transform86" />
+                </group>
+                <group name="pCube44" position={[-0.868, 7.172, 3.737]} scale={[0.163, 0.187, 0.182]}>
+                  <group name="transform85" />
+                </group>
+                <group name="pCube45" position={[-0.832, 6.511, 3.742]} scale={[0.152, 0.174, 0.169]}>
+                  <group name="transform83" />
+                </group>
+                <group name="pCube46" position={[-0.832, 6.275, 3.742]} scale={[0.152, 0.174, 0.169]}>
+                  <group name="transform82" />
+                </group>
+                <group name="pCube47" position={[0.901, 6.603, 4.891]} scale={[1, 1, 0.089]}>
+                  <group name="transform31" />
+                </group>
+                <group name="pCube48" position={[-0.332, 4.246, 0.661]} scale={[1.278, 0.187, 2.284]}>
+                  <mesh name="pCube48_lambert1_0" geometry={nodes.pCube48_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube49" position={[-0.332, 4.567, 0.661]} scale={[1.278, 0.187, 2.284]}>
+                  <mesh name="pCube49_aiStandardSurface6_0" geometry={nodes.pCube49_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube5" position={[0, 5.113, -5.374]} scale={[3.862, 8.509, 0.603]}>
+                  <group name="transform6" />
+                </group>
+                <group name="pCube50" position={[-0.853, 7.043, 3.533]} scale={[0.217, 0.312, 0.257]}>
+                  <mesh name="pCube50_aiStandardSurface6_0" geometry={nodes.pCube50_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube51" position={[-0.853, 7.435, 3.53]} scale={[0.217, 0.312, 0.257]}>
+                  <mesh name="pCube51_aiStandardSurface6_0" geometry={nodes.pCube51_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube52" position={[-0.639, 6.603, 4.891]} rotation={[0, 0, Math.PI]} scale={[1, 1, 0.089]}>
+                  <group name="transform29" />
+                </group>
+                <group name="pCube53" position={[-0.639, 6.603, 14.618]} rotation={[0, 0, Math.PI]} scale={[1, 1, 0.089]}>
+                  <group name="transform28" />
+                </group>
+                <group name="pCube54" position={[0.901, 6.603, 14.618]} scale={[1, 1, 0.089]}>
+                  <group name="transform27" />
+                </group>
+                <group name="pCube55" position={[-4.037, 1.48, -9.727]} rotation={[0, 0, -0.663]}>
+                  <group name="transform33" />
+                </group>
+                <group name="pCube56" position={[-6.252, 4.911, -9.727]} rotation={[0, 0, -1.292]}>
+                  <group name="transform35" />
+                </group>
+                <group name="pCube57" position={[-5.991, 9.079, -9.727]} rotation={[0, 0, -1.935]}>
+                  <group name="transform34" />
+                </group>
+                <group name="pCube58" position={[-3.157, 12.33, -9.727]} rotation={[0, 0, -2.6]}>
+                  <group name="transform32" />
+                </group>
+                <group name="pCube6" position={[-0.55, 6.253, 2.031]} scale={[0.611, 1.434, 1.454]}>
+                  <mesh name="pCube6_lambert16_0" geometry={nodes.pCube6_lambert16_0.geometry} material={materials.lambert16} />
+                </group>
+                <group name="pCube60" position={[-0.801, 6.653, 4.699]} rotation={[0, 0, -0.764]} scale={[0.217, 0.249, 0.065]}>
+                  <mesh name="pCube60_pc_modelagem_lambert7_0" geometry={nodes.pCube60_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCube62" position={[1.899, 5.057, -0.003]} rotation={[0.002, 0, 0]} scale={[0, 7.815, 9.511]}>
+                  <mesh name="pCube62_blinn24_0" geometry={nodes.pCube62_blinn24_0.geometry} material={materials.blinn24} position={[-2097152, 0, 0]} />
+                </group>
+                <group name="pCube64" position={[-0.235, 0.818, -5.868]} scale={[1, 1, 0.143]}>
+                  <mesh name="pCube64_pc_modelagem_blinn16_0" geometry={nodes.pCube64_pc_modelagem_blinn16_0.geometry} material={materials.pc_modelagem_blinn16} />
+                </group>
+                <group name="pCube65" position={[-0.229, 0.524, -6.098]} scale={[1.038, 1.038, 0.22]}>
+                  <mesh name="pCube65_lambert1_0" geometry={nodes.pCube65_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube67" position={[-0.235, -1.6, -5.868]} scale={[1, 1, 0.143]}>
+                  <mesh name="pCube67_pc_modelagem_blinn16_0" geometry={nodes.pCube67_pc_modelagem_blinn16_0.geometry} material={materials.pc_modelagem_blinn16} />
+                </group>
+                <group name="pCube68" position={[-0.229, -1.864, -6.098]} scale={[1.038, 1.038, 0.22]}>
+                  <mesh name="pCube68_lambert1_0" geometry={nodes.pCube68_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube70" position={[-0.235, -3.966, -5.868]} scale={[1, 1, 0.143]}>
+                  <mesh name="pCube70_pc_modelagem_blinn16_0" geometry={nodes.pCube70_pc_modelagem_blinn16_0.geometry} material={materials.pc_modelagem_blinn16} />
+                </group>
+                <group name="pCube71" position={[-0.229, -4.227, -6.098]} scale={[1.038, 1.038, 0.22]}>
+                  <mesh name="pCube71_lambert1_0" geometry={nodes.pCube71_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube72" position={[4.685, -1.37, -2.827]} scale={[1.331, 1.331, 0.719]}>
+                  <group name="transform37" />
+                </group>
+                <group name="pCube75" position={[-5.218, 13.661, -1.15]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.725}>
+                  <group name="polySurface15">
+                    <group name="transform46" />
+                  </group>
+                  <group name="polySurface16">
+                    <group name="transform53" />
+                  </group>
+                  <group name="polySurface17">
+                    <group name="transform52" />
+                  </group>
+                  <group name="polySurface18">
+                    <group name="transform43" />
+                  </group>
+                  <group name="polySurface19">
+                    <group name="transform51" />
+                  </group>
+                  <group name="polySurface20">
+                    <group name="transform50" />
+                  </group>
+                  <group name="polySurface21">
+                    <group name="transform49" />
+                  </group>
+                  <group name="polySurface22">
+                    <group name="transform44" />
+                  </group>
+                  <group name="polySurface23">
+                    <group name="transform47" />
+                  </group>
+                  <group name="polySurface24">
+                    <group name="transform54" />
+                  </group>
+                  <group name="polySurface25">
+                    <group name="transform45" />
+                  </group>
+                  <group name="polySurface26" position={[-0.021, 0, 0]}>
+                    <group name="transform48" />
+                  </group>
+                  <group name="transform42" />
+                </group>
+                <group name="pCube76" position={[-5.218, 13.661, -3.731]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={0.725}>
+                  <group name="polySurface10">
+                    <group name="transform64" />
+                  </group>
+                  <group name="polySurface11">
+                    <group name="transform57" />
+                  </group>
+                  <group name="polySurface12">
+                    <group name="transform56" />
+                  </group>
+                  <group name="polySurface13">
+                    <group name="transform63" />
+                  </group>
+                  <group name="polySurface14" position={[-0.021, 0, 0]}>
+                    <group name="transform55" />
+                  </group>
+                  <group name="polySurface3">
+                    <group name="transform59" />
+                  </group>
+                  <group name="polySurface4">
+                    <group name="transform61" />
+                  </group>
+                  <group name="polySurface5">
+                    <group name="transform60" />
+                  </group>
+                  <group name="polySurface6">
+                    <group name="transform58" />
+                  </group>
+                  <group name="polySurface7">
+                    <group name="transform66" />
+                  </group>
+                  <group name="polySurface8">
+                    <group name="transform65" />
+                  </group>
+                  <group name="polySurface9">
+                    <group name="transform62" />
+                  </group>
+                  <group name="transform41" />
+                </group>
+                <group name="pCube78" position={[0.009, 6.674, 5.047]} scale={[2.668, 2.487, 0.055]}>
+                  <mesh name="pCube78_pc_modelagem_blinn1_0" geometry={nodes.pCube78_pc_modelagem_blinn1_0.geometry} material={materials.pc_modelagem_blinn1} />
+                </group>
+                <group name="pCube79" position={[0.12, 8.095, 1.078]} scale={[2.611, 0.284, 5.04]}>
+                  <mesh name="pCube79_lambert35_0" geometry={nodes.pCube79_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+                <group name="pCube8" position={[0.115, 6.551, -3.662]} scale={[3.287, 4.38, 2.602]}>
+                  <group name="transform3" />
+                </group>
+                <group name="pCube80" position={[-0.853, 6.671, 3.532]} scale={[0.217, 0.312, 0.257]}>
+                  <mesh name="pCube80_aiStandardSurface6_0" geometry={nodes.pCube80_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube82" position={[-0.867, 6.403, 0.842]} scale={[0.215, 2.272, 0.135]}>
+                  <mesh name="pCube82_aiStandardSurface6_0" geometry={nodes.pCube82_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube83" position={[-0.457, 6.411, 0.844]} scale={[0.681, 2.094, 0.105]}>
+                  <mesh name="pCube83_lambert21_0" geometry={nodes.pCube83_lambert21_0.geometry} material={materials.lambert21} />
+                  <mesh name="pCube83_lambert27_0" geometry={nodes.pCube83_lambert27_0.geometry} material={materials.lambert27} />
+                </group>
+                <group name="pCube86" position={[0.01, 5.047, -4.961]} scale={[3.411, 7.813, 0.086]}>
+                  <mesh name="pCube86_pc_modelagem_blinn17_0" geometry={nodes.pCube86_pc_modelagem_blinn17_0.geometry} material={materials.pc_modelagem_blinn17} />
+                </group>
+                <group name="pCube89" position={[0, 4.153, 4.228]} scale={[2.805, 2.375, 1.111]}>
+                  <mesh name="pCube89_lambert1_0" geometry={nodes.pCube89_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube9" position={[0.038, 6.828, 4.818]} scale={[2.894, 2.894, 1.351]}>
+                  <group name="transform16" />
+                </group>
+                <group name="pCube90" position={[-0.867, 6.403, 0.598]} scale={[0.215, 2.272, 0.135]}>
+                  <mesh name="pCube90_aiStandardSurface6_0" geometry={nodes.pCube90_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube92" position={[-0.867, 6.403, 0.346]} scale={[0.215, 2.272, 0.135]}>
+                  <mesh name="pCube92_aiStandardSurface6_0" geometry={nodes.pCube92_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube94" position={[-0.867, 6.403, 0.093]} scale={[0.215, 2.272, 0.135]}>
+                  <mesh name="pCube94_aiStandardSurface6_0" geometry={nodes.pCube94_aiStandardSurface6_0.geometry} material={materials.aiStandardSurface6} />
+                </group>
+                <group name="pCube96" position={[-0.079, 9.161, -5.229]} rotation={[1.152, 0, 0]} scale={[0.342, 0.342, 0.293]}>
+                  <mesh name="pCube96_lambert1_0" geometry={nodes.pCube96_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube97" position={[0.986, 9.197, -5.243]} rotation={[1.152, 0, 0]} scale={[0.197, 0.197, 0.169]}>
+                  <mesh name="pCube97_lambert1_0" geometry={nodes.pCube97_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube98" position={[1.298, 9.197, -5.243]} rotation={[1.152, 0, 0]} scale={[0.197, 0.197, 0.169]}>
+                  <mesh name="pCube98_lambert1_0" geometry={nodes.pCube98_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCube99" position={[-1.437, 9.182, -5.243]} rotation={[1.152, 0, -Math.PI]} scale={[-0.342, -0.146, -0.317]}>
+                  <group name="transform75" />
+                </group>
+                <group name="pCylinder10" position={[1.009, 8.165, -1.145]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder10_pc_modelagem_lambert7_0" geometry={nodes.pCylinder10_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder19" position={[2.48, 4.264, -0.451]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform12" />
+                </group>
+                <group name="pCylinder21" position={[2.48, 4.264, 1.374]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform10" />
+                </group>
+                <group name="pCylinder26" position={[2.48, 4.264, 3.166]} rotation={[0, 0, Math.PI / 2]} scale={[0.848, 0.084, 0.848]}>
+                  <group name="transform9" />
+                </group>
+                <group name="pCylinder27" position={[-2.608, 0.013, -0.395]} scale={[1.349, 0.933, 0.894]}>
+                  <group name="transform38" />
+                </group>
+                <group name="pCylinder28" position={[0.168, 8.129, 2.37]} scale={[1.084, 0.331, 1.084]}>
+                  <mesh name="pCylinder28_lambert35_0" geometry={nodes.pCylinder28_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+                <group name="pCylinder29" position={[1.009, 8.165, 3.285]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder29_pc_modelagem_lambert7_0" geometry={nodes.pCylinder29_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder30" position={[1.009, 8.165, 1.437]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder30_pc_modelagem_lambert7_0" geometry={nodes.pCylinder30_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder31" position={[-0.704, 8.165, 1.437]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder31_pc_modelagem_lambert7_0" geometry={nodes.pCylinder31_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder32" position={[-0.704, 8.165, 3.285]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder32_pc_modelagem_lambert7_0" geometry={nodes.pCylinder32_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder34" position={[0.168, 6.6, 5.01]} rotation={[Math.PI / 2, 0, 0]} scale={[1.084, 0.865, 1.084]}>
+                  <group name="transform13" />
+                </group>
+                <group name="pCylinder35" position={[0.168, 6.6, 4.106]} rotation={[Math.PI / 2, 0, 0]} scale={[1.084, 1.842, 1.084]}>
+                  <group name="transform15" />
+                </group>
+                <group name="pCylinder36" position={[0.458, 6.172, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform74" />
+                </group>
+                <group name="pCylinder37" position={[0.168, 6.6, 4.902]} rotation={[Math.PI / 2, 0, 0]} scale={[0.284, 0.056, 0.284]}>
+                  <group name="transform30" />
+                </group>
+                <group name="pCylinder38" position={[0.458, 6.3, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform72" />
+                </group>
+                <group name="pCylinder39" position={[0.458, 6.421, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform73" />
+                </group>
+                <group name="pCylinder40" position={[0.458, 6.545, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform71" />
+                </group>
+                <group name="pCylinder41" position={[0.458, 6.671, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform70" />
+                </group>
+                <group name="pCylinder42" position={[0.458, 6.792, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform69" />
+                </group>
+                <group name="pCylinder43" position={[0.458, 7.04, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform67" />
+                </group>
+                <group name="pCylinder44" position={[0.458, 6.914, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform68" />
+                </group>
+                <group name="pCylinder45" position={[0.458, 12.149, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform24" />
+                </group>
+                <group name="pCylinder46" position={[0.458, 12.024, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform23" />
+                </group>
+                <group name="pCylinder47" position={[0.458, 11.901, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform22" />
+                </group>
+                <group name="pCylinder48" position={[0.458, 11.78, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform21" />
+                </group>
+                <group name="pCylinder49" position={[0.458, 11.654, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform20" />
+                </group>
+                <group name="pCylinder50" position={[0.458, 11.53, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform19" />
+                </group>
+                <group name="pCylinder51" position={[0.458, 11.409, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform18" />
+                </group>
+                <group name="pCylinder52" position={[0.458, 11.281, -0.112]} rotation={[0, 0, Math.PI / 2]} scale={[0.064, 1.268, 0.121]}>
+                  <group name="transform17" />
+                </group>
+                <group name="pCylinder53" position={[-0.321, 5.647, 6.425]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.469, 0.575, 0.562]}>
+                  <mesh name="pCylinder53_aiStandardSurface9_0" geometry={nodes.pCylinder53_aiStandardSurface9_0.geometry} material={materials.aiStandardSurface9} />
+                </group>
+                <group name="pCylinder54" position={[1.686, 6.172, 1.519]} rotation={[0, 0, Math.PI / 2]} scale={[0.121, 2.112, 0.202]}>
+                  <group name="transform26" />
+                </group>
+                <group name="pCylinder55" position={[1.686, 6.438, 1.519]} rotation={[0, 0, Math.PI / 2]} scale={[0.121, 2.112, 0.202]}>
+                  <group name="transform25" />
+                </group>
+                <group name="pCylinder57" position={[0.039, 7.417, -5.323]} rotation={[Math.PI / 2, 0, 0]} scale={[0.379, 0.038, 0.359]}>
+                  <mesh name="pCylinder57_pc_modelagem_blinn18_0" geometry={nodes.pCylinder57_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder58" position={[0.039, 5, -5.323]} rotation={[Math.PI / 2, 0, 0]} scale={[0.379, 0.038, 0.359]}>
+                  <mesh name="pCylinder58_pc_modelagem_blinn18_0" geometry={nodes.pCylinder58_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder59" position={[0.03, 2.633, -5.323]} rotation={[Math.PI / 2, 0, 0]} scale={[0.379, 0.038, 0.359]}>
+                  <mesh name="pCylinder59_pc_modelagem_blinn18_0" geometry={nodes.pCylinder59_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder6" position={[-0.704, 8.165, -1.145]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder6_pc_modelagem_lambert7_0" geometry={nodes.pCylinder6_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder60" position={[4.896, 7.417, 0.653]} rotation={[Math.PI / 2, 0, 0]} scale={[0.161, 0.079, 0.153]}>
+                  <group name="transform36" />
+                </group>
+                <group name="pCylinder61" position={[2.89, 3.994, 0.833]} rotation={[0, 0, Math.PI / 2]} scale={[0.808, 0.166, 0.808]}>
+                  <group name="transform40" />
+                </group>
+                <group name="pCylinder62" position={[2.89, 3.994, 0.833]} rotation={[0, 0, Math.PI / 2]} scale={[0.743, 0.607, 0.743]}>
+                  <group name="transform39" />
+                </group>
+                <group name="pCylinder63" position={[-1.406, 0.164, 0.014]} scale={[0.739, 1, 1]}>
+                  <mesh name="pCylinder63_pc_modelagem_blinn12_0" geometry={nodes.pCylinder63_pc_modelagem_blinn12_0.geometry} material={materials.pc_modelagem_blinn12} />
+                </group>
+                <group name="pCylinder64" position={[4.164, 4.807, 1.536]} rotation={[0, 0, Math.PI / 2]}>
+                  <mesh name="pCylinder64_pc_modelagem_lambert7_0" geometry={nodes.pCylinder64_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder65" position={[-1.406, 0.164, -1.623]} scale={[0.739, 1, 1]}>
+                  <mesh name="pCylinder65_pc_modelagem_blinn12_0" geometry={nodes.pCylinder65_pc_modelagem_blinn12_0.geometry} material={materials.pc_modelagem_blinn12} />
+                </group>
+                <group name="pCylinder66" position={[4.164, 4.807, -1.045]} rotation={[0, 0, Math.PI / 2]}>
+                  <mesh name="pCylinder66_pc_modelagem_lambert7_0" geometry={nodes.pCylinder66_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder67" position={[-1.406, 0.164, 1.645]} scale={[0.739, 1, 1]}>
+                  <mesh name="pCylinder67_pc_modelagem_blinn12_0" geometry={nodes.pCylinder67_pc_modelagem_blinn12_0.geometry} material={materials.pc_modelagem_blinn12} />
+                </group>
+                <group name="pCylinder68" position={[0.004, 6.595, 4.796]} rotation={[Math.PI / 2, 0, 0]} scale={[0.342, 0.153, 0.342]}>
+                  <mesh name="pCylinder68_pc_modelagem_blinn18_0" geometry={nodes.pCylinder68_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder69" position={[0.865, 4.167, 2.474]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={[0.229, 0.054, 0.229]}>
+                  <mesh name="pCylinder69_pc_modelagem_blinn18_0" geometry={nodes.pCylinder69_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder7" position={[-0.704, 8.165, 0.702]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder7_pc_modelagem_lambert7_0" geometry={nodes.pCylinder7_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder70" position={[0.865, 4.167, 0.849]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={[0.229, 0.054, 0.229]}>
+                  <mesh name="pCylinder70_pc_modelagem_blinn18_0" geometry={nodes.pCylinder70_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder71" position={[0.865, 4.167, -0.815]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={[0.229, 0.054, 0.229]}>
+                  <mesh name="pCylinder71_pc_modelagem_blinn18_0" geometry={nodes.pCylinder71_pc_modelagem_blinn18_0.geometry} material={materials.pc_modelagem_blinn18} />
+                </group>
+                <group name="pCylinder72" position={[0, 1.309, -0.298]} scale={[1, 0.779, 0.777]}>
+                  <mesh name="pCylinder72_aiStandardSurface5_0" geometry={nodes.pCylinder72_aiStandardSurface5_0.geometry} material={materials.aiStandardSurface5} />
+                </group>
+                <group name="pCylinder73" position={[-1.474, 0.601, -4.548]} scale={0.168}>
+                  <mesh name="pCylinder73_lambert33_0" geometry={nodes.pCylinder73_lambert33_0.geometry} material={materials.lambert33} />
+                </group>
+                <group name="pCylinder74" position={[1.27, 0.601, -4.548]} scale={0.168}>
+                  <mesh name="pCylinder74_lambert33_0" geometry={nodes.pCylinder74_lambert33_0.geometry} material={materials.lambert33} />
+                </group>
+                <group name="pCylinder75" position={[-1.474, 0.601, 4.405]} scale={0.168}>
+                  <mesh name="pCylinder75_lambert33_0" geometry={nodes.pCylinder75_lambert33_0.geometry} material={materials.lambert33} />
+                </group>
+                <group name="pCylinder76" position={[1.27, 0.601, 4.405]} scale={0.168}>
+                  <mesh name="pCylinder76_lambert33_0" geometry={nodes.pCylinder76_lambert33_0.geometry} material={materials.lambert33} />
+                </group>
+                <group name="pCylinder77" position={[1.714, 8.499, -4.347]} rotation={[0, 0, Math.PI / 2]} scale={[0.092, 0.204, 0.092]}>
+                  <mesh name="pCylinder77_lambert32_0" geometry={nodes.pCylinder77_lambert32_0.geometry} material={materials.lambert32} />
+                </group>
+                <group name="pCylinder78" position={[1.714, 1.702, -4.347]} rotation={[0, 0, Math.PI / 2]} scale={[0.092, 0.204, 0.092]}>
+                  <mesh name="pCylinder78_lambert32_0" geometry={nodes.pCylinder78_lambert32_0.geometry} material={materials.lambert32} />
+                </group>
+                <group name="pCylinder79" position={[1.714, 1.702, 4.236]} rotation={[0, 0, Math.PI / 2]} scale={[0.092, 0.204, 0.092]}>
+                  <mesh name="pCylinder79_lambert32_0" geometry={nodes.pCylinder79_lambert32_0.geometry} material={materials.lambert32} />
+                </group>
+                <group name="pCylinder8" position={[1.009, 8.165, 0.702]} scale={[0.096, 0.417, 0.096]}>
+                  <mesh name="pCylinder8_pc_modelagem_lambert7_0" geometry={nodes.pCylinder8_pc_modelagem_lambert7_0.geometry} material={materials.pc_modelagem_lambert7} />
+                </group>
+                <group name="pCylinder80" position={[1.714, 8.499, 4.236]} rotation={[0, 0, Math.PI / 2]} scale={[0.092, 0.204, 0.092]}>
+                  <mesh name="pCylinder80_lambert32_0" geometry={nodes.pCylinder80_lambert32_0.geometry} material={materials.lambert32} />
+                </group>
+                <group name="pCylinder81" position={[5.222, 0, 0]}>
+                  <group name="transform88" />
+                </group>
+                <group name="pCylinder82" position={[5.222, 0.087, 0]} scale={[0.829, 1.021, 0.829]}>
+                  <group name="transform87" />
+                </group>
+                <group name="pCylinder83" position={[0.103, 3.113, 0]} scale={0.219}>
+                  <mesh name="pCylinder83_lambert43_0" geometry={nodes.pCylinder83_lambert43_0.geometry} material={materials.lambert43} />
+                </group>
+                <group name="pCylinder84" position={[0.103, 3.113, 2.508]} scale={0.219}>
+                  <mesh name="pCylinder84_lambert43_0" geometry={nodes.pCylinder84_lambert43_0.geometry} material={materials.lambert43} />
+                </group>
+                <group name="pCylinder85" position={[-1.032, 6.246, 1.599]} rotation={[0, 0, Math.PI / 2]} scale={0.177}>
+                  <mesh name="pCylinder85_lambert1_0" geometry={nodes.pCylinder85_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCylinder86" position={[-1.032, 6.589, 1.599]} rotation={[0, 0, Math.PI / 2]} scale={0.177}>
+                  <mesh name="pCylinder86_lambert1_0" geometry={nodes.pCylinder86_lambert1_0.geometry} material={materials.lambert1} />
+                </group>
+                <group name="pCylinder9" position={[0.168, 8.129, -0.212]} scale={[1.084, 0.331, 1.084]}>
+                  <mesh name="pCylinder9_lambert35_0" geometry={nodes.pCylinder9_lambert35_0.geometry} material={materials.lambert35} />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model015" position={[0.074, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.487, 0.464, 0.464]}>
+          <group name="Collada_visual_scene_group001" position={[0, -0.571, 0]} rotation={[Math.PI / 2, 0, 0]}>
+            <group name="Armrest">
+              <mesh name="defaultMaterial010" geometry={nodes.defaultMaterial010.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="BackBolt">
+              <mesh name="defaultMaterial004" geometry={nodes.defaultMaterial004.geometry} material={materials['01___Default']} position={[1.453, 1.529, -2.454]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Backrest">
+              <mesh name="defaultMaterial005" geometry={nodes.defaultMaterial005.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Backrest001">
+              <mesh name="defaultMaterial009" geometry={nodes.defaultMaterial009.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Backrest002">
+              <mesh name="defaultMaterial016" geometry={nodes.defaultMaterial016.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Base">
+              <mesh name="defaultMaterial013" geometry={nodes.defaultMaterial013.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="bolts">
+              <mesh name="defaultMaterial006" geometry={nodes.defaultMaterial006.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="chair">
+              <mesh name="defaultMaterial017" geometry={nodes.defaultMaterial017.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="chairBase">
+              <mesh name="defaultMaterial007" geometry={nodes.defaultMaterial007.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Cylinder001">
+              <mesh name="defaultMaterial001" geometry={nodes.defaultMaterial001.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Handle#1">
+              <mesh name="defaultMaterial003" geometry={nodes.defaultMaterial003.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="handle#2">
+              <mesh name="defaultMaterial002" geometry={nodes.defaultMaterial002.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Handrest">
+              <mesh name="defaultMaterial011" geometry={nodes.defaultMaterial011.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Holes">
+              <mesh name="defaultMaterial015" geometry={nodes.defaultMaterial015.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Object002">
+              <mesh name="defaultMaterial008" geometry={nodes.defaultMaterial008.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Seat">
+              <mesh name="defaultMaterial012" geometry={nodes.defaultMaterial012.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="seat">
+              <mesh name="defaultMaterial014" geometry={nodes.defaultMaterial014.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+            <group name="Wheelbase">
+              <mesh name="defaultMaterial" geometry={nodes.defaultMaterial.geometry} material={materials['01___Default']} position={[1.453, 1.531, -2.452]} scale={[1.253, 1.562, 1.562]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model016" position={[0.818, 0.791, -1.792]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.6, 1, 0.6]}>
+          <group name="root006">
+            <group name="GLTF_SceneRootNode006" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Empty_19">
+                <group name="display_18">
+                  <group name="achter001_14" position={[0, 0.564, -0.034]}>
+                    <group name="knop001_2" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_14" geometry={nodes.Object_14.geometry} material={materials.noise_knoppen} />
+                    </group>
+                    <group name="knop_1" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_12" geometry={nodes.Object_12.geometry} material={materials['noise_knoppen.001']} />
+                    </group>
+                    <group name="metaalportsonder001_9" position={[-0.228, -0.21, 0.004]} scale={0.308}>
+                      <group name="audiojack_5" position={[-0.371, 0.017, 0.002]} scale={0.02}>
+                        <mesh name="Object_23" geometry={nodes.Object_23.geometry} material={nodes.Object_23.material} />
+                      </group>
+                      <group name="hdmi001_7" position={[0.007, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_28" geometry={nodes.Object_28.geometry} material={nodes.Object_28.material} />
+                        <mesh name="Object_29" geometry={nodes.Object_29.geometry} material={nodes.Object_29.material} />
+                      </group>
+                      <group name="hdmi002_8" position={[-0.187, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_31" geometry={nodes.Object_31.geometry} material={nodes.Object_31.material} />
+                        <mesh name="Object_32" geometry={nodes.Object_32.geometry} material={nodes.Object_32.material} />
+                      </group>
+                      <group name="hdmi_6" position={[0.205, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_25" geometry={nodes.Object_25.geometry} material={materials['metal.hdmi']} />
+                        <mesh name="Object_26" geometry={nodes.Object_26.geometry} material={nodes.Object_26.material} />
+                      </group>
+                      <mesh name="Object_21" geometry={nodes.Object_21.geometry} material={nodes.Object_21.material} position={[0.002, 0, 0.002]} />
+                    </group>
+                    <group name="metaalportsonder_4" position={[0.042, -0.21, 0.001]} scale={[0.336, 0.308, 0.026]}>
+                      <group name="female_power_3" position={[0.649, 0.013, 0.093]} rotation={[-Math.PI, 1.571, 0]} scale={[76.201, 6.512, 5.977]}>
+                        <mesh name="Object_18" geometry={nodes.Object_18.geometry} material={materials['gold.plug']} />
+                        <mesh name="Object_19" geometry={nodes.Object_19.geometry} material={materials['plastic.hdmi']} />
+                      </group>
+                      <mesh name="Object_16" geometry={nodes.Object_16.geometry} material={nodes.Object_16.material} />
+                    </group>
+                    <group name="Sphere_10" position={[0.604, -0.261, 0.023]}>
+                      <mesh name="Object_34" geometry={nodes.Object_34.geometry} material={materials.noise_knoppen} />
+                      <mesh name="Object_35" geometry={nodes.Object_35.geometry} material={materials.grid_knop} />
+                    </group>
+                    <group name="voetonder_13" position={[0, -0.378, -0.019]}>
+                      <group name="voetboven001_12" />
+                      <group name="voetboven_11" />
+                    </group>
+                    <mesh name="Object_10" geometry={nodes.Object_10.geometry} material={materials['achter.onder.vlak.001']} />
+                    <mesh name="Object_7001" geometry={nodes.Object_7001.geometry} material={materials['achter.onder.noise.001']} />
+                    <mesh name="Object_8" geometry={nodes.Object_8.geometry} material={materials['achter.ribbel.001']} />
+                    <mesh name="Object_9" geometry={nodes.Object_9.geometry} material={nodes.Object_9.material} />
+                  </group>
+                  <group name="randvoor_17" position={[0.002, 0.21, 0.026]}>
+                    <group name="acer_logo_16" position={[-0.002, 0.001, 0.004]} rotation={[Math.PI / 2, 0, 0]}>
+                      <mesh name="Object_53" geometry={nodes.Object_53.geometry} material={materials.acer_logo} />
+                    </group>
+                    <mesh name="Object_49" geometry={nodes.Object_49.geometry} material={materials['rand.voor.ribbel']} />
+                    <mesh name="Object_50" geometry={nodes.Object_50.geometry} material={materials['indictor.light']} />
+                    <mesh name="Object_51" geometry={nodes.Object_51.geometry} material={materials.noise_plastic_algemeen} />
+                  </group>
+                  <group name="rand_15" position={[0.002, 0.558, 0.014]}>
+                    <mesh name="Object_46" geometry={nodes.Object_46.geometry} material={materials['rand.ribbel']} />
+                    <mesh name="Object_47" geometry={nodes.Object_47.geometry} material={materials.noise_plastic_voet} />
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model017" position={[0.071, 0.791, -1.604]} rotation={[-Math.PI / 2, 0, 0.473]} scale={[0.6, 1, 0.6]}>
+          <group name="root007">
+            <group name="GLTF_SceneRootNode007" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Empty_19001">
+                <group name="display_18001">
+                  <group name="achter001_14001" position={[0, 0.564, -0.034]}>
+                    <group name="knop001_2001" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_14001" geometry={nodes.Object_14001.geometry} material={materials['noise_knoppen.002']} />
+                    </group>
+                    <group name="knop_1001" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_12002" geometry={nodes.Object_12002.geometry} material={materials['noise_knoppen.003']} />
+                    </group>
+                    <group name="metaalportsonder001_9001" position={[-0.228, -0.21, 0.004]} scale={0.308}>
+                      <group name="audiojack_5001" position={[-0.371, 0.017, 0.002]} scale={0.02}>
+                        <mesh name="Object_23001" geometry={nodes.Object_23001.geometry} material={materials['plastic.hdmi.001']} />
+                      </group>
+                      <group name="hdmi001_7001" position={[0.007, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_28001" geometry={nodes.Object_28001.geometry} material={materials['metal.hdmi.001']} />
+                        <mesh name="Object_29001" geometry={nodes.Object_29001.geometry} material={materials['plastic.hdmi.001']} />
+                      </group>
+                      <group name="hdmi002_8001" position={[-0.187, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_31001" geometry={nodes.Object_31001.geometry} material={materials['metal.hdmi.001']} />
+                        <mesh name="Object_32001" geometry={nodes.Object_32001.geometry} material={materials['plastic.hdmi.001']} />
+                      </group>
+                      <group name="hdmi_6001" position={[0.205, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_25001" geometry={nodes.Object_25001.geometry} material={materials['metal.hdmi.001']} />
+                        <mesh name="Object_26001" geometry={nodes.Object_26001.geometry} material={materials['plastic.hdmi.001']} />
+                      </group>
+                      <mesh name="Object_21001" geometry={nodes.Object_21001.geometry} material={nodes.Object_21001.material} />
+                    </group>
+                    <group name="metaalportsonder_4001" position={[0.042, -0.21, 0.001]} scale={[0.336, 0.308, 0.026]}>
+                      <group name="female_power_3001" position={[0.649, 0.013, 0.093]} rotation={[-Math.PI, 1.571, 0]} scale={[76.201, 6.512, 5.977]}>
+                        <mesh name="Object_18001" geometry={nodes.Object_18001.geometry} material={materials['gold.plug.001']} />
+                        <mesh name="Object_19001" geometry={nodes.Object_19001.geometry} material={materials['plastic.hdmi.001']} />
+                      </group>
+                      <mesh name="Object_16001" geometry={nodes.Object_16001.geometry} material={nodes.Object_16001.material} />
+                    </group>
+                    <group name="Sphere_10001" position={[0.604, -0.261, 0.023]}>
+                      <mesh name="Object_34001" geometry={nodes.Object_34001.geometry} material={materials['noise_knoppen.002']} />
+                      <mesh name="Object_35001" geometry={nodes.Object_35001.geometry} material={materials['grid_knop.001']} />
+                    </group>
+                    <group name="voetonder_13001" position={[0, -0.378, -0.019]}>
+                      <group name="voetboven001_12001" />
+                      <group name="voetboven_11001">
+                        <mesh name="Object_41001" geometry={nodes.Object_41001.geometry} material={materials['Material.033']} />
+                        <mesh name="Object_42001" geometry={nodes.Object_42001.geometry} material={materials['noise_plastic_algemeen.001']} />
+                      </group>
+                      <mesh name="Object_37001" geometry={nodes.Object_37001.geometry} material={materials['noise_plastic_voet.001']} />
+                      <mesh name="Object_38001" geometry={nodes.Object_38001.geometry} material={nodes.Object_38001.material} />
+                      <mesh name="Object_39001" geometry={nodes.Object_39001.geometry} material={materials['Material.034']} />
+                    </group>
+                    <mesh name="Object_10001" geometry={nodes.Object_10001.geometry} material={materials['achter.onder.vlak.002']} />
+                    <mesh name="Object_7002" geometry={nodes.Object_7002.geometry} material={materials['achter.onder.noise.002']} />
+                    <mesh name="Object_8002" geometry={nodes.Object_8002.geometry} material={materials['achter.ribbel.002']} />
+                    <mesh name="Object_9001" geometry={nodes.Object_9001.geometry} material={nodes.Object_9001.material} />
+                  </group>
+                  <group name="randvoor_17001" position={[0.002, 0.21, 0.026]}>
+                    <group name="acer_logo_16001" position={[-0.002, 0.001, 0.004]} rotation={[Math.PI / 2, 0, 0]}>
+                      <mesh name="Object_53001" geometry={nodes.Object_53001.geometry} material={materials['acer_logo.001']} />
+                    </group>
+                    <mesh name="Object_49001" geometry={nodes.Object_49001.geometry} material={materials['rand.voor.ribbel.001']} />
+                    <mesh name="Object_50001" geometry={nodes.Object_50001.geometry} material={materials['indictor.light.001']} />
+                    <mesh name="Object_51001" geometry={nodes.Object_51001.geometry} material={materials['noise_plastic_algemeen.001']} />
+                  </group>
+                  <group name="rand_15001" position={[0.002, 0.558, 0.014]}>
+                    <mesh name="Object_46001" geometry={nodes.Object_46001.geometry} material={materials['rand.ribbel.001']} />
+                    <mesh name="Object_47001" geometry={nodes.Object_47001.geometry} material={materials['noise_plastic_voet.001']} />
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model018" position={[0.619, 1.844, -0.533]} rotation={[-Math.PI / 2, 0, 0.473]} scale={[0.345, 0.345, 1]}>
+          <group name="Collada_visual_scene_group002" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="lamp_01001" />
+          </group>
+        </group>
+        <group name="Sketchfab_model019" position={[0.886, 0, -1.055]} rotation={[-Math.PI / 2, 0, -0.698]} scale={0.302}>
+          <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx001" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode007">
+              <group name="Light003" position={[70.875, 402.216, -82.687]} rotation={[1.956, 1.147, -1.776]} scale={100}>
+                <group name="Object_4002" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_5003" />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model020" position={[0.159, 0, 0.364]} rotation={[-Math.PI / 2, 0, 0.473]}>
+          <group name="root008">
+            <group name="GLTF_SceneRootNode008" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Cube005_120001" position={[-1.166, 2.184, 1.395]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.019, 0.051, 0.127]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model021" position={[-0.026, 0, -0.453]} rotation={[-Math.PI / 2, 0, -0.513]}>
+          <group name="root009">
+            <group name="GLTF_SceneRootNode009" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Cube005_120002" position={[-1.166, 2.184, 1.395]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.019, 0.051, 0.127]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model022" position={[1.558, 0, -0.631]} rotation={[-Math.PI / 2, 0, -1.683]} scale={0.302}>
+          <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx002" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode008">
+              <group name="Light004" position={[70.875, 402.216, -82.687]} rotation={[1.956, 1.147, -1.776]} scale={100}>
+                <group name="Object_4003" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_5004" />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model023" position={[0.975, 1.844, -0.565]} rotation={[-Math.PI / 2, 0, -0.513]} scale={[0.345, 0.345, 1]}>
+          <group name="Collada_visual_scene_group003" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="lamp_01002" />
+          </group>
+        </group>
+        <group name="Sketchfab_model024" position={[1.566, 0.791, -1.613]} rotation={[-Math.PI / 2, 0, -0.513]} scale={[0.6, 1, 0.6]}>
+          <group name="root010">
+            <group name="GLTF_SceneRootNode010" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Empty_19002">
+                <group name="display_18002">
+                  <group name="achter001_14002" position={[0, 0.564, -0.034]}>
+                    <group name="knop001_2002" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_14002" geometry={nodes.Object_14002.geometry} material={materials['noise_knoppen.004']} />
+                    </group>
+                    <group name="knop_1002" position={[0, -0.378, 0.034]}>
+                      <mesh name="Object_12003" geometry={nodes.Object_12003.geometry} material={materials['noise_knoppen.005']} />
+                    </group>
+                    <group name="metaalportsonder001_9002" position={[-0.228, -0.21, 0.004]} scale={0.308}>
+                      <group name="audiojack_5002" position={[-0.371, 0.017, 0.002]} scale={0.02}>
+                        <mesh name="Object_23002" geometry={nodes.Object_23002.geometry} material={materials['plastic.hdmi.002']} />
+                      </group>
+                      <group name="hdmi001_7002" position={[0.007, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_28002" geometry={nodes.Object_28002.geometry} material={materials['metal.hdmi.002']} />
+                        <mesh name="Object_29002" geometry={nodes.Object_29002.geometry} material={materials['plastic.hdmi.002']} />
+                      </group>
+                      <group name="hdmi002_8002" position={[-0.187, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_31002" geometry={nodes.Object_31002.geometry} material={materials['metal.hdmi.002']} />
+                        <mesh name="Object_32002" geometry={nodes.Object_32002.geometry} material={materials['plastic.hdmi.002']} />
+                      </group>
+                      <group name="hdmi_6002" position={[0.205, 0.011, -0.001]} scale={0.008}>
+                        <mesh name="Object_25002" geometry={nodes.Object_25002.geometry} material={materials['metal.hdmi.002']} />
+                        <mesh name="Object_26002" geometry={nodes.Object_26002.geometry} material={materials['plastic.hdmi.002']} />
+                      </group>
+                      <mesh name="Object_21002" geometry={nodes.Object_21002.geometry} material={nodes.Object_21002.material} />
+                    </group>
+                    <group name="metaalportsonder_4002" position={[0.042, -0.21, 0.001]} scale={[0.336, 0.308, 0.026]}>
+                      <group name="female_power_3002" position={[0.649, 0.013, 0.093]} rotation={[-Math.PI, 1.571, 0]} scale={[76.201, 6.512, 5.977]}>
+                        <mesh name="Object_18002" geometry={nodes.Object_18002.geometry} material={materials['gold.plug.002']} />
+                        <mesh name="Object_19002" geometry={nodes.Object_19002.geometry} material={materials['plastic.hdmi.002']} />
+                      </group>
+                      <mesh name="Object_16002" geometry={nodes.Object_16002.geometry} material={nodes.Object_16002.material} />
+                    </group>
+                    <group name="Sphere_10002" position={[0.604, -0.261, 0.023]}>
+                      <mesh name="Object_34002" geometry={nodes.Object_34002.geometry} material={materials['noise_knoppen.004']} />
+                      <mesh name="Object_35002" geometry={nodes.Object_35002.geometry} material={materials['grid_knop.002']} />
+                    </group>
+                    <group name="voetonder_13002" position={[0, -0.378, -0.019]}>
+                      <group name="voetboven001_12002" />
+                      <group name="voetboven_11002">
+                        <mesh name="Object_41002" geometry={nodes.Object_41002.geometry} material={materials['Material.031']} />
+                        <mesh name="Object_42002" geometry={nodes.Object_42002.geometry} material={materials['noise_plastic_algemeen.002']} />
+                      </group>
+                      <mesh name="Object_37002" geometry={nodes.Object_37002.geometry} material={materials['noise_plastic_voet.002']} />
+                      <mesh name="Object_38002" geometry={nodes.Object_38002.geometry} material={nodes.Object_38002.material} />
+                      <mesh name="Object_39002" geometry={nodes.Object_39002.geometry} material={materials['Material.030']} />
+                    </group>
+                    <mesh name="Object_10002" geometry={nodes.Object_10002.geometry} material={materials['achter.onder.vlak.003']} />
+                    <mesh name="Object_7003" geometry={nodes.Object_7003.geometry} material={materials['achter.onder.noise.003']} />
+                    <mesh name="Object_8003" geometry={nodes.Object_8003.geometry} material={materials['achter.ribbel.003']} />
+                    <mesh name="Object_9002" geometry={nodes.Object_9002.geometry} material={nodes.Object_9002.material} />
+                  </group>
+                  <group name="randvoor_17002" position={[0.002, 0.21, 0.026]}>
+                    <group name="acer_logo_16002" position={[-0.002, 0.001, 0.004]} rotation={[Math.PI / 2, 0, 0]}>
+                      <mesh name="Object_53002" geometry={nodes.Object_53002.geometry} material={materials['acer_logo.002']} />
+                    </group>
+                    <mesh name="Object_49002" geometry={nodes.Object_49002.geometry} material={materials['rand.voor.ribbel.002']} />
+                    <mesh name="Object_50002" geometry={nodes.Object_50002.geometry} material={materials['indictor.light.002']} />
+                    <mesh name="Object_51002" geometry={nodes.Object_51002.geometry} material={materials['noise_plastic_algemeen.002']} />
+                  </group>
+                  <group name="rand_15002" position={[0.002, 0.558, 0.014]}>
+                    <mesh name="Object_46002" geometry={nodes.Object_46002.geometry} material={materials['rand.ribbel.002']} />
+                    <mesh name="Object_47002" geometry={nodes.Object_47002.geometry} material={materials['noise_plastic_voet.002']} />
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model025" position={[-1.418, 1.469, -2.082]} rotation={[-1.571, 1.569, 0]} scale={[0.871, 0.707, 1.428]}>
+          <group name="root011">
+            <group name="GLTF_SceneRootNode011" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="_0">
+                <mesh name="Object_4004" geometry={nodes.Object_4004.geometry} material={materials['material_0.001']} />
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model026" position={[-1.546, 1.313, -2.114]} rotation={[-1.521, 0.213, -1.637]} scale={[0.031, 0.049, 0.034]}>
+          <group name="Root001">
+            <group name="Plane" position={[-2.081, 0, 5.044]} rotation={[Math.PI / 2, 0, 0]} scale={0.854}>
+              <mesh name="Plane_0" geometry={nodes.Plane_0.geometry} material={materials.Cover} position={[-0.006, 0.163, 0.025]} rotation={[0.135, 0.002, 0.038]} />
+              <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials.Pages} position={[-0.006, 0.163, 0.025]} rotation={[0.135, 0.002, 0.038]} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model027" position={[-12.402, -0.309, -3.498]} rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="09645473a51d4db998c481f4b0c453adfbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode009">
+              <group name="Group006" position={[1320.843, 112.903, 193.773]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.391, 1.391, 1]}>
+                <group name="Box152" position={[0, -0.052, 0.029]}>
+                  <mesh name="Box152_Acrylic_Opaque_White_0" geometry={nodes.Box152_Acrylic_Opaque_White_0.geometry} material={materials['Material.010']} position={[-9.527, -13.493, 0]} />
+                </group>
+                <group name="Box192" position={[-1.433, -4.762, 0.83]} scale={0.506}>
+                  <mesh name="Box192_Material_#34_0" geometry={nodes['Box192_Material_#34_0'].geometry} material={materials['Material.011']} position={[-18.836, -26.679, 0]} />
+                </group>
+                <group name="Text007" position={[-3.037, 4.263, 1.318]} rotation={[0.175, 0, 0]} scale={0.945}>
+                  <mesh name="Text007_Material_#34_0" geometry={nodes['Text007_Material_#34_0'].geometry} material={materials['Material.009']} position={[-10.08, -14.06, 2.479]} />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model028" position={[1.068, 0.804, -1.424]} rotation={[-Math.PI / 2, 0, 0.196]} scale={[0.012, 0.011, 0.013]}>
+          <group name="Collada_visual_scene_group004" rotation={[Math.PI / 2, 0, 0]}>
+            <group name="mouse_1_low" position={[0, -0.927, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+              <mesh name="defaultMaterial019" geometry={nodes.defaultMaterial019.geometry} material={materials['Material.018']} />
+            </group>
+            <group name="mouse_2_low" position={[0, 1.473, -2.194]} rotation={[-Math.PI / 2, 1.571, 0]} scale={100}>
+              <mesh name="defaultMaterial018" geometry={nodes.defaultMaterial018.geometry} material={materials['Material.019']} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model029" rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="root012">
+            <group name="GLTF_SceneRootNode012" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Cube013_65001" position={[0.086, 0.7, -1.791]} rotation={[Math.PI, 0, Math.PI]} scale={[0.205, 0.025, 0.255]}>
+                <mesh name="Object_98001" geometry={nodes.Object_98001.geometry} material={materials['material_0.002']} position={[0, -8.019, 0]} scale={[1, 9.236, 1]} />
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model030" rotation={[-Math.PI / 2, 0, 0]} scale={0.302}>
+          <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx003" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode010">
+              <group name="Guitar_Stand001" position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100} />
+              <group name="Guitar_Telecaster001" position={[-12.809, 258.612, 80.448]} rotation={[-1.875, -0.174, 0.504]} scale={100} />
+              <group name="Light005" position={[144.788, 522.354, 242.382]} rotation={[1.956, 1.147, -1.776]} scale={100}>
+                <group name="Object_4005" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_5001" />
+                </group>
+              </group>
+              <group name="Light006" position={[-329.565, 522.354, 143.278]} rotation={[1.205, -0.173, 0.375]} scale={100}>
+                <group name="Object_7004" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_8004" />
+                </group>
+              </group>
+              <group name="Light007" position={[-1085.385, 522.354, -447.955]} rotation={[1.578, -0.403, 1.543]} scale={100}>
+                <group name="Object_12004" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_13001" />
+                </group>
+              </group>
+              <group name="Vox_Amp002" position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110}>
+                <mesh name="Vox_Amp_vox_amp_0" geometry={nodes.Vox_Amp_vox_amp_0.geometry} material={materials['vox_amp.001']} position={[0.177, 4.717, 0]} />
+              </group>
+              <group name="Vox_Amp003" position={[267.623, 0, -70.873]} rotation={[-Math.PI / 2, 0, 0.175]} scale={110} />
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model031" position={[0.071, 0.791, -1.604]} rotation={[-Math.PI / 2, 0, 0.473]} scale={[0.6, 1, 0.6]}>
+          <group name="root013">
+            <group name="GLTF_SceneRootNode013" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Empty_19003">
+                <group name="display_18003">
+                  <group name="achter001_14003" position={[0, 0.564, -0.034]}>
+                    <group name="voetonder_13003" position={[0, -0.378, -0.019]}>
+                      <group name="voetboven_11003">
+                        <mesh name="Object_41003" geometry={nodes.Object_41003.geometry} material={materials['Material.035']} />
+                      </group>
+                    </group>
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <group name="Sketchfab_model032" position={[0.84, 0.791, -1.766]} rotation={[-Math.PI / 2, 0, -0.015]} scale={[0.6, 1, 0.6]}>
+          <group name="root014">
+            <group name="GLTF_SceneRootNode014" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Empty_19004">
+                <group name="display_18004">
+                  <group name="achter001_14004" position={[0, 0.564, -0.034]}>
+                    <group name="voetonder_13004" position={[0, -0.378, -0.019]}>
+                      <group name="voetboven_11004">
+                        <mesh name="Object_41004" geometry={nodes.Object_41004.geometry} material={materials['Material.036']} />
+                        <mesh name="Object_42003" geometry={nodes.Object_42003.geometry} material={materials['noise_plastic_algemeen.003']} />
+                      </group>
+                      <mesh name="Object_38003" geometry={nodes.Object_38003.geometry} material={nodes.Object_38003.material} />
+                      <mesh name="Object_39003" geometry={nodes.Object_39003.geometry} material={materials['Material.037']} />
+                    </group>
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials['Material.021']} position={[-0.621, 1.364, -2.157]} rotation={[3.142, 1.562, -Math.PI / 2]} scale={[1.026, 1, 1.01]} />
+        <mesh name="Cube001" geometry={nodes.Cube001.geometry} material={materials['Material.022']} position={[0.083, 1.146, -1.583]} rotation={[-Math.PI, 1.098, -1.57]} />
+        <mesh name="Cube002" geometry={nodes.Cube002.geometry} material={materials['Material.023']} position={[0.818, 1.141, -1.785]} rotation={[0, 1.56, 1.571]} scale={[1.025, 1, 1.011]} />
+        <mesh name="Cube003" geometry={nodes.Cube003.geometry} material={materials['Material.026']} position={[1.558, 1.141, -1.6]} rotation={[0, 1.059, 1.571]} scale={[1.025, 0.996, 1]} />
       </group>
     </group>
   )
