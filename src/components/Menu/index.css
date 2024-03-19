@@ -1,5 +1,5 @@
 .menu .button-switch {
-    background-color: royalblue;
+    background-color: #E25A64;
     position: fixed;
     top: 1rem;
     right: 2rem;
@@ -41,7 +41,7 @@
 }
 
 .menu .content {
-    background-color: white;
+    background-color: #F4EEDA;
     position: fixed;
     right: 0;
     top: 0;
@@ -85,7 +85,7 @@
 
 
 .menu .links .button-link:hover {
-    color: royalblue;
+    color: #b64a53;
 }
 
 .menu .links .button-link svg {
@@ -93,6 +93,6 @@
     height: 2rem;
 }
 .menu .links .button-link:hover svg path {
-    fill: royalblue;
+    fill: #E25A64;
     transition: all .2s ease-in-out;
 }

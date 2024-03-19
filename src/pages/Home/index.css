@@ -26,10 +26,14 @@ small {font-size: 0.600rem; /* 9.6px */}
 
 body {
     /*background: linear-gradient(-20deg, rgba(0, 0, 0, 0.05), #d78eda), linear-gradient(45deg, #d172b5, #5062c6 80%);*/
-     background-color: lightgrey;
 }
-
+.menu-opened {
+    background-color: #E25A64!important;
+    color: white;
+}
 .home {
+    background-color: #F4EEDA;
+    transition: all 2s cubic-bezier(0.25, 0.1, 0, 0.98);
 }
 
 .content-home {

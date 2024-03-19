@@ -162,7 +162,7 @@ const ContactSection = () => {
             <div className={"contact-section"} id={"contact-section"}>
                 <h1>Contact me</h1>
                 <div className={"form"}>
-                    <TextField label="Name" variant="outlined"/>
+                    <TextField style={{}} label="Name" variant="outlined"/>
                     <TextField label="email" variant="outlined"/>
                     <TextField
                         label="Message"

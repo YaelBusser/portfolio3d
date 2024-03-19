@@ -33,7 +33,7 @@
     padding: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: royalblue;
+    background-color: #E25A64;
     color: white;
     width: 10rem;
     cursor: pointer;
@@ -41,17 +41,21 @@
     transition: all .3s ease-in-out;
     font-size: 16px;
     text-transform: uppercase;
+    font-family: Poppins, serif;
 }
 
 .about-section button:hover {
-    background-color: #2254da;
+    background-color: #b64a53;
 }
 
 .about-section p {
     color: #4b4b4b;
     margin-top: 1rem;
+    transition: all 2s cubic-bezier(0.25, 0.1, 0, 0.98);
 }
-
+.menu-opened .about-section p{
+    color: #e0e0e0;
+}
 .contact-section {
     width: 25rem;
 }
@@ -71,17 +75,19 @@
     padding: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: royalblue;
+    background-color: #E25A64;
     color: white;
+    width: 100%;
     cursor: pointer;
     margin-top: 2rem;
     transition: all .3s ease-in-out;
     font-size: 16px;
     text-transform: uppercase;
+    font-family: Poppins, serif;
 }
 
 .contact-section button:hover {
-    background-color: #2254da;
+    background-color: #b64a53;
 }
 
 .sphere{
