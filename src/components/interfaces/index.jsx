@@ -157,20 +157,35 @@ const ProjectsSection = () => {
     )
 }
 const ContactSection = () => {
+    const constraintsRef = useRef(null)
+
     return (
         <Section>
-            <div className={"contact-section"} id={"contact-section"}>
+            <div
+                className={"contact-section"} id={"contact-section"}>
                 <h1>Contact me</h1>
-                <div className={"form"}>
-                    <TextField style={{}} label="Name" variant="outlined"/>
-                    <TextField label="email" variant="outlined"/>
-                    <TextField
-                        label="Message"
-                        multiline
-                        rows={5}
-                    />
-                    <Button variant="contained" className={"button"}>Submit</Button>
-                </div>
+                <motion.div
+                    ref={constraintsRef}
+                    className={"block-form"}
+                >
+                    <motion.div
+                        whileHover={{ scale: 1.05}}
+                        whileTap={{
+                            rotate: 2
+                        }}
+                        drag
+                        dragConstraints={constraintsRef}
+                        className={"form"}>
+                        <TextField style={{}} label="Name" variant="outlined"/>
+                        <TextField label="email" variant="outlined"/>
+                        <TextField
+                            label="Message"
+                            multiline
+                            rows={5}
+                        />
+                        <Button variant="contained" className={"button"}>Submit</Button>
+                    </motion.div>
+                </motion.div>
             </div>
         </Section>
     )
@@ -180,7 +195,7 @@ const Interfaces = (props) => {
     const {setSection} = props;
     return (
         <div className={"sections"}>
-            <AboutSection setSection={setSection} />
+            <AboutSection setSection={setSection}/>
             <SkillsSection/>
             <ProjectsSection/>
             <ContactSection/>

@@ -62,11 +62,15 @@
 .contact-section h1 {
     margin-bottom: 2rem;
 }
-
+.contact-section .block-form{
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: grab;
+    background-color: white;
+}
 .contact-section .form {
     padding: 2rem;
-    background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
