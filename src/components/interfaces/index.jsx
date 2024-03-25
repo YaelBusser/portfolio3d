@@ -1,6 +1,6 @@
 import "./index.css";
 import {Button, TextField} from "@mui/material";
-import {OrbitControls, Sphere} from "@react-three/drei";
+import {Float, OrbitControls, Sphere} from "@react-three/drei";
 import {Canvas, useFrame} from "@react-three/fiber";
 import {useRef} from "react";
 import HtmlModel from "../models/Html.jsx";
@@ -41,16 +41,26 @@ const Section = (props) => {
 }
 
 const AboutSection = (props) => {
-    const {setSection} = props;
+    const {setSection, menuOpened} = props;
     return (
         <Section>
-            <div className={"about-section"}>
+            <motion.div
+                animate={{
+                    x: menuOpened ? "-250%" : 0,
+                }}
+                transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    duration: 1.5,
+                }}
+                className={`about-section ${menuOpened ? "hideAbout" : "showAbout"}`}
+            >
                 <h1>Hi, I'm <br/>
                     <span className={"my-name"}>Yaël Busser</span>
                 </h1>
                 <p>I'm a fullstack developper !</p>
                 <Button variant="contained" className={"button"} onClick={() => setSection(3)}>Contact me</Button>
-            </div>
+            </motion.div>
         </Section>
     )
 }
@@ -141,10 +151,11 @@ const SkillsSection = () => {
             <h1>Skills</h1>
             <div className={"sphere"}>
                 <Canvas>
-                    <ambientLight intensity={1}/>
-                    <directionalLight color="white" position={[0, 0, 5]}/>
+                    <ambientLight castShadow intensity={1}/>
+                    <directionalLight castShadow color="white" position={[0, 0, 5]}/>
                     <SkillsScene/>
                 </Canvas>
+
             </div>
         </Section>
     )
@@ -192,10 +203,10 @@ const ContactSection = () => {
 }
 
 const Interfaces = (props) => {
-    const {setSection} = props;
+    const {setSection, menuOpened} = props;
     return (
         <div className={"sections"}>
-            <AboutSection setSection={setSection}/>
+            <AboutSection menuOpened={menuOpened} setSection={setSection}/>
             <SkillsSection/>
             <ProjectsSection/>
             <ContactSection/>

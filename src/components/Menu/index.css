@@ -85,14 +85,39 @@
 
 
 .menu .links .button-link:hover {
-    color: #b64a53;
+    color: #E25A64;
 }
 
 .menu .links .button-link svg {
     width: 2rem;
     height: 2rem;
+    color: black;
 }
+
+.menu .links .button-link svg path {
+    fill: black;
+    transition: all .2s ease-in-out;
+}
+
 .menu .links .button-link:hover svg path {
     fill: #E25A64;
+    transition: all .2s ease-in-out;
+}
+
+.menu .links .color-current {
+    color: #E25A64;
+}
+
+.menu .links .color-current:hover {
+    color: #b64a53;
+}
+
+.menu .links .color-current svg path {
+    fill: #E25A64;
+    transition: all .2s ease-in-out;
+}
+
+.menu .links .color-current:hover svg path {
+    fill: #b64a53;
     transition: all .2s ease-in-out;
 }

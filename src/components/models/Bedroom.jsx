@@ -238,12 +238,8 @@ export default function BedroomModel(props) {
         <group name="Sketchfab_model004" position={[1.293, 0, -0.932]} rotation={[-Math.PI / 2, 0, -1.171]} scale={0.302}>
           <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
             <group name="RootNode">
-              <group name="Guitar_Stand" position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100}>
-                <mesh name="Guitar_Stand_Guitar_Stand_0" geometry={nodes.Guitar_Stand_Guitar_Stand_0.geometry} material={materials.Guitar_Stand} position={[-6.71, -3.655, 0.049]} rotation={[0, 0, 1.336]} />
-              </group>
-              <group name="Guitar_Telecaster" position={[162.077, 258.612, -406.543]} rotation={[-1.875, -0.174, 0.504]} scale={100}>
-                <mesh name="Guitar_Telecaster_Guitar_telecaster_0" geometry={nodes.Guitar_Telecaster_Guitar_telecaster_0.geometry} material={materials.Guitar_telecaster} position={[-10.712, -6.448, -2.331]} rotation={[0.265, -0.339, 1.321]} />
-              </group>
+              <group name="Guitar_Stand" position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100} />
+              <group name="Guitar_Telecaster" position={[162.077, 258.612, -406.543]} rotation={[-1.875, -0.174, 0.504]} scale={100} />
               <group name="Light" position={[70.875, 402.216, -82.687]} rotation={[1.956, 1.147, -1.776]} scale={100}>
                 <group name="Object_4" rotation={[Math.PI / 2, 0, 0]}>
                   <group name="Object_5" />
@@ -311,7 +307,7 @@ export default function BedroomModel(props) {
             </group>
           </group>
         </group>
-        <group name="Sketchfab_model009" position={[-2.015, 0, -2.175]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.059, 1, 1]}>
+        <group name="Sketchfab_model009" position={[-1.115, 0, -3.677]} rotation={[-Math.PI / 2, 0, 0]} scale={[1.059, 1, 1]}>
           <group name="root004">
             <group name="GLTF_SceneRootNode004" rotation={[Math.PI / 2, 0, 0]}>
               <group name="��������������_0001" position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} />
@@ -334,7 +330,7 @@ export default function BedroomModel(props) {
           <group name="400854bb11454f46a37147220b3f2eb9fbx" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
             <group name="RootNode004">
               <group name="ASSET">
-                <mesh name="ASSET_ASSET_MAT_MR_0" geometry={nodes.ASSET_ASSET_MAT_MR_0.geometry} material={materials.ASSET_MAT_MR} position={[-137.582, -11.333, -0.476]} />
+                <mesh name="ASSET_ASSET_MAT_MR_0" geometry={nodes.ASSET_ASSET_MAT_MR_0.geometry} material={materials['Material.002']} position={[-137.582, -11.333, -0.476]} />
               </group>
             </group>
           </group>
@@ -382,9 +378,7 @@ export default function BedroomModel(props) {
                 <group name="polySurface7002" position={[0.162, 7.566, -0.208]}>
                   <mesh name="polySurface7_pc_modelagem_blinn5_0" geometry={nodes.polySurface7_pc_modelagem_blinn5_0.geometry} material={materials.pc_modelagem_blinn5} />
                 </group>
-                <group name="back" position={[0, 0, -1000.1]} rotation={[0, -1.571, 0]}>
-                  <group name="Object_33" />
-                </group>
+                <group name="back" position={[0, 0, -1000.1]} rotation={[0, -1.571, 0]} />
                 <group name="directionalLight1" position={[24.089, 7.109, 0]} rotation={[Math.PI / 2, 0, -1.61]}>
                   <group name="Object_495" rotation={[Math.PI / 2, 0, 0]}>
                     <group name="Object_496" />
@@ -1591,7 +1585,6 @@ export default function BedroomModel(props) {
           <group name="Root001">
             <group name="Plane" position={[-2.081, 0, 5.044]} rotation={[Math.PI / 2, 0, 0]} scale={0.854}>
               <mesh name="Plane_0" geometry={nodes.Plane_0.geometry} material={materials.Cover} position={[-0.006, 0.163, 0.025]} rotation={[0.135, 0.002, 0.038]} />
-              <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials.Pages} position={[-0.006, 0.163, 0.025]} rotation={[0.135, 0.002, 0.038]} />
             </group>
           </group>
         </group>
@@ -1651,9 +1644,7 @@ export default function BedroomModel(props) {
                   <group name="Object_13001" />
                 </group>
               </group>
-              <group name="Vox_Amp002" position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110}>
-                <mesh name="Vox_Amp_vox_amp_0" geometry={nodes.Vox_Amp_vox_amp_0.geometry} material={materials['vox_amp.001']} position={[0.177, 4.717, 0]} />
-              </group>
+              <group name="Vox_Amp002" position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110} />
               <group name="Vox_Amp003" position={[267.623, 0, -70.873]} rotation={[-Math.PI / 2, 0, 0.175]} scale={110} />
             </group>
           </group>
@@ -1695,11 +1686,42 @@ export default function BedroomModel(props) {
             </group>
           </group>
         </group>
-        <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials['Material.021']} position={[-0.621, 1.364, -2.157]} rotation={[3.142, 1.562, -Math.PI / 2]} scale={[1.026, 1, 1.01]} />
+        <group name="Sketchfab_model" position={[-0.766, 0, -1.502]} rotation={[-Math.PI / 2, 0, 0]} scale={0.302}>
+          <group name="d7f8e6cb41fd42f59c3679f3b2a1f309fbx004" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <group name="RootNode001">
+              <group name="Guitar_Stand002" position={[-9.114, -0.846, 84.666]} rotation={[-Math.PI / 2, 0, 0.495]} scale={100}>
+                <mesh name="Guitar_Stand_Guitar_Stand_0" geometry={nodes.Guitar_Stand_Guitar_Stand_0.geometry} material={materials['Guitar_Stand.001']} />
+              </group>
+              <group name="Guitar_Telecaster002" position={[-12.809, 258.612, 80.448]} rotation={[-1.875, -0.174, 0.504]} scale={100}>
+                <mesh name="Guitar_Telecaster_Guitar_telecaster_0" geometry={nodes.Guitar_Telecaster_Guitar_telecaster_0.geometry} material={materials['Guitar_telecaster.001']} />
+              </group>
+              <group name="Light008" position={[144.788, 522.354, 242.382]} rotation={[1.956, 1.147, -1.776]} scale={100}>
+                <group name="Object_4006" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_5002" />
+                </group>
+              </group>
+              <group name="Light009" position={[-329.565, 522.354, 143.279]} rotation={[1.205, -0.173, 0.375]} scale={100}>
+                <group name="Object_7005" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_8005" />
+                </group>
+              </group>
+              <group name="Light010" position={[-1085.385, 522.354, -447.955]} rotation={[1.578, -0.403, 1.543]} scale={100}>
+                <group name="Object_12005" rotation={[Math.PI / 2, 0, 0]}>
+                  <group name="Object_13002" />
+                </group>
+              </group>
+              <group name="Vox_Amp004" position={[-230.406, 0, -90]} rotation={[-Math.PI / 2, 0, Math.PI / 6]} scale={110}>
+                <mesh name="Vox_Amp_vox_amp_0" geometry={nodes.Vox_Amp_vox_amp_0.geometry} material={materials.vox_amp} />
+              </group>
+              <group name="Vox_Amp005" position={[267.623, 0, -70.873]} rotation={[-Math.PI / 2, 0, 0.175]} scale={110} />
+            </group>
+          </group>
+        </group>
+        <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials.Material} position={[-0.621, 1.364, -2.157]} rotation={[3.142, 1.562, -Math.PI / 2]} scale={[1.026, 1, 1.01]} />
         <mesh name="Cube001" geometry={nodes.Cube001.geometry} material={materials['Material.022']} position={[0.083, 1.146, -1.583]} rotation={[-Math.PI, 1.098, -1.57]} />
         <mesh name="Cube002" geometry={nodes.Cube002.geometry} material={materials['Material.023']} position={[0.818, 1.141, -1.785]} rotation={[0, 1.56, 1.571]} scale={[1.025, 1, 1.011]} />
         <mesh name="Cube003" geometry={nodes.Cube003.geometry} material={materials['Material.026']} position={[1.558, 1.141, -1.6]} rotation={[0, 1.059, 1.571]} scale={[1.025, 0.996, 1]} />
-        <mesh name="Plane001" geometry={nodes.Plane001.geometry} material={materials.Shadow_wall} position={[0.012, -0.002, -0.001]} scale={[2.835, 1, 2.19]} />
+        <mesh name="Plane001" geometry={nodes.Plane001.geometry} material={materials['Material.004']} position={[0.012, -0.002, -0.792]} scale={[2.53, 1, 1.398]} />
       </group>
     </group>
   )

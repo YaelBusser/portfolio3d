@@ -44,11 +44,11 @@ const Home = () => {
                                 <BedroomScene section={section} menuOpened={menuOpened} />
                             </Scroll>
                             <Scroll html>
-                                <Interfaces setSection={setSection} />
+                                <Interfaces menuOpened={menuOpened} setSection={setSection} />
                             </Scroll>
                         </ScrollControls>
                     </Canvas>
-                    <Menu setSection={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
+                    <Menu section={section} setSection={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
                 </MotionConfig>
             </div>
         </div>
