@@ -92,7 +92,7 @@ const BedroomScene = (props) => {
             animate(cameraPositionZ, menuOpened ? -2 : 10, {duration: duration});
             animate(cameraLookAt, menuOpened ? 12 : 0, {duration: duration});
         }
-    }, [menuOpened]);
+    }, [cameraLookAt, cameraPositionX, cameraPositionY, cameraPositionZ, menuOpened, section]);
 
     useFrame((state) => {
         if (section === 0) {
@@ -115,10 +115,10 @@ const BedroomScene = (props) => {
                 //scale: section === 0 ? 1 : 0
             }}
         >
-            <ambientLight castShadow color={"white"}/>
-            <directionalLight castShadow intensity={1} position={[0, 5, 0]}/>
-            <directionalLight castShadow intensity={1} position={[5, 0, 0]}/>
-            <directionalLight castShadow intensity={1} position={[0, 0, 5]}/>
+            <ambientLight color={"white"}/>
+            <directionalLight intensity={1} position={[0, 5, 0]}/>
+            <directionalLight intensity={1} position={[5, 0, 0]}/>
+            <directionalLight intensity={1} position={[0, 0, 5]}/>
             <motion.group
                 position={[5, -3, 5]}
                 rotation-y={0.1}

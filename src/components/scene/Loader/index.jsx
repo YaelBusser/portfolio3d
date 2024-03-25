@@ -1,17 +1,31 @@
-import LoaderModel from "../../models/Loader.jsx";
-import "./index.css";
-import {Canvas} from "@react-three/fiber";
-import {OrbitControls} from "@react-three/drei";
+import React, {useState, useEffect} from 'react';
 
 const Loader = () => {
-    return (
-        <div className={"loader"}>
+    const [totalComponents, setTotalComponents] = useState(0);
+    const [loadedComponents, setLoadedComponents] = useState(0);
 
-        <Canvas className={"loader-content"}>
-            <OrbitControls/>
-            <LoaderModel position={[-1, 0, 0]}/>
-        </Canvas>
+    useEffect(() => {
+        const totalRoutes = document.querySelectorAll('[data-route]').length;
+        setTotalComponents(totalRoutes);
+        console.log(loadedComponents)
+        const handleComponentLoad = () => {
+            setLoadedComponents(prevLoaded => prevLoaded + 1);
+        };
+
+        document.addEventListener('componentLoaded', handleComponentLoad);
+
+        return () => {
+            document.removeEventListener('componentLoaded', handleComponentLoad);
+        };
+    }, [loadedComponents]);
+
+    const progress = totalComponents === 0 ? 100 : (loadedComponents / totalComponents) * 100;
+
+    return (
+        <div className="loader">
+            <p>{Math.round(progress)}%</p>
         </div>
-    )
-}
+    );
+};
+
 export default Loader;

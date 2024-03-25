@@ -1,27 +1,35 @@
 import "./index.css";
 import Bedroom from "../../components/scene/bedroom/index";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Scroll, ScrollControls, Sphere } from "@react-three/drei";
+import {Loader, OrbitControls, Scroll, ScrollControls, Sphere} from "@react-three/drei";
 import Interfaces from "../../components/interfaces/index.jsx";
 import SkillsScene from "../../components/scene/Skills/index.jsx";
 import { useEffect, useState } from "react";
 import ScrollManager from "../../components/ScrollManager/index.jsx";
 import Menu from "../../components/Menu";
 import BedroomScene from "../../components/scene/bedroom/index";
-import SpaceModel from "../../components/models/Space.jsx";
 import { MotionConfig, motion } from "framer-motion";
 
 const Home = () => {
+    const [loading, setLoading] = useState(true);
+
     const [section, setSection] = useState(0);
     const [menuOpened, setMenuOpened] = useState(false);
     const [color, setColor] = useState("#F4EEDA"); // Garder useState pour la couleur
+
+    useEffect(() => {
+        // Déclenche l'événement de chargement lorsque loading devient false
+        if (!loading) {
+            const event = new Event('componentLoaded');
+            document.dispatchEvent(event);
+        }
+    }, [loading]);
 
     useEffect(() => {
         setMenuOpened(false);
     }, [section]);
 
     useEffect(() => {
-        // Mise à jour de la couleur d'arrière-plan en fonction de menuOpened
         setColor(menuOpened ? "#E25A64" : "#F4EEDA");
     }, [menuOpened]);
 
@@ -48,6 +56,7 @@ const Home = () => {
                             </Scroll>
                         </ScrollControls>
                     </Canvas>
+                        <Loader/>
                     <Menu section={section} setSection={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
                 </MotionConfig>
             </div>

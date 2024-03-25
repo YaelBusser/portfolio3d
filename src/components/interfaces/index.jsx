@@ -1,6 +1,6 @@
 import "./index.css";
 import {Button, TextField} from "@mui/material";
-import {Float, OrbitControls, Sphere} from "@react-three/drei";
+import {Float, Loader, OrbitControls, Sphere} from "@react-three/drei";
 import {Canvas, useFrame} from "@react-three/fiber";
 import {useRef} from "react";
 import HtmlModel from "../models/Html.jsx";
@@ -210,6 +210,7 @@ const Interfaces = (props) => {
             <SkillsSection/>
             <ProjectsSection/>
             <ContactSection/>
+            <Loader/>
         </div>
     )
 }
