@@ -11,8 +11,6 @@ import PhpModel from "../models/Php.jsx";
 import {motion} from "framer-motion"
 import JsModel from "../models/Js.jsx";
 import NodeJsModel from "../models/Nodejs.jsx";
-import EarthModel from "../models/Earth.jsx";
-import * as THREE from "three";
 
 const Section = (props) => {
     const {children} = props;
@@ -50,8 +48,7 @@ const AboutSection = (props) => {
                 }}
                 transition={{
                     type: "spring",
-                    stiffness: 260,
-                    duration: 1.5,
+                    stiffness: 75
                 }}
                 className={`about-section ${menuOpened ? "hideAbout" : "showAbout"}`}
             >
@@ -146,24 +143,23 @@ const SkillsScene = () => {
     );
 };
 const SkillsSection = () => {
+    /*<div className={"sphere"}>
+        <Canvas>
+            <ambientLight castShadow intensity={1}/>
+            <directionalLight castShadow color="white" position={[0, 0, 5]}/>
+            <SkillsScene/>
+        </Canvas>
+     </div>*/
     return (
         <Section>
-            <h1>Skills</h1>
-            <div className={"sphere"}>
-                <Canvas>
-                    <ambientLight castShadow intensity={1}/>
-                    <directionalLight castShadow color="white" position={[0, 0, 5]}/>
-                    <SkillsScene/>
-                </Canvas>
-
-            </div>
+            <h1 className={"skills"}>Skills</h1>
         </Section>
     )
 }
 const ProjectsSection = () => {
     return (
         <Section>
-            <h1>Project</h1>
+            <h1>Projects</h1>
         </Section>
     )
 }
@@ -180,7 +176,7 @@ const ContactSection = () => {
                     className={"block-form"}
                 >
                     <motion.div
-                        whileHover={{ scale: 1.05}}
+                        whileHover={{scale: 1.05}}
                         whileTap={{
                             rotate: 2
                         }}

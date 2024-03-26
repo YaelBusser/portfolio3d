@@ -37,20 +37,21 @@ const SceneCharacter = (props) => {
     useEffect(() => {
         if (scrollY === 0) {
             actions["typing"]?.reset().fadeIn(0.2).play();
-        } else if (scrollY > 0 && scrollY < 0.3) {
-            actions["falling"]?.reset().fadeIn(0).play();
         } else if (section === 1) {
+            actions["falling"]?.reset().fadeIn(0).play();
+            group.current.rotation.y = 20
+        } else if (section === 2) {
             actions["standing"]?.reset().fadeIn(0.2).play();
         }
         console.log(section)
         console.log(menuOpened)
         console.log(scrollY)
         return () => {
-            if (scrollY === 0) {
+            if (section === 0) {
                 actions["typing"]?.reset().fadeOut(0.2).play();
-            } else if (scrollY > 0 && scrollY < 0.25) {
-                actions["falling"]?.reset().fadeOut(0.2).play();
             } else if (section === 1) {
+                actions["falling"]?.reset().fadeOut(0.2).play();
+            } else if (section === 2) {
                 actions["standing"]?.reset().fadeOut(1).play();
             }
         }
@@ -63,15 +64,16 @@ const SceneCharacter = (props) => {
             animate={
                 {
                     x: section === 0 ? 5 : -5,
-                    y: section === 0 ? 0.55 : -50,
+                    y: section === 0 ? 0.55 : -30,
                     z: section === 0 ? -5.5 : -5,
                     rotateY: section === 0 ? 3 : 1.2,
+                    scale: section === 0 ? 1 : 2
                 }
             }
             ref={group}
-            position={[5, 0.55, -5.5]}
             rotation-y={3}
         >
+           <ambientLight color={"white"} intensity={1}/>
             <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </motion.group>
     );
@@ -83,24 +85,37 @@ const BedroomScene = (props) => {
     const cameraPositionX = useMotionValue();
     const cameraPositionY = useMotionValue();
     const cameraPositionZ = useMotionValue();
+    const cameraPositionXSection2 = useMotionValue();
+    const cameraPositionYSection2 = useMotionValue();
+    const cameraPositionZSection2 = useMotionValue();
     const cameraLookAt = useMotionValue();
     const duration = 1;
+
     useEffect(() => {
         if (section === 0) {
-            animate(cameraPositionX, menuOpened ? -2 : 20, {duration: duration});
-            animate(cameraPositionY, menuOpened ? 5 : 13, {duration: duration});
-            animate(cameraPositionZ, menuOpened ? -2 : 10, {duration: duration});
+            animate(cameraPositionX, menuOpened ? -5 : 0, {duration: duration});
+            animate(cameraPositionY, menuOpened ? 10 : 10, {duration: duration});
+            animate(cameraPositionZ, menuOpened ? -10 : 20, {duration: duration});
             animate(cameraLookAt, menuOpened ? 12 : 0, {duration: duration});
+        }
+        if (section === 1) {
+            animate(cameraPositionXSection2, 0, {duration: duration});
+            animate(cameraPositionYSection2, 10, {duration: duration});
+            animate(cameraPositionZSection2, 0, {duration: duration});
         }
     }, [cameraLookAt, cameraPositionX, cameraPositionY, cameraPositionZ, menuOpened, section]);
 
     useFrame((state) => {
         if (section === 0) {
-
             state.camera.position.x = cameraPositionX.get();
             state.camera.position.y = cameraPositionY.get();
             state.camera.position.z = cameraPositionZ.get();
-            state.camera.lookAt(cameraLookAt.get(), -1, -1);
+            state.camera.lookAt(cameraLookAt.get(), 5, 0);
+        }
+        if (section === 1) {
+            state.camera.position.z = -5;
+            state.camera.position.y = 50;
+            state.camera.lookAt(0, -50, -10);
         }
     });
     /*
@@ -111,25 +126,40 @@ const BedroomScene = (props) => {
     return (
         <motion.group
             animate={{
-                y: section === 0 ? 0 : -1,
+                //y: section === 0 ? 0 : 5,
                 //scale: section === 0 ? 1 : 0
             }}
         >
-            <ambientLight color={"white"}/>
-            <directionalLight intensity={1} position={[0, 5, 0]}/>
-            <directionalLight intensity={1} position={[5, 0, 0]}/>
-            <directionalLight intensity={1} position={[0, 0, 5]}/>
             <motion.group
                 position={[5, -3, 5]}
                 rotation-y={0.1}
                 animate={{
-                    scale: section === 0 ? 1 : 0,
-                    //y: section === 0 ? 0 : 10
+                    scale: section === 0 ? 1 : 1,
+                    y: section === 0 ? 0 : -400
                 }}
             >
+                <spotLight
+                    position={[0, 20, 0]}
+                    intensity={1000}
+                    color={"white"}
+                    castShadow
+
+                />
+                <spotLight
+                    position={[20, 20, -15]}
+                    intensity={1000}
+                    color={"white"}
+                    castShadow
+                />
+                <spotLight
+                    position={[-20, 20, -10]}
+                    intensity={2000}
+                    color={"white"}
+                    castShadow
+                />
                 <BedroomModel scale={[scale, scale, scale]}/>
             </motion.group>
-            <group position={[5, -3, 5]}>
+            <group position={[2, 0.3, -4]}>
                 <SceneCharacter section={section} menuOpened={menuOpened}/>
             </group>
         </motion.group>
