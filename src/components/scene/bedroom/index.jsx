@@ -7,6 +7,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {animate, useMotionValue} from "framer-motion";
 import {motion} from "framer-motion-3d";
 import JsModel from "../../models/Js.jsx";
+import {Physics, RigidBody} from "@react-three/rapier";
 
 const SceneCharacter = (props) => {
     const {section, menuOpened} = props;
@@ -19,8 +20,10 @@ const SceneCharacter = (props) => {
     fallingAnimation[0].name = 'falling';
     const {animations: standingAnimation} = useFBX('animations/Standing W_Briefcase Idle.fbx');
     standingAnimation[0].name = 'standing';
+    const {animations: falling2Animation} = useFBX('animations/Falling.fbx');
+    falling2Animation[0].name = 'falling2';
 
-    const {actions} = useAnimations([typingAnimation[0], fallingAnimation[0], standingAnimation[0]], group);
+    const {actions} = useAnimations([typingAnimation[0], fallingAnimation[0], standingAnimation[0], falling2Animation[0]], group);
     const headFollow = useMotionValue();
     let animation;
     const data = useScroll();
@@ -29,7 +32,7 @@ const SceneCharacter = (props) => {
         if (section === 0) {
             animation = "typing";
         } else if (section > 0 && section < 1) {
-            animation = "falling";
+            animation = "falling2";
         } else if (section === 1) {
             animation = "standing";
         }
@@ -38,7 +41,7 @@ const SceneCharacter = (props) => {
         if (scrollY === 0) {
             actions["typing"]?.reset().fadeIn(0.2).play();
         } else if (section === 1) {
-            actions["falling"]?.reset().fadeIn(0).play();
+            actions["falling2"]?.reset().fadeIn(0).play();
             group.current.rotation.y = 20
         } else if (section === 2) {
             actions["standing"]?.reset().fadeIn(0.2).play();
@@ -50,14 +53,21 @@ const SceneCharacter = (props) => {
             if (section === 0) {
                 actions["typing"]?.reset().fadeOut(0.2).play();
             } else if (section === 1) {
-                actions["falling"]?.reset().fadeOut(0.2).play();
+                actions["falling2"]?.reset().fadeOut(0.2).play();
             } else if (section === 2) {
                 actions["standing"]?.reset().fadeOut(1).play();
             }
         }
     }, [actions, menuOpened, section, scrollY]);
+
     useFrame((state) => {
         setScrollY(data.scroll.current)
+        if (section === 1) {
+            group.current.rotation.y = 3;
+        } else {
+            group.current.rotation.y = 3;
+            group.current.rotation.x = 0;
+        }
     });
     return (
         <motion.group
@@ -66,14 +76,20 @@ const SceneCharacter = (props) => {
                     x: section === 0 ? 5 : -5,
                     y: section === 0 ? 0.55 : -30,
                     z: section === 0 ? -5.5 : -5,
-                    rotateY: section === 0 ? 3 : 1.2,
+                    rotateY: section === 0 ? 3 : 0,
                     scale: section === 0 ? 1 : 2
                 }
             }
             ref={group}
-            rotation-y={3}
         >
-           <ambientLight color={"white"} intensity={1}/>
+            {
+                section === 1 && (
+                    <>
+                        <ambientLight color={"white"} intensity={1}/>
+                        <directionalLight position={[0, 50, 0]} intensity={1} color={"white"}/>
+                    </>
+                )
+            }
             <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </motion.group>
     );
@@ -135,8 +151,13 @@ const BedroomScene = (props) => {
                 rotation-y={0.1}
                 animate={{
                     scale: section === 0 ? 1 : 1,
-                    y: section === 0 ? 0 : -400
+                    y: section === 0 ? 0 : -1000
                 }}
+                transition={
+                {
+                    type: "spring",
+                }
+                }
             >
                 <spotLight
                     position={[0, 20, 0]}

@@ -1,16 +1,18 @@
 import "./index.css";
 import {Button, TextField} from "@mui/material";
-import {Float, Loader, OrbitControls, Sphere} from "@react-three/drei";
-import {Canvas, useFrame} from "@react-three/fiber";
-import {useRef} from "react";
+import {Float, Loader, OrbitControls, Sphere, useAnimations, useFBX, useScroll} from "@react-three/drei";
+import {Canvas, useFrame, useLoader} from "@react-three/fiber";
+import React, {useEffect, useRef, useState} from "react";
 import HtmlModel from "../models/Html.jsx";
 import SphereModel from "../models/Sphere.jsx";
 import ReactModel from "../models/React.jsx";
 import CssModel from "../models/Css.jsx";
 import PhpModel from "../models/Php.jsx";
-import {motion} from "framer-motion"
+import {motion, useMotionValue} from "framer-motion"
 import JsModel from "../models/Js.jsx";
 import NodeJsModel from "../models/Nodejs.jsx";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+import SpeedModel from "../models/Speed.jsx";
 
 const Section = (props) => {
     const {children} = props;
@@ -150,9 +152,15 @@ const SkillsSection = () => {
             <SkillsScene/>
         </Canvas>
      </div>*/
+    const scale = 2;
     return (
         <Section>
+
             <h1 className={"skills"}>Skills</h1>
+            <Canvas>
+                <ambientLight castShadow intensity={1}/>
+                <directionalLight castShadow color="white" position={[0, 0, 5]}/>
+            </Canvas>
         </Section>
     )
 }

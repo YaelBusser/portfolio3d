@@ -10,6 +10,7 @@ import Menu from "../../components/Menu";
 import BedroomScene from "../../components/scene/bedroom/index";
 import {MotionConfig, motion} from "framer-motion";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+import SpeedModel from "../../components/models/Speed.jsx";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -37,6 +38,24 @@ const Home = () => {
         const gltf = useLoader(GLTFLoader, '/portfolio3d/models/skybox_anim.glb');
         const scale = 1;
         const group = useRef(null);
+        const [isBottom, setIsBottom] = useState(false);
+        useFrame(() => {
+                if (section === 1) {
+                    if (!isBottom) {
+                        if (group.current.position.y === 500) {
+                            group.current.position.y = 0;
+                            setIsBottom(true);
+                        } else {
+                            group.current.position.y += 0.1;
+                        }
+                    }else{
+                        setIsBottom(false);
+                        group.current.position.y -= 0.1;
+                    }
+                }
+            }
+        )
+        ;
         return (
             <group
                 ref={group}
@@ -46,11 +65,11 @@ const Home = () => {
         );
     }
     const CameraControls = () => {
-        const { camera, gl } = useThree();
+        const {camera, gl} = useThree();
 
         useEffect(() => {
             const onMouseMove = (event) => {
-                const { clientX, clientY } = event;
+                const {clientX, clientY} = event;
                 const mouseX = (clientX / window.innerWidth) * 2 - 1;
                 const mouseY = -(clientY / window.innerHeight) * 2 + 1;
                 camera.position.x = mouseX * 10;
@@ -67,6 +86,7 @@ const Home = () => {
 
         return null;
     };
+    const scale = 20;
     return (
         <div className={`home ${menuOpened ? "menu-opened" : ""}`}>
             {/* Appliquer la couleur d'arrière-plan en fonction de l'état de color */}
@@ -82,7 +102,7 @@ const Home = () => {
                     <Canvas shadows camera={{position: [0, 10, 0]}}>
                         <group>
                             <OrbitControls enableZoom={false}/>
-                            <CameraControls />
+                            <CameraControls/>
                             <SceneSkybox/>
                         </group>
                         <ScrollControls pages={4} damping={0.1}>
@@ -94,6 +114,12 @@ const Home = () => {
                                 <Interfaces menuOpened={menuOpened} setSection={setSection}/>
                             </Scroll>
                         </ScrollControls>
+                        {
+                            section === 1 && (
+                                <SpeedModel position={[0, 0, 0]} scale={[scale, scale, scale]}
+                                            rotation={[0, -1, 0.1]}/>
+                            )
+                        }
                     </Canvas>
                     <Loader/>
                     <Menu section={section} setSection={setSection} menuOpened={menuOpened}
