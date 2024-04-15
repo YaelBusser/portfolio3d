@@ -48,7 +48,7 @@ const Home = () => {
                         } else {
                             group.current.position.y += 0.1;
                         }
-                    }else{
+                    } else {
                         setIsBottom(false);
                         group.current.position.y -= 0.1;
                     }
@@ -103,7 +103,12 @@ const Home = () => {
                         <group>
                             <OrbitControls enableZoom={false}/>
                             <CameraControls/>
+                            {
+                                /*
                             <SceneSkybox/>
+                               
+                                 */
+                            }
                         </group>
                         <ScrollControls pages={4} damping={0.1}>
                             <ScrollManager section={section} onSectionChange={setSection}/>
@@ -115,10 +120,12 @@ const Home = () => {
                             </Scroll>
                         </ScrollControls>
                         {
+                            /*
                             section === 1 && (
                                 <SpeedModel position={[0, 0, 0]} scale={[scale, scale, scale]}
                                             rotation={[0, -1, 0.1]}/>
                             )
+                             */
                         }
                     </Canvas>
                     <Loader/>

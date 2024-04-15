@@ -31,31 +31,15 @@ const SceneCharacter = (props) => {
     useEffect(() => {
         if (section === 0) {
             animation = "typing";
-        } else if (section > 0 && section < 1) {
-            animation = "falling2";
-        } else if (section === 1) {
-            animation = "standing";
         }
     }, [section]);
     useEffect(() => {
         if (scrollY === 0) {
             actions["typing"]?.reset().fadeIn(0.2).play();
-        } else if (section === 1) {
-            actions["falling2"]?.reset().fadeIn(0).play();
-            group.current.rotation.y = 20
-        } else if (section === 2) {
-            actions["standing"]?.reset().fadeIn(0.2).play();
         }
-        console.log(section)
-        console.log(menuOpened)
-        console.log(scrollY)
         return () => {
             if (section === 0) {
                 actions["typing"]?.reset().fadeOut(0.2).play();
-            } else if (section === 1) {
-                actions["falling2"]?.reset().fadeOut(0.2).play();
-            } else if (section === 2) {
-                actions["standing"]?.reset().fadeOut(1).play();
             }
         }
     }, [actions, menuOpened, section, scrollY]);
@@ -64,32 +48,26 @@ const SceneCharacter = (props) => {
         setScrollY(data.scroll.current)
         if (section === 1) {
             group.current.rotation.y = 3;
-        } else {
-            group.current.rotation.y = 3;
-            group.current.rotation.x = 0;
         }
     });
     return (
         <motion.group
             animate={
                 {
-                    x: section === 0 ? 5 : -5,
-                    y: section === 0 ? 0.55 : -30,
-                    z: section === 0 ? -5.5 : -5,
+                    x: section === 0 ? 11 : 0,
+                    y: section === 0 ? 0 : 0,
+                    z: section === 0 ? -0 : 0,
                     rotateY: section === 0 ? 3 : 0,
-                    scale: section === 0 ? 1 : 2
+                    scale: section === 0 ? 1 : 1
+                }
+            }
+            transition={
+                {
+                    type: "spring",
                 }
             }
             ref={group}
         >
-            {
-                section === 1 && (
-                    <>
-                        <ambientLight color={"white"} intensity={1}/>
-                        <directionalLight position={[0, 50, 0]} intensity={1} color={"white"}/>
-                    </>
-                )
-            }
             <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </motion.group>
     );
@@ -101,9 +79,6 @@ const BedroomScene = (props) => {
     const cameraPositionX = useMotionValue();
     const cameraPositionY = useMotionValue();
     const cameraPositionZ = useMotionValue();
-    const cameraPositionXSection2 = useMotionValue();
-    const cameraPositionYSection2 = useMotionValue();
-    const cameraPositionZSection2 = useMotionValue();
     const cameraLookAt = useMotionValue();
     const duration = 1;
 
@@ -114,11 +89,6 @@ const BedroomScene = (props) => {
             animate(cameraPositionZ, menuOpened ? -10 : 20, {duration: duration});
             animate(cameraLookAt, menuOpened ? 12 : 0, {duration: duration});
         }
-        if (section === 1) {
-            animate(cameraPositionXSection2, 0, {duration: duration});
-            animate(cameraPositionYSection2, 10, {duration: duration});
-            animate(cameraPositionZSection2, 0, {duration: duration});
-        }
     }, [cameraLookAt, cameraPositionX, cameraPositionY, cameraPositionZ, menuOpened, section]);
 
     useFrame((state) => {
@@ -127,11 +97,6 @@ const BedroomScene = (props) => {
             state.camera.position.y = cameraPositionY.get();
             state.camera.position.z = cameraPositionZ.get();
             state.camera.lookAt(cameraLookAt.get(), 5, 0);
-        }
-        if (section === 1) {
-            state.camera.position.z = -5;
-            state.camera.position.y = 50;
-            state.camera.lookAt(0, -50, -10);
         }
     });
     /*
@@ -148,41 +113,54 @@ const BedroomScene = (props) => {
         >
             <motion.group
                 position={[5, -3, 5]}
-                rotation-y={0.1}
+                rotation-y={-0.1}
                 animate={{
-                    scale: section === 0 ? 1 : 1,
-                    y: section === 0 ? 0 : -1000
+                    scale: section === 0 ? 1 : 0,
+                    y: section === 0 ? 0 : 0
                 }}
                 transition={
-                {
-                    type: "spring",
-                }
+                    {
+                        type: "spring",
+                    }
                 }
             >
-                <spotLight
-                    position={[0, 20, 0]}
-                    intensity={1000}
-                    color={"white"}
-                    castShadow
-
-                />
-                <spotLight
-                    position={[20, 20, -15]}
-                    intensity={1000}
-                    color={"white"}
-                    castShadow
-                />
-                <spotLight
-                    position={[-20, 20, -10]}
-                    intensity={2000}
-                    color={"white"}
-                    castShadow
-                />
                 <BedroomModel scale={[scale, scale, scale]}/>
+                <mesh position={[0, -0.5, -5]} receiveShadow>
+                    <boxGeometry args={[150, 0.1, 22]}/>
+                    <meshPhysicalMaterial transparent opacity={0.1}/>
+                </mesh>
+                <mesh position={[0, 50, -14.7]} rotation={[0, Math.PI / 2, Math.PI / 2]} receiveShadow>
+                    <boxGeometry args={[100, 0.01, 150]}/>
+                    <meshPhysicalMaterial transparent opacity={0.1}/>
+                </mesh>
             </motion.group>
-            <group position={[2, 0.3, -4]}>
+            <group>
                 <SceneCharacter section={section} menuOpened={menuOpened}/>
             </group>
+            <spotLight
+                position={[0, 20, 0]}
+                intensity={500}
+                color={"blue"}
+                castShadow
+            />
+            <spotLight
+                position={[-30, 20, 0]}
+                intensity={500}
+                color={"red"}
+                castShadow
+            />
+            <spotLight
+                position={[30, 20, 0]}
+                intensity={500}
+                color={"green"}
+                castShadow
+            />
+            <spotLight
+                position={[0, 30, 5]}
+                intensity={1000}
+                color={"white"}
+                castShadow
+            />
         </motion.group>
     )
 }
