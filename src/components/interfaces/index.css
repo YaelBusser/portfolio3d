@@ -133,3 +133,28 @@
 .contact-container {
     background-color: #e25a64;
 }
+.planet-name{
+    color: white;
+    font-size: 50px;
+    user-select: none;
+    position: absolute;
+    top: 100vh;
+}.little-planet{
+    color: white;
+    font-size: 20px
+}
+ .info-skill{
+     position: absolute;
+     top: 100vh;
+     margin-left: 15rem;
+ }
+.content-info-skill{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.info-click-planet{
+    font-size: 16px;
+    color: white;
+    font-style: italic;
+}

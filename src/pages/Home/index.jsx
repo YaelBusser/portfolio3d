@@ -127,7 +127,6 @@ const Home = () => {
                                 <BedroomScene section={section} menuOpened={menuOpened}/>
                             </Scroll>
                             <Scroll>
-                                <OrbitControls enableZoom={false}/>
                                 <SkillsScene section={section}/>
                             </Scroll>
                             <Scroll html>

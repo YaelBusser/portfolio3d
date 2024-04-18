@@ -1,8 +1,9 @@
 import "./index.css";
 import {Button, TextField} from "@mui/material";
 import {
+    Billboard,
     CameraControls,
-    Float,
+    Float, Html,
     Loader,
     OrbitControls,
     Sphere,
@@ -10,20 +11,22 @@ import {
     useFBX,
     useScroll
 } from "@react-three/drei";
-import {Canvas, useFrame, useLoader} from "@react-three/fiber";
+import {Canvas, useFrame, useLoader, useThree} from "@react-three/fiber";
 import React, {useEffect, useRef, useState} from "react";
 import HtmlModel from "../models/Html.jsx";
 import SphereModel from "../models/Sphere.jsx";
 import ReactModel from "../models/React.jsx";
 import CssModel from "../models/Css.jsx";
 import PhpModel from "../models/Php.jsx";
-import {motion, useMotionValue} from "framer-motion"
+import {animate, motion, useMotionValue} from "framer-motion"
 import JsModel from "../models/Js.jsx";
 import NodeJsModel from "../models/Nodejs.jsx";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 import SpeedModel from "../models/Speed.jsx";
 import {SceneCharacter} from "../scene/bedroom/index.jsx";
 import StarsModel from "../models/Stars.jsx";
+import {Bloom, EffectComposer} from "@react-three/postprocessing";
+import * as THREE from "three";
 
 const Section = (props) => {
     const {children, name} = props;
@@ -160,15 +163,134 @@ const SkillsScene = () => {
     );
 };
  */
+const SkillPlanet = ({rotation, model, scale}) => {
+    const meshRef = useRef();
+    const scaleIcon = scale;
+    useFrame(() => {
+        if (rotation) {
+            meshRef.current.rotation.y += rotation;
+        }
+    }, []);
+    return (
+        <group ref={meshRef} scale={[scaleIcon, scaleIcon, scaleIcon]}>
+            {model}
+        </group>
+    );
+};
 export const SkillsScene = (props) => {
     const {section} = props;
+    const [timeElapsed, setTimeElapsed] = useState(0);
+    const controlsRef = useRef(null);
+    const phpGroupRef = useRef(null);
+    const cssGroupRef = useRef(null);
+    const reactGroupRef = useRef(null);
+    const jsModelRef = useRef(null);
+    const [trackingObject, setTrackingObject] = useState(null);
+    const [isTracking, setIsTracking] = useState(false);
+    const handlePlanetClick = (groupRef) => {
+        // Check if the group reference exists
+        if (groupRef.current) {
+            setTrackingObject(groupRef.current);
+            setIsTracking(true);
+        }
+    };
+    useEffect(() => {
+        setIsTracking(false);
+    }, [section]);
+    const {camera} = useThree();
+    useFrame((state, delta) => {
+        if (section === 1) {
+            if (controlsRef.current) {
+                controlsRef.current.autoRotateSpeed = 0.5;
+                controlsRef.current.autoRotate = true;
+            }
+
+            setTimeElapsed((prevTime) => prevTime + delta);
+
+            if (phpGroupRef.current && jsModelRef.current) {
+                const jsModelPosition = jsModelRef.current.position;
+                const radius = 30;
+                const orbitSpeed = 0.5;
+                phpGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed);
+                phpGroupRef.current.position.y = jsModelPosition.y;
+                phpGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed);
+            }
+            if (cssGroupRef.current && jsModelRef.current) {
+                const jsModelPosition = jsModelRef.current.position;
+                const radius = 50;
+                const orbitSpeed = 0.5;
+                cssGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 10);
+                cssGroupRef.current.position.y = jsModelPosition.y;
+                cssGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 10);
+            }
+            if (reactGroupRef.current && jsModelRef.current) {
+                const jsModelPosition = jsModelRef.current.position;
+                const radius = 50;
+                const orbitSpeed = 0.5;
+                reactGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
+                reactGroupRef.current.position.y = jsModelPosition.y;
+                reactGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 20);
+            }
+            if (isTracking && trackingObject) {
+                // Animate camera position and lookAt
+                const targetPosition = new THREE.Vector3();
+                targetPosition.copy(trackingObject.position);
+                targetPosition.z += 20; // Adjust the distance from the object as needed
+                // Linear interpolation for smooth animation
+                camera.position.lerp(targetPosition, 1); // Adjust the speed as needed
+                camera.lookAt(trackingObject.position);
+            }
+        }
+    }, []);
     return (
         <>
             {
                 section === 1 && (
                     <>
-                        <ambientLight color={"red"} intensity={1}/>
-                        <StarsModel/>
+                        <group>
+                            <Html>
+                                <div className={"info-click-planet"}>
+                                    <p>Click on planet !</p>
+                                </div>
+                            </Html>
+                            <StarsModel scale={5}/>
+                            <OrbitControls ref={controlsRef} enableZoom={false} target={[0, 0, 0]} minDistance={100}
+                                           maxDistance={100}/>
+                            <group position-y={-20}>
+                                <group position={[30, 0, 0]} ref={cssGroupRef}
+                                       onClick={() => handlePlanetClick(cssGroupRef)}>
+                                    <SkillPlanet rotation={0.02} scale={2} model={<CssModel/>}/>
+                                </group>
+                                <group position={[20, 0, 0]} ref={phpGroupRef}
+                                       onClick={() => handlePlanetClick(phpGroupRef)}>
+                                    <SkillPlanet rotation={0.02} scale={5} model={<PhpModel/>}/>
+                                </group>
+                                <group position={[20, 0, 0]} ref={reactGroupRef}
+                                       onClick={() => handlePlanetClick(reactGroupRef)}>
+                                    <SkillPlanet rotation={0.02} scale={5} model={<ReactModel/>}/>
+                                </group>
+                                <group position={[0, 0, 0]} ref={jsModelRef} onClick={() => handlePlanetClick(jsModelRef)}>
+                                    <ambientLight
+                                        color="white"
+                                        intensity={1}
+                                        position={[0, 0, 0]}
+                                    />
+                                    <SkillPlanet rotation={0.02} scale={10} model={<JsModel/>}/>
+                                </group>
+                            </group>
+                            {
+                                isTracking && (
+                                    <Html>
+                                        <div className={"info-skill"}>
+                                            <div className={"content-info-skill"}>
+                                                <Button variant="contained" className={"button"}
+                                                        onClick={() => setIsTracking(false)}>BACK</Button>
+                                            </div>
+                                        </div>
+                                    </Html>
+                                )
+                            }
+                        </group>
                     </>
                 )
             }
@@ -180,6 +302,7 @@ const SkillsSection = () => {
     return (
         <Section name={"skills"}>
             <h1 className={"skills"}>Skills</h1>
+            <p className={"info-click-planet"}>Click on planets !</p>
         </Section>
     )
 }

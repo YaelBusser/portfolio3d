@@ -11,9 +11,10 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function StarsModel(props) {
+    const {scale} = props;
   const { nodes, materials } = useGLTF('/portfolio3d/models/stars.glb')
   return (
-    <group {...props} dispose={null}>
+    <group scale={[scale, scale, scale]} {...props} dispose={null}>
       <mesh geometry={nodes.Object_2.geometry} material={materials.star} rotation={[-Math.PI / 2, 0, 0]} />
     </group>
   )

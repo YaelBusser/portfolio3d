@@ -6,18 +6,14 @@ Command: npx gltfjsx@6.2.16 php.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-const PhpModel = (props) => {
+export default function PhpModel(props) {
   const { nodes, materials } = useGLTF('/portfolio3d/models/php.glb')
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 0.131, 0]} rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-        <mesh geometry={nodes.back.geometry} material={materials.Matériau} />
-        <mesh geometry={nodes.LOGO.geometry} material={materials['Matériau.001']} position={[-0.001, 0.403, 0.009]} />
-      </group>
+      <mesh geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
+      <mesh geometry={nodes.e.geometry} material={materials['Material.002']} position={[0.009, 1.294, 0.412]} rotation={[1.573, -0.001, -1.571]} />
     </group>
   )
 }
 
 useGLTF.preload('/portfolio3d/models/php.glb')
-
-export default PhpModel;

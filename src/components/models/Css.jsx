@@ -6,18 +6,13 @@ Command: npx gltfjsx@6.2.16 css.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-const CssModel = (props) => {
+export default function CssModel(props) {
   const { nodes, materials } = useGLTF('/portfolio3d/models/css.glb')
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 3.931, 0]} scale={2.234}>
-        <mesh geometry={nodes.Cube016.geometry} material={materials.Blue} position={[0.096, -0.146, -0.132]} scale={1.693} />
-        <mesh geometry={nodes.Cube017.geometry} material={materials.White} position={[0.175, -0.233, 0.172]} scale={1.693} />
-      </group>
+      <mesh geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
     </group>
   )
 }
 
 useGLTF.preload('/portfolio3d/models/css.glb')
-
-export default CssModel;
