@@ -38,6 +38,18 @@ const ScrollManager = (props) => {
         if (data.scroll.current < lastScroll.current && data.scroll.current < (1 / (data.pages - 1))) {
             onSectionChange(0);
         }
+        if (data.scroll.current > 0.34 && data.scroll.current < 0.35) {
+            onSectionChange(2);
+        }
+        if (data.scroll.current > 0.64 && data.scroll.current < 0.65) {
+            onSectionChange(1);
+        }
+        if (data.scroll.current > 0.67 && data.scroll.current < 0.68) {
+            onSectionChange(3);
+        }if (data.scroll.current < 1 && data.scroll.current > 0.9) {
+            onSectionChange(2);
+        }
+
         lastScroll.current = data.scroll.current;
     })
 

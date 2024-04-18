@@ -1,6 +1,15 @@
 import "./index.css";
 import {Button, TextField} from "@mui/material";
-import {Float, Loader, OrbitControls, Sphere, useAnimations, useFBX, useScroll} from "@react-three/drei";
+import {
+    CameraControls,
+    Float,
+    Loader,
+    OrbitControls,
+    Sphere,
+    useAnimations,
+    useFBX,
+    useScroll
+} from "@react-three/drei";
 import {Canvas, useFrame, useLoader} from "@react-three/fiber";
 import React, {useEffect, useRef, useState} from "react";
 import HtmlModel from "../models/Html.jsx";
@@ -13,30 +22,35 @@ import JsModel from "../models/Js.jsx";
 import NodeJsModel from "../models/Nodejs.jsx";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 import SpeedModel from "../models/Speed.jsx";
+import {SceneCharacter} from "../scene/bedroom/index.jsx";
+import StarsModel from "../models/Stars.jsx";
 
 const Section = (props) => {
-    const {children} = props;
+    const {children, name} = props;
 
     return (
-        <motion.section
-            className={"section"}
-            initial={
-                {
-                    opacity: 0,
-                    y: 50
+        <div
+            className={`container-section ${name === "skills" ? "skills-section" : ""} ${name === "contact" ? "contact-container" : ""}`}>
+            <motion.section
+                className={"section"}
+                initial={
+                    {
+                        opacity: 0,
+                        y: 50
+                    }
                 }
-            }
-            whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                    duration: 1,
-                    delay: 0.5
-                }
-            }}
-        >
-            {children}
-        </motion.section>
+                whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                        duration: 1,
+                        delay: 0.5
+                    }
+                }}
+            >
+                {children}
+            </motion.section>
+        </div>
     )
 }
 
@@ -58,7 +72,7 @@ const AboutSection = (props) => {
                     <span className={"my-name"}>Yaël Busser</span>
                 </h1>
                 <p>I'm a fullstack developper !</p>
-                <Button variant="contained" className={"button"} onClick={() => setSection(3)}>Contact me</Button>
+                <Button variant="contained" className={"button"} onClick={() => setSection(3)}>Get in touch</Button>
             </motion.div>
         </Section>
     )
@@ -90,12 +104,13 @@ const SkillOrbit = ({azimuthAngle, elevationAngle, model, scale}) => {
         </group>
     );
 };
+/*
 const SkillsScene = () => {
-    const groupRef = useRef();
+     const groupRef = useRef();
 
-    useFrame(() => {
-        groupRef.current.rotation.y += 0.005;
-    });
+     useFrame(() => {
+         groupRef.current.rotation.y += 0.005;
+     });
     //<EarthModel scale={[scale, scale, scale]}/>
     const scale = 0.7;
     return (
@@ -103,7 +118,7 @@ const SkillsScene = () => {
             <group ref={groupRef} position={[0, 0, 0]}>
                 <SphereModel scale={[scale, scale, scale]}/>
             </group>
-            <group position={[0, 0, 0]}>
+            <group position={[0, 0, -50]}>
                 <SkillOrbit
                     scale={5}
                     azimuthAngle={0}
@@ -144,23 +159,27 @@ const SkillsScene = () => {
         </group>
     );
 };
+ */
+export const SkillsScene = (props) => {
+    const {section} = props;
+    return (
+        <>
+            {
+                section === 1 && (
+                    <>
+                        <ambientLight color={"red"} intensity={1}/>
+                        <StarsModel/>
+                    </>
+                )
+            }
+        </>
+    )
+}
 const SkillsSection = () => {
-    /*<div className={"sphere"}>
-        <Canvas>
-            <ambientLight castShadow intensity={1}/>
-            <directionalLight castShadow color="white" position={[0, 0, 5]}/>
-            <SkillsScene/>
-        </Canvas>
-     </div>*/
     const scale = 2;
     return (
-        <Section>
-
+        <Section name={"skills"}>
             <h1 className={"skills"}>Skills</h1>
-            <Canvas>
-                <ambientLight castShadow intensity={1}/>
-                <directionalLight castShadow color="white" position={[0, 0, 5]}/>
-            </Canvas>
         </Section>
     )
 }
@@ -175,10 +194,10 @@ const ContactSection = () => {
     const constraintsRef = useRef(null)
 
     return (
-        <Section>
+        <Section name={"contact"}>
             <div
                 className={"contact-section"} id={"contact-section"}>
-                <h1>Contact me</h1>
+                <h1>Get in touch</h1>
                 <motion.div
                     ref={constraintsRef}
                     className={"block-form"}
