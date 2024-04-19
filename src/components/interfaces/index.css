@@ -133,27 +133,39 @@
 .contact-container {
     background-color: #e25a64;
 }
-.planet-name{
+
+.planet-name {
     color: white;
-    font-size: 50px;
+    font-size: 15px;
     user-select: none;
     position: absolute;
-    top: 100vh;
-}.little-planet{
-    color: white;
-    font-size: 20px
+    top: 88vh;
+    left: -3rem;
+    background-color: #e25a64;
+    border-radius: 10px;
+    padding: 0 0.5rem;
+    cursor: pointer;
 }
- .info-skill{
-     position: absolute;
-     top: 100vh;
-     margin-left: 15rem;
- }
-.content-info-skill{
+
+.little-planet {
+    font-size: 10px;
+    top: 93vh;
+    left: -1rem;
+}
+
+.info-skill {
+    position: absolute;
+    top: 100vh;
+    margin-left: 15rem;
+}
+
+.content-info-skill {
     background-color: white;
     padding: 1rem;
     border-radius: 10px;
 }
-.info-click-planet{
+
+.info-click-planet {
     font-size: 16px;
     color: white;
     font-style: italic;

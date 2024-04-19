@@ -64,7 +64,9 @@ const BedroomScene = (props) => {
     const controls = useRef();
     const lightAnimation = useRef();
     useFrame(({clock}) => {
-        lightAnimation.current.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 20;
+        if (lightAnimation.current) {
+            lightAnimation.current.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 20;
+        }
     }, []);
     useEffect(() => {
         if (section === 0) {
@@ -122,33 +124,38 @@ const BedroomScene = (props) => {
             <group>
                 <SceneCharacter section={section} menuOpened={menuOpened}/>
             </group>
-            <group ref={lightAnimation}>
-                <pointLight
-                    position={[0, 20, 0]}
-                    intensity={500}
-                    color={"blue"}
-                    castShadow
-                />
-                <pointLight
-                    position={[-20, 20, 0]}
-                    intensity={500}
-                    color={"red"}
-                    castShadow
-                />
-                <pointLight
-                    position={[20, 20, 0]}
-                    intensity={500}
-                    color={"green"}
-                    castShadow
-                />
-
-            </group>
-            <spotLight
-                position={[0, 25, 0]}
-                intensity={1000}
-                color={"white"}
-                castShadow
-            />
+            {
+                section === 0 && (
+                    <>
+                        <group ref={lightAnimation}>
+                            <pointLight
+                                position={[0, 20, 0]}
+                                intensity={500}
+                                color={"blue"}
+                                castShadow
+                            />
+                            <pointLight
+                                position={[-20, 20, 0]}
+                                intensity={500}
+                                color={"red"}
+                                castShadow
+                            />
+                            <pointLight
+                                position={[20, 20, 0]}
+                                intensity={500}
+                                color={"green"}
+                                castShadow
+                            />
+                        </group>
+                        <spotLight
+                            position={[0, 25, 0]}
+                            intensity={1000}
+                            color={"white"}
+                            castShadow
+                        />
+                    </>
+                )
+            }
         </motion.group>
     )
 }

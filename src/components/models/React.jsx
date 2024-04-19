@@ -10,7 +10,7 @@ export default function ReactModel(props) {
   const { nodes, materials } = useGLTF('/portfolio3d/models//react.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
+      <mesh receiveShadow geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
     </group>
   )
 }

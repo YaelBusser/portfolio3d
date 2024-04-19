@@ -27,6 +27,7 @@ import {SceneCharacter} from "../scene/bedroom/index.jsx";
 import StarsModel from "../models/Stars.jsx";
 import {Bloom, EffectComposer} from "@react-three/postprocessing";
 import * as THREE from "three";
+import {Vector3} from "three";
 
 const Section = (props) => {
     const {children, name} = props;
@@ -237,11 +238,12 @@ export const SkillsScene = (props) => {
                 targetPosition.copy(trackingObject.position);
                 targetPosition.z += 20; // Adjust the distance from the object as needed
                 // Linear interpolation for smooth animation
-                camera.position.lerp(targetPosition, 1); // Adjust the speed as needed
+                camera.position.lerp(targetPosition, 0.1); // Adjust the speed as needed
                 camera.lookAt(trackingObject.position);
             }
         }
     }, []);
+
     return (
         <>
             {
@@ -257,25 +259,47 @@ export const SkillsScene = (props) => {
                             <OrbitControls ref={controlsRef} enableZoom={false} target={[0, 0, 0]} minDistance={100}
                                            maxDistance={100}/>
                             <group position-y={-20}>
-                                <group position={[30, 0, 0]} ref={cssGroupRef}
-                                       onClick={() => handlePlanetClick(cssGroupRef)}>
-                                    <SkillPlanet rotation={0.02} scale={2} model={<CssModel/>}/>
+                                <group position={[30, 0, 0]} ref={cssGroupRef} onClick={() => handlePlanetClick(cssGroupRef)}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<CssModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"} onClick={() => handlePlanetClick(cssGroupRef)}>CSS</p>
+                                            </Html>
+                                        )
+                                    }
                                 </group>
-                                <group position={[20, 0, 0]} ref={phpGroupRef}
-                                       onClick={() => handlePlanetClick(phpGroupRef)}>
-                                    <SkillPlanet rotation={0.02} scale={5} model={<PhpModel/>}/>
+                                <group position={[20, 0, 0]} ref={phpGroupRef} onClick={() => handlePlanetClick(phpGroupRef)}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<PhpModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"} onClick={() => handlePlanetClick(phpGroupRef)}>PHP</p>
+                                            </Html>
+                                        )
+                                    }
                                 </group>
-                                <group position={[20, 0, 0]} ref={reactGroupRef}
-                                       onClick={() => handlePlanetClick(reactGroupRef)}>
-                                    <SkillPlanet rotation={0.02} scale={5} model={<ReactModel/>}/>
+                                <group position={[20, 0, 0]} ref={reactGroupRef} onClick={() => handlePlanetClick(reactGroupRef)}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<ReactModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"} onClick={() => handlePlanetClick(reactGroupRef)}>React</p>
+                                            </Html>
+                                        )
+                                    }
                                 </group>
                                 <group position={[0, 0, 0]} ref={jsModelRef} onClick={() => handlePlanetClick(jsModelRef)}>
-                                    <ambientLight
-                                        color="white"
-                                        intensity={1}
-                                        position={[0, 0, 0]}
-                                    />
-                                    <SkillPlanet rotation={0.02} scale={10} model={<JsModel/>}/>
+                                    <pointLight castShadow intensity={10000}/>
+                                    <SkillPlanet rotation={0.005} scale={10} model={<JsModel/>}/>
+                                    <ambientLight intensity={3}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name"} onClick={() => handlePlanetClick(jsModelRef)}>JavaScript</p>
+                                            </Html>
+                                        )
+                                    }
                                 </group>
                             </group>
                             {

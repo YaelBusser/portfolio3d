@@ -11,7 +11,7 @@ export default function PhpModel(props) {
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
-      <mesh geometry={nodes.e.geometry} material={materials['Material.002']} position={[0.009, 1.294, 0.412]} rotation={[1.573, -0.001, -1.571]} />
+      <mesh geometry={nodes.e.geometry} material={materials['Material.003']} position={[0.013, 1.294, 0.281]} rotation={[1.573, -0.001, -1.576]} />
     </group>
   )
 }
