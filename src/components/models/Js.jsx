@@ -10,7 +10,6 @@ export default function JsModel(props) {
   const { nodes, materials } = useGLTF('/portfolio3d/models/js.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.e.geometry} material={materials['Material.002']} position={[-0.813, 1.294, -0.003]} rotation={[1.571, 0.002, 0.014]} />
       <mesh geometry={nodes.Sphere_1.geometry} material={materials['Material.001']} />
       <mesh geometry={nodes.Sphere_2.geometry} material={materials['Material.003']} />
     </group>

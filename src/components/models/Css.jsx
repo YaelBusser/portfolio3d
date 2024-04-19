@@ -10,7 +10,8 @@ export default function CssModel(props) {
   const { nodes, materials } = useGLTF('/portfolio3d/models/css.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh receiveShadow geometry={nodes.Sphere.geometry} material={materials['Material.001']} />
+      <mesh geometry={nodes.Sphere_1.geometry} material={materials['Material.001']} />
+      <mesh geometry={nodes.Sphere_2.geometry} material={materials['Material.002']} />
     </group>
   )
 }
