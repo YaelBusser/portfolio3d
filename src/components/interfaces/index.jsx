@@ -29,6 +29,7 @@ import {Bloom, EffectComposer} from "@react-three/postprocessing";
 import * as THREE from "three";
 import {BufferAttribute, BufferGeometry, Vector3} from "three";
 import MaterialUiModel from "../models/MaterialUi.jsx";
+import SkillsModel from "../models/Skills.jsx";
 
 const Section = (props) => {
     const {children, name} = props;
@@ -188,12 +189,18 @@ export const SkillsScene = (props) => {
     const materialUiGroupRef = useRef(null);
     const reactGroupRef = useRef(null);
     const jsModelRef = useRef(null);
+    const skillsRef = useRef(null);
     const [trackingObject, setTrackingObject] = useState(null);
     const [isTracking, setIsTracking] = useState(false);
-    const handlePlanetClick = (groupRef) => {
+    const [skillSelected, setSkillSelected] = useState();
+    const cancel = () => {
+        setIsTracking(false);
+    }
+    const handlePlanetClick = (groupRef, skillName) => {
         if (groupRef.current) {
             setTrackingObject(groupRef.current);
             setIsTracking(true);
+            setSkillSelected(`${skillName}`);
         }
     };
     useEffect(() => {
@@ -209,38 +216,46 @@ export const SkillsScene = (props) => {
             }
 
             setTimeElapsed((prevTime) => prevTime + delta);
-
-            if (phpGroupRef.current && jsModelRef.current) {
-                const jsModelPosition = jsModelRef.current.position;
-                const radius = 30;
-                const orbitSpeed = 0.1;
-                phpGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed);
-                phpGroupRef.current.position.y = jsModelPosition.y;
-                phpGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed);
-            }
-            if (cssGroupRef.current && jsModelRef.current) {
-                const jsModelPosition = jsModelRef.current.position;
-                const radius = 80;
-                const orbitSpeed = 0.1;
-                cssGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 10);
-                cssGroupRef.current.position.y = jsModelPosition.y;
-                cssGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 10);
-            }
-            if (reactGroupRef.current && jsModelRef.current) {
-                const jsModelPosition = jsModelRef.current.position;
+            if (jsModelRef.current && skillsRef.current) {
+                const skillsModelPosition = skillsRef.current.position;
                 const radius = 50;
                 const orbitSpeed = 0.1;
-                reactGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
-                reactGroupRef.current.position.y = jsModelPosition.y;
-                reactGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 20);
+                jsModelRef.current.position.x = skillsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 50);
+                jsModelRef.current.position.y = skillsModelPosition.y;
+                jsModelRef.current.position.z = skillsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 50);
+                if (reactGroupRef.current && jsModelRef.current) {
+                    const jsModelPosition = jsModelRef.current.position;
+                    const radius = 20;
+                    const orbitSpeed = 0.5;
+                    reactGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
+                    reactGroupRef.current.position.y = jsModelPosition.y;
+                    reactGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 20);
+                }
+
             }
-            if (materialUiGroupRef.current && cssGroupRef.current) {
-                const cssModelPosition = cssGroupRef.current.position;
-                const radius = 20;
-                const orbitSpeed = 1;
-                materialUiGroupRef.current.position.x = cssModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 10);
-                materialUiGroupRef.current.position.y = cssModelPosition.y;
-                materialUiGroupRef.current.position.z = cssModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 10);
+            if (phpGroupRef.current && skillsRef.current) {
+                const skillsModelPosition = skillsRef.current.position;
+                const radius = 100;
+                const orbitSpeed = 0.1;
+                phpGroupRef.current.position.x = skillsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
+                phpGroupRef.current.position.y = skillsModelPosition.y;
+                phpGroupRef.current.position.z = skillsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 20);
+            }
+            if (cssGroupRef.current && skillsRef.current) {
+                const skillsModelPosition = skillsRef.current.position;
+                const radius = 150;
+                const orbitSpeed = 0.1;
+                cssGroupRef.current.position.x = skillsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 10);
+                cssGroupRef.current.position.y = skillsModelPosition.y;
+                cssGroupRef.current.position.z = skillsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 10);
+                if (materialUiGroupRef.current) {
+                    const cssModelPosition = cssGroupRef.current.position;
+                    const radius = 20;
+                    const orbitSpeed = 0.5;
+                    materialUiGroupRef.current.position.x = cssModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 10);
+                    materialUiGroupRef.current.position.y = cssModelPosition.y;
+                    materialUiGroupRef.current.position.z = cssModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 10);
+                }
             }
             if (isTracking && trackingObject) {
                 const targetPosition = new THREE.Vector3();
@@ -249,22 +264,23 @@ export const SkillsScene = (props) => {
                 camera.position.lerp(targetPosition, 0.1);
                 camera.lookAt(trackingObject.position);
             }
+
         }
     }, []);
     const Ring = (props) => {
         const ref = useRef(null);
-        const {innerRadius, outerRadius, color} = props;
+        const {innerRadius, outerRadius, color, rotation} = props;
         return (
             <>
                 <mesh
-                    rotation={[-Math.PI / 2, 0, 0]}
+                    rotation={[-Math.PI / 2, rotation ? rotation : 0, 0]}
                     ref={ref}
                 >
                     <ringGeometry args={[innerRadius, outerRadius, 100]}/>
                     <meshBasicMaterial attach="material" color={color}/>
                 </mesh>
                 <mesh
-                    rotation={[Math.PI / 2, 0, 0]}
+                    rotation={[Math.PI / 2, rotation ? -rotation : 0, 0]}
                     ref={ref}
                 >
                     <ringGeometry args={[innerRadius, outerRadius, 100]}/>
@@ -279,90 +295,189 @@ export const SkillsScene = (props) => {
                 section === 1 && (
                     <>
                         <group>
-                            <Html>
-                                <div className={"info-click-planet"}>
-                                    <p>Click on planet !</p>
-                                </div>
-                            </Html>
                             <StarsModel scale={5}/>
                             <OrbitControls ref={controlsRef} enableZoom={false} target={[0, 0, 0]}
-                                           minDistance={isTracking ? 90 : 150}
-                                           maxDistance={200}/>
+                                           minDistance={isTracking ? 90 : 250}
+                                           maxDistance={1000}/>
                             <group position-y={-20}>
-                                <group ref={cssGroupRef} onClick={() => handlePlanetClick(cssGroupRef)}>
-                                    <SkillPlanet rotation={0.005} scale={5} model={<CssModel/>}/>
-                                    {
-                                        !isTracking && (
-                                            <Html>
-                                                <p className={"planet-name little-planet"}
-                                                   onClick={() => handlePlanetClick(cssGroupRef)}>CSS</p>
-                                            </Html>
-                                        )
-                                    }
-                                    <Ring innerRadius={20} outerRadius={20.5} color={"white"}/>
-                                </group>
-                                <group ref={materialUiGroupRef} onClick={() => handlePlanetClick(materialUiGroupRef)}>
-                                    <SkillPlanet rotation={0.005} scale={5} model={<MaterialUiModel/>}/>
-                                    {
-                                        !isTracking && (
-                                            <Html>
-                                                <p className={"planet-name little-planet"}
-                                                   onClick={() => handlePlanetClick(materialUiGroupRef)}>MaterialUi</p>
-                                            </Html>
-                                        )
-                                    }
-                                </group>
-                                <group ref={reactGroupRef} onClick={() => handlePlanetClick(reactGroupRef)}>
-                                    <SkillPlanet rotation={0.005} scale={5} model={<ReactModel/>}/>
-                                    {
-                                        !isTracking && (
-                                            <Html>
-                                                <p className={"planet-name little-planet"}
-                                                   onClick={() => handlePlanetClick(reactGroupRef)}>React</p>
-                                            </Html>
-                                        )
-                                    }
-                                </group>
-                                <group ref={phpGroupRef} onClick={() => handlePlanetClick(phpGroupRef)}>
-                                    <SkillPlanet rotation={0.005} scale={5} model={<PhpModel/>}/>
-                                    {
-                                        !isTracking && (
-                                            <Html>
-                                                <p className={"planet-name little-planet"}
-                                                   onClick={() => handlePlanetClick(phpGroupRef)}>PHP</p>
-                                            </Html>
-                                        )
-                                    }
-                                </group>
-                                <group ref={jsModelRef} onClick={() => handlePlanetClick(jsModelRef)}>
+                                <group ref={skillsRef}
+                                       onClick={() => handlePlanetClick(skillsRef, "skills")}
+                                >
                                     <pointLight castShadow intensity={10000}/>
-                                    <SkillPlanet rotation={0.005} scale={10} model={<JsModel/>}/>
+                                    <SkillPlanet rotation={0.005} scale={10} model={<SkillsModel/>}/>
                                     <ambientLight intensity={3}/>
                                     {
                                         !isTracking && (
                                             <Html>
                                                 <p className={"planet-name"}
-                                                   onClick={() => handlePlanetClick(jsModelRef)}>JavaScript</p>
+                                                   onClick={() => handlePlanetClick(skillsRef, "skills")}>My Skills</p>
                                             </Html>
                                         )
                                     }
-                                    <Ring innerRadius={30} outerRadius={30.5} color={"#484C89"}/>
-                                    <Ring innerRadius={50} outerRadius={50.5} color={"#00d8ff"}/>
-                                    <Ring innerRadius={80} outerRadius={80.5} color={"#264de4"}/>
+                                    <Ring innerRadius={50} outerRadius={50.5} color={"#f0db4f"}/>
+                                    <Ring innerRadius={150} outerRadius={150.5} color={"#264de4"}/>
+                                    <Ring innerRadius={100} outerRadius={100.5} color={"#777BB3"}/>
+                                </group>
+                                <group ref={cssGroupRef} onClick={() => handlePlanetClick(cssGroupRef, "css")}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<CssModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"}
+                                                   onClick={() => handlePlanetClick(cssGroupRef, "css")}>CSS</p>
+                                            </Html>
+                                        )
+                                    }
+                                    <Ring innerRadius={20} outerRadius={20.5} color={"white"}/>
+                                </group>
+                                <group ref={materialUiGroupRef} onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}>
+                                    <SkillPlanet rotation={0.005} scale={3} model={<MaterialUiModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name sub-planet"}
+                                                   onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}>MaterialUi</p>
+                                            </Html>
+                                        )
+                                    }
+                                </group>
+                                <group ref={jsModelRef} onClick={() => handlePlanetClick(jsModelRef, "js")}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<JsModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"}
+                                                   onClick={() => handlePlanetClick(jsModelRef, "js")}>JavaScript</p>
+                                            </Html>
+                                        )
+                                    }
+                                    <Ring innerRadius={20} outerRadius={20.5} color={"#61DBFB"}/>
+                                </group>
+                                <group ref={reactGroupRef} onClick={() => handlePlanetClick(reactGroupRef, "react")}>
+                                    <SkillPlanet rotation={0.005} scale={3} model={<ReactModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name sub-planet"}
+                                                   onClick={() => handlePlanetClick(reactGroupRef, "react")}>React</p>
+                                            </Html>
+                                        )
+                                    }
+                                </group>
+                                <group ref={phpGroupRef} onClick={() => handlePlanetClick(phpGroupRef, "php")}>
+                                    <SkillPlanet rotation={0.005} scale={5} model={<PhpModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name little-planet"}
+                                                   onClick={() => handlePlanetClick(phpGroupRef, "php")}>PHP</p>
+                                            </Html>
+                                        )
+                                    }
                                 </group>
                             </group>
                             {
                                 isTracking && (
                                     <Html>
-                                        <div className={"info-skill"}>
+                                        <motion.div
+                                            className={"info-skill"}
+                                            initial={
+                                                {
+                                                    opacity: 0,
+                                                    y: 50
+                                                }
+                                            }
+                                            whileInView={{
+                                                opacity: 1,
+                                                y: 0,
+                                                transition: {
+                                                    duration: 1,
+                                                    delay: 0
+                                                }
+                                            }}
+                                        >
                                             <div className={"content-info-skill"}>
+                                                {
+                                                    skillSelected === "js" && (
+                                                        <>
+                                                            <h1>JavaScript</h1>
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    skillSelected === "react" && (
+                                                        <>
+                                                            <h1>React</h1>
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    skillSelected === "php" && (
+                                                        <>
+                                                            <h1>PHP</h1>
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    skillSelected === "css" && (
+                                                        <>
+                                                            <h1>CSS</h1>
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    skillSelected === "materialUi" && (
+                                                        <>
+                                                            <h1>Material ui</h1>
+                                                        </>
+                                                    )
+                                                }
                                                 <Button variant="contained" className={"button"}
-                                                        onClick={() => setIsTracking(false)}>BACK</Button>
+                                                        onClick={() => cancel()}>BACK</Button>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </Html>
                                 )
                             }
+                            <Html>
+                                <Section name={"skills"}>
+                                    <motion.div className={"section-skills"}
+                                                initial={
+                                                    {
+                                                        opacity: 0,
+                                                        y: 50
+                                                    }
+                                                }
+                                                whileInView={{
+                                                    opacity: 1,
+                                                    y: 0,
+                                                    transition: {
+                                                        duration: 1,
+                                                        delay: 0
+                                                    }
+                                                }}
+                                    >
+                                        <div className={"content-skills"}>
+                                            <h1 className={"skills"}>Skills</h1>
+                                            <p className={"info-click-planet"}>Click on planets !</p>
+                                            <div className={"list-planets"}>
+                                                <img onClick={() => handlePlanetClick(jsModelRef, "js")}
+                                                     src={"/portfolio3d/images/JavaScript-logo.png"}/>
+                                                <img onClick={() => handlePlanetClick(reactGroupRef, "react")}
+                                                     src={"/portfolio3d/images/react.svg"}/>
+                                                <img onClick={() => handlePlanetClick(cssGroupRef, "css")}
+                                                     src={"/portfolio3d/images/css.png"}/>
+                                                <img
+                                                    onClick={() => handlePlanetClick(phpGroupRef, "php")}
+                                                    src={"/portfolio3d/images/php.png"}/>
+                                                <img
+                                                    onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}
+                                                    src={"/portfolio3d/images/materialui.png"}/>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                </Section>
+                            </Html>
                         </group>
                     </>
                 )
@@ -374,8 +489,7 @@ const SkillsSection = () => {
     const scale = 2;
     return (
         <Section name={"skills"}>
-            <h1 className={"skills"}>Skills</h1>
-            <p className={"info-click-planet"}>Click on planets !</p>
+
         </Section>
     )
 }

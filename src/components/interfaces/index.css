@@ -121,8 +121,6 @@
 }
 
 .skills {
-    /*border: 1px solid red;*/
-    margin-bottom: auto;
     color: white !important;
 }
 
@@ -136,23 +134,30 @@
 
 .planet-name {
     color: white;
-    font-size: 15px;
+    font-size: 10px;
     user-select: none;
     position: absolute;
-    top: 88vh;
-    left: -3rem;
-    background-color: #e25a64;
+    top: 95vh;
+    left: -2rem;
     border-radius: 10px;
     padding: 0 0.5rem;
+    min-width: 3rem;
+    text-align: center;
     cursor: pointer;
 }
 
 .little-planet {
     font-size: 10px;
-    top: 93vh;
+    top: 96vh;
     left: -1rem;
+    min-width: 0;
 }
 
+
+.sub-planet{
+    font-size: 8px;
+    top: 97vh;
+}
 .info-skill {
     position: absolute;
     top: 100vh;
@@ -163,10 +168,59 @@
     background-color: white;
     padding: 1rem;
     border-radius: 10px;
+    min-width: 20rem;
 }
+.content-info-skill .button{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #E25A64;
+    color: white;
+    width: 10rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all .3s ease-in-out;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: Poppins, serif;
+}
+.content-info-skill .button:hover{
+    background-color: #b64a53;
 
+}
 .info-click-planet {
     font-size: 16px;
     color: white;
     font-style: italic;
+}
+.list-planets{
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.list-planets img{
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+    outline: 3px solid white;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.list-planets img:hover{
+    transform: scale(1.2);
+}
+
+.section-skills{
+    width: 100vw;
+    position: fixed;
+    left: -50vw;
+    bottom: -150vh;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+.content-skills{
+    width: 90%;
 }
