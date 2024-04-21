@@ -122,6 +122,9 @@
 
 .skills {
     color: white !important;
+    user-select: none;
+    text-align: left;
+    width: 100%;
 }
 
 .skills-section {
@@ -151,13 +154,20 @@
     top: 96vh;
     left: -1rem;
     min-width: 0;
+    user-select: none;
 }
 
 
-.sub-planet{
+.sub-planet {
     font-size: 8px;
     top: 97vh;
 }
+
+.sub-sub-planet {
+    font-size: 6px;
+    top: 98vh;
+}
+
 .info-skill {
     position: absolute;
     top: 100vh;
@@ -170,7 +180,8 @@
     border-radius: 10px;
     min-width: 20rem;
 }
-.content-info-skill .button{
+
+.content-info-skill .button {
     padding: 1rem;
     border-radius: 5px;
     border: none;
@@ -184,35 +195,47 @@
     text-transform: uppercase;
     font-family: Poppins, serif;
 }
-.content-info-skill .button:hover{
+
+.content-info-skill .button:hover {
     background-color: #b64a53;
 
 }
+
 .info-click-planet {
     font-size: 16px;
     color: white;
     font-style: italic;
+    user-select: none;
+    width: 100%;
+    font-weight: 200;
+    font-family: Bahnschrift, serif;
 }
-.list-planets{
+
+.list-planets {
     color: white;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 5rem;
+    width: 80%;
 }
-.list-planets img{
+
+.list-planets img {
     width: 3rem;
     height: 3rem;
     object-fit: cover;
     border-radius: 50%;
-    outline: 3px solid white;
+    border: 2px solid white;
     transition: all .2s ease-in-out;
     cursor: pointer;
+    user-select: none;
 }
-.list-planets img:hover{
+
+.list-planets img:hover {
     transform: scale(1.2);
 }
 
-.section-skills{
+
+.section-skills {
     width: 100vw;
     position: fixed;
     left: -50vw;
@@ -221,6 +244,51 @@
     justify-content: center;
     z-index: 5;
 }
-.content-skills{
+
+.content-skills {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-planet {
+    position: relative;
+    padding: 4rem;
+}
+.main-planet img:nth-child(1){
+    width: 5rem;
+    height: 5rem;
+}
+.sous-planet img:nth-child(1) {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    top: 75px;
+    left: -30px;
+}
+
+.sous-planet img:nth-child(2) {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    top: -20px;
+    left: 15px;
+}
+
+.sub-sub2 {
+    position: absolute;
+    max-width: 3rem;
+    max-height: 3rem;
+    top: -30px;
+    left: -50px;
+}
+
+.sub-sub2-2 {
+    position: absolute;
+    max-width: 3rem;
+    max-height: 3rem;
+    top: -85px;
+    left: 0px;
 }

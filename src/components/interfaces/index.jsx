@@ -30,6 +30,8 @@ import * as THREE from "three";
 import {BufferAttribute, BufferGeometry, Vector3} from "three";
 import MaterialUiModel from "../models/MaterialUi.jsx";
 import SkillsModel from "../models/Skills.jsx";
+import ExpressModel from "../models/Express.jsx";
+import SequelizeModel from "../models/Sequelize.jsx";
 
 const Section = (props) => {
     const {children, name} = props;
@@ -188,6 +190,9 @@ export const SkillsScene = (props) => {
     const cssGroupRef = useRef(null);
     const materialUiGroupRef = useRef(null);
     const reactGroupRef = useRef(null);
+    const nodejsRef = useRef(null);
+    const expressRef = useRef(null);
+    const sequelizeRef = useRef(null);
     const jsModelRef = useRef(null);
     const skillsRef = useRef(null);
     const [trackingObject, setTrackingObject] = useState(null);
@@ -218,24 +223,48 @@ export const SkillsScene = (props) => {
             setTimeElapsed((prevTime) => prevTime + delta);
             if (jsModelRef.current && skillsRef.current) {
                 const skillsModelPosition = skillsRef.current.position;
-                const radius = 50;
+                const radius = 70;
                 const orbitSpeed = 0.1;
                 jsModelRef.current.position.x = skillsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 50);
                 jsModelRef.current.position.y = skillsModelPosition.y;
                 jsModelRef.current.position.z = skillsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 50);
-                if (reactGroupRef.current && jsModelRef.current) {
+                if (reactGroupRef.current) {
                     const jsModelPosition = jsModelRef.current.position;
-                    const radius = 20;
+                    const radius = 30;
                     const orbitSpeed = 0.5;
                     reactGroupRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
                     reactGroupRef.current.position.y = jsModelPosition.y;
                     reactGroupRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 20);
                 }
+                if (nodejsRef.current) {
+                    const jsModelPosition = jsModelRef.current.position;
+                    const radius = 30;
+                    const orbitSpeed = 0.5;
+                    nodejsRef.current.position.x = jsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 60);
+                    nodejsRef.current.position.y = jsModelPosition.y;
+                    nodejsRef.current.position.z = jsModelPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 60);
+                    if (expressRef.current) {
+                        const nodejsPosition = nodejsRef.current.position;
+                        const radius = 10;
+                        const orbitSpeed = 1;
+                        expressRef.current.position.x = nodejsPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 30);
+                        expressRef.current.position.y = nodejsPosition.y;
+                        expressRef.current.position.z = nodejsPosition.z + radius * Math.cos(orbitSpeed * timeElapsed + 30);
+                    }
+                    if (sequelizeRef.current) {
+                        const nodejsPosition = nodejsRef.current.position;
+                        const radius = 10;
+                        const orbitSpeed = 1;
+                        sequelizeRef.current.position.x = nodejsPosition.x + radius * Math.sin(orbitSpeed * timeElapsed - 80);
+                        sequelizeRef.current.position.y = nodejsPosition.y;
+                        sequelizeRef.current.position.z = nodejsPosition.z + radius * Math.cos(orbitSpeed * timeElapsed - 80);
+                    }
+                }
 
             }
             if (phpGroupRef.current && skillsRef.current) {
                 const skillsModelPosition = skillsRef.current.position;
-                const radius = 100;
+                const radius = 120;
                 const orbitSpeed = 0.1;
                 phpGroupRef.current.position.x = skillsModelPosition.x + radius * Math.sin(orbitSpeed * timeElapsed + 20);
                 phpGroupRef.current.position.y = skillsModelPosition.y;
@@ -295,9 +324,9 @@ export const SkillsScene = (props) => {
                 section === 1 && (
                     <>
                         <group>
-                            <StarsModel scale={5}/>
+                            <StarsModel scale={6}/>
                             <OrbitControls ref={controlsRef} enableZoom={false} target={[0, 0, 0]}
-                                           minDistance={isTracking ? 90 : 250}
+                                           minDistance={isTracking ? 90 : 400}
                                            maxDistance={1000}/>
                             <group position-y={-20}>
                                 <group ref={skillsRef}
@@ -314,9 +343,9 @@ export const SkillsScene = (props) => {
                                             </Html>
                                         )
                                     }
-                                    <Ring innerRadius={50} outerRadius={50.5} color={"#f0db4f"}/>
+                                    <Ring innerRadius={70} outerRadius={70.5} color={"#f0db4f"}/>
                                     <Ring innerRadius={150} outerRadius={150.5} color={"#264de4"}/>
-                                    <Ring innerRadius={100} outerRadius={100.5} color={"#777BB3"}/>
+                                    <Ring innerRadius={120} outerRadius={120.5} color={"#777BB3"}/>
                                 </group>
                                 <group ref={cssGroupRef} onClick={() => handlePlanetClick(cssGroupRef, "css")}>
                                     <SkillPlanet rotation={0.005} scale={5} model={<CssModel/>}/>
@@ -330,7 +359,8 @@ export const SkillsScene = (props) => {
                                     }
                                     <Ring innerRadius={20} outerRadius={20.5} color={"white"}/>
                                 </group>
-                                <group ref={materialUiGroupRef} onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}>
+                                <group ref={materialUiGroupRef}
+                                       onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}>
                                     <SkillPlanet rotation={0.005} scale={3} model={<MaterialUiModel/>}/>
                                     {
                                         !isTracking && (
@@ -351,7 +381,7 @@ export const SkillsScene = (props) => {
                                             </Html>
                                         )
                                     }
-                                    <Ring innerRadius={20} outerRadius={20.5} color={"#61DBFB"}/>
+                                    <Ring innerRadius={30} outerRadius={30.5} color={"#61DBFB"}/>
                                 </group>
                                 <group ref={reactGroupRef} onClick={() => handlePlanetClick(reactGroupRef, "react")}>
                                     <SkillPlanet rotation={0.005} scale={3} model={<ReactModel/>}/>
@@ -360,6 +390,40 @@ export const SkillsScene = (props) => {
                                             <Html>
                                                 <p className={"planet-name sub-planet"}
                                                    onClick={() => handlePlanetClick(reactGroupRef, "react")}>React</p>
+                                            </Html>
+                                        )
+                                    }
+                                </group>
+                                <group ref={nodejsRef} onClick={() => handlePlanetClick(nodejsRef, "nodejs")}>
+                                    <SkillPlanet rotation={0.005} scale={3} model={<NodeJsModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name sub-planet"}
+                                                   onClick={() => handlePlanetClick(nodejsRef, "nodejs")}>NodeJs</p>
+                                            </Html>
+                                        )
+                                    }
+                                    <Ring innerRadius={10} outerRadius={10.5} color={"white"}/>
+                                </group>
+                                <group ref={expressRef} onClick={() => handlePlanetClick(expressRef, "express")}>
+                                    <SkillPlanet rotation={0.005} scale={2} model={<ExpressModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name sub-sub-planet"}
+                                                   onClick={() => handlePlanetClick(expressRef, "express")}>Express</p>
+                                            </Html>
+                                        )
+                                    }
+                                </group>
+                                <group ref={sequelizeRef} onClick={() => handlePlanetClick(sequelizeRef, "sequelize")}>
+                                    <SkillPlanet rotation={0.005} scale={2} model={<SequelizeModel/>}/>
+                                    {
+                                        !isTracking && (
+                                            <Html>
+                                                <p className={"planet-name sub-sub-planet"}
+                                                   onClick={() => handlePlanetClick(sequelizeRef, "sequelize")}>Sequelize</p>
                                             </Html>
                                         )
                                     }
@@ -439,45 +503,70 @@ export const SkillsScene = (props) => {
                                     </Html>
                                 )
                             }
-                            <Html>
-                                <Section name={"skills"}>
-                                    <motion.div className={"section-skills"}
-                                                initial={
-                                                    {
-                                                        opacity: 0,
-                                                        y: 50
-                                                    }
-                                                }
-                                                whileInView={{
-                                                    opacity: 1,
-                                                    y: 0,
-                                                    transition: {
-                                                        duration: 1,
-                                                        delay: 0
-                                                    }
-                                                }}
-                                    >
-                                        <div className={"content-skills"}>
-                                            <h1 className={"skills"}>Skills</h1>
-                                            <p className={"info-click-planet"}>Click on planets !</p>
-                                            <div className={"list-planets"}>
-                                                <img onClick={() => handlePlanetClick(jsModelRef, "js")}
-                                                     src={"/portfolio3d/images/JavaScript-logo.png"}/>
-                                                <img onClick={() => handlePlanetClick(reactGroupRef, "react")}
-                                                     src={"/portfolio3d/images/react.svg"}/>
-                                                <img onClick={() => handlePlanetClick(cssGroupRef, "css")}
-                                                     src={"/portfolio3d/images/css.png"}/>
-                                                <img
-                                                    onClick={() => handlePlanetClick(phpGroupRef, "php")}
-                                                    src={"/portfolio3d/images/php.png"}/>
-                                                <img
-                                                    onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}
-                                                    src={"/portfolio3d/images/materialui.png"}/>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                </Section>
-                            </Html>
+                            {
+                                !isTracking && (
+                                    <Html>
+                                        <Section name={"skills"}>
+                                            <motion.div className={"section-skills"}
+                                                        initial={
+                                                            {
+                                                                opacity: 0,
+                                                                y: 10
+                                                            }
+                                                        }
+                                                        whileInView={{
+                                                            opacity: 1,
+                                                            y: 0,
+                                                            transition: {
+                                                                duration: 1,
+                                                            }
+                                                        }}
+                                            >
+                                                <div className={"content-skills"}>
+                                                    <h1 className={"skills"}>Skills</h1>
+                                                    <p className={"info-click-planet"}>Click on planets !</p>
+                                                    <div className={"list-planets"}>
+                                                        <div className={"main-planet"}>
+                                                            <img
+                                                                onClick={() => handlePlanetClick(jsModelRef, "js")}
+                                                                src={"/portfolio3d/images/JavaScript-logo.png"}/>
+                                                            <div className={"sous-planet"}>
+                                                                <img
+                                                                    onClick={() => handlePlanetClick(reactGroupRef, "react")}
+                                                                    src={"/portfolio3d/images/react.svg"}/>
+                                                                <img
+                                                                    onClick={() => handlePlanetClick(nodejsRef, "nodejs")}
+                                                                    src={"/portfolio3d/images/nodejs.png"}/>
+                                                                <img
+                                                                    className={"sub-sub2 planet-express"}
+                                                                    onClick={() => handlePlanetClick(expressRef, "express")}
+                                                                    src={"/portfolio3d/images/express.png"}/>
+                                                                <img
+                                                                    className={"sub-sub2-2 planet-sequelize"}
+                                                                    onClick={() => handlePlanetClick(sequelizeRef, "sequelize")}
+                                                                    src={"/portfolio3d/images/sequelize.png"}/>
+                                                            </div>
+                                                        </div>
+                                                        <div className={"main-planet"}>
+                                                            <img
+                                                                onClick={() => handlePlanetClick(cssGroupRef, "css")}
+                                                                src={"/portfolio3d/images/css.png"}/>
+                                                            <div className={"sous-planet"}>
+                                                                <img
+                                                                    onClick={() => handlePlanetClick(materialUiGroupRef, "materialUi")}
+                                                                    src={"/portfolio3d/images/materialui.png"}/>
+                                                            </div>
+                                                        </div>
+                                                        <img
+                                                            onClick={() => handlePlanetClick(phpGroupRef, "php")}
+                                                            src={"/portfolio3d/images/php.png"}/>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        </Section>
+                                    </Html>
+                                )
+                            }
                         </group>
                     </>
                 )
