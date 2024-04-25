@@ -8,6 +8,7 @@ import {animate, useMotionValue} from "framer-motion";
 import {motion} from "framer-motion-3d";
 import JsModel from "../../models/Js.jsx";
 import {Physics, RigidBody} from "@react-three/rapier";
+import {Vector3} from "three";
 
 export const SceneCharacter = (props) => {
     const {section, menuOpened} = props;
@@ -24,7 +25,6 @@ export const SceneCharacter = (props) => {
     falling2Animation[0].name = 'falling2';
 
     const {actions} = useAnimations([typingAnimation[0], fallingAnimation[0], standingAnimation[0], falling2Animation[0]], group);
-    const headFollow = useMotionValue();
     useEffect(() => {
         actions["typing"]?.reset().play();
     }, [actions, section]);
@@ -47,7 +47,7 @@ export const SceneCharacter = (props) => {
             }
             ref={group}
         >
-            <primitive receiveShadow object={gltf.scene} scale={[scale, scale, scale]}/>
+            <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
         </motion.group>
     );
 };
@@ -55,20 +55,14 @@ const BedroomScene = (props) => {
     const {section, menuOpened} = props;
     const scale = 7;
 
-    const cameraPositionX = useMotionValue();
-    const cameraPositionY = useMotionValue();
-    const cameraPositionZ = useMotionValue();
-    const cameraLookAt = useMotionValue();
-    const duration = 1;
+    const cameraPositionX = useMotionValue(0);
+    const cameraPositionY = useMotionValue(0);
+    const cameraPositionZ = useMotionValue(0);
+    const cameraLookAt = useMotionValue(0);
+    const duration = 0.5;
 
-    const controls = useRef();
-    const lightAnimation = useRef();
-    useFrame(({clock}) => {
-        if (lightAnimation.current) {
-            lightAnimation.current.position.x = Math.sin(clock.getElapsedTime() * 0.5) * 20;
-        }
-    }, []);
-    useEffect(() => {
+
+    useFrame((state) => {
         if (section === 0) {
             animate(cameraPositionX, menuOpened ? 5 : 0, {duration: duration});
             animate(cameraPositionY, menuOpened ? 10 : 10, {duration: duration});
@@ -80,9 +74,6 @@ const BedroomScene = (props) => {
             animate(cameraPositionY, 100, {duration: duration});
             animate(cameraPositionZ, 5, {duration: duration});
         }
-    }, [cameraLookAt, cameraPositionX, cameraPositionY, cameraPositionZ, menuOpened, section]);
-
-    useFrame((state) => {
         if (section === 0) {
             state.camera.position.x = cameraPositionX.get();
             state.camera.position.y = cameraPositionY.get();
@@ -90,11 +81,6 @@ const BedroomScene = (props) => {
             state.camera.lookAt(cameraLookAt.get(), 5, 0);
         }
     });
-    /*
-            <pointLight position={[0, 10, 0]} intensity={300} color={"white"} castShadow/>
-            <pointLight position={[10, 0, 0]} intensity={300} color={"white"} castShadow/>
-            <pointLight position={[0, 0, 10]} intensity={300} color={"white"} castShadow/>
-*/
     return (
         <motion.group
             animate={{
@@ -106,8 +92,8 @@ const BedroomScene = (props) => {
                 position={[5, -3, 5]}
                 rotation-y={-0.1}
                 animate={{
-                    scale: section === 0 ? 1 : 0.2,
-                    y: section === 0 ? 0 : 0,
+                    scale: section === 0 ? 1 : 0,
+                    y: 0,
                 }}
                 transition={
                     {
@@ -127,26 +113,6 @@ const BedroomScene = (props) => {
             {
                 section === 0 && (
                     <>
-                        <group ref={lightAnimation}>
-                            <pointLight
-                                position={[0, 20, 0]}
-                                intensity={500}
-                                color={"blue"}
-                                castShadow
-                            />
-                            <pointLight
-                                position={[-20, 20, 0]}
-                                intensity={500}
-                                color={"red"}
-                                castShadow
-                            />
-                            <pointLight
-                                position={[20, 20, 0]}
-                                intensity={500}
-                                color={"green"}
-                                castShadow
-                            />
-                        </group>
                         <spotLight
                             position={[0, 25, 0]}
                             intensity={1000}
