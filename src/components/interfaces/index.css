@@ -7,6 +7,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .section {
@@ -44,25 +45,6 @@
 
 }
 
-.about-section .button {
-    padding: 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: #E25A64;
-    color: white;
-    width: 10rem;
-    cursor: pointer;
-    margin-top: 2rem;
-    transition: all .3s ease-in-out;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-family: Poppins, serif;
-}
-
-.about-section button:hover {
-    background-color: #b64a53;
-}
-
 .about-section p {
     color: #e25a64;
     margin-top: 1rem;
@@ -79,6 +61,7 @@
 
 .contact-section h1 {
     margin-bottom: 2rem;
+    color: white;
 }
 
 .contact-section .block-form {
@@ -290,5 +273,15 @@
     max-width: 3rem;
     max-height: 3rem;
     top: -85px;
-    left: 0px;
+    left: 0;
+}
+
+.button-previous-next{
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    display: flex;
+    gap: 5rem;
+    width: 100%;
+    justify-content: center;
 }

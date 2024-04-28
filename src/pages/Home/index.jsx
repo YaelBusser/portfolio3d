@@ -9,6 +9,7 @@ import Menu from "../../components/Menu";
 import BedroomScene from "../../components/scene/bedroom/index";
 import {MotionConfig, motion} from "framer-motion";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
+import Projects from "../../components/Projects/index.jsx";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -32,58 +33,6 @@ const Home = () => {
     useEffect(() => {
         setColor(menuOpened ? "#E25A64" : "#F4EEDA");
     }, [menuOpened]);
-    const SceneSkybox = (props) => {
-        const gltf = useLoader(GLTFLoader, '/portfolio3d/models/skybox_anim.glb');
-        const scale = 1;
-        const group = useRef(null);
-        const [isBottom, setIsBottom] = useState(false);
-        useFrame(() => {
-                if (section === 1) {
-                    if (!isBottom) {
-                        if (group.current.position.y === 500) {
-                            group.current.position.y = 0;
-                            setIsBottom(true);
-                        } else {
-                            group.current.position.y += 0.1;
-                        }
-                    } else {
-                        setIsBottom(false);
-                        group.current.position.y -= 0.1;
-                    }
-                }
-            }
-        )
-        ;
-        return (
-            <group
-                ref={group}
-            >
-                <primitive object={gltf.scene} scale={[scale, scale, scale]}/>
-            </group>
-        );
-    }
-    const CameraControls = () => {
-        const {camera, gl} = useThree();
-
-        useEffect(() => {
-            const onMouseMove = (event) => {
-                const {clientX, clientY} = event;
-                const mouseX = (clientX / window.innerWidth) * 2 - 1;
-                const mouseY = -(clientY / window.innerHeight) * 2 + 1;
-                camera.position.x = mouseX * 10;
-                camera.position.y = mouseY * 10;
-                camera.lookAt(0, 0, 0);
-            };
-
-            gl.domElement.addEventListener('mousemove', onMouseMove);
-
-            return () => {
-                gl.domElement.removeEventListener('mousemove', onMouseMove);
-            };
-        }, [camera, gl]);
-
-        return null;
-    };
     const [position, setPosition] = useState({x: 0, y: 0});
     const [overMouse, setOverMouse] = useState(false);
     const handleMouseMove = (event) => {
@@ -115,12 +64,6 @@ const Home = () => {
                     delay: 0.3
                 }}>
                     <Canvas shadows camera={{position: [0, 10, 0]}}>
-                        {
-                            /*
-                        <SceneSkybox/>
-
-                             */
-                        }
                         <ScrollControls pages={4} damping={0.1}>
                             <ScrollManager section={section} onSectionChange={setSection}/>
                             <Scroll>
@@ -128,6 +71,9 @@ const Home = () => {
                             </Scroll>
                             <Scroll>
                                 <SkillsScene section={section}/>
+                            </Scroll>
+                            <Scroll>
+                                <Projects section={section}/>
                             </Scroll>
                             <Scroll html>
                                 <Interfaces menuOpened={menuOpened} setSection={setSection}/>
